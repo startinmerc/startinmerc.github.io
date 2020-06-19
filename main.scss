@@ -91,6 +91,7 @@ nav {
 	}
 	.char {
 		display: inline-block;
+    transform-origin: top left;
 		animation-duration: 2270ms;
 		animation-timing-function: ease-in;
 		animation-fill-mode: forwards;
