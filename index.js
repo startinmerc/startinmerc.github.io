@@ -43,14 +43,16 @@ const trans = [
 Splitting();
 
 // HERO CHARACTERS
-
+const heroDuration = 2.2
+const heroTimeline = gsap.timeline();
 const chars = document.querySelectorAll(".char");
 
 chars.forEach((v,i)=>{
 	let rColor = colors[Math.floor(Math.random() * colors.length)];
-	let rTrans = trans[Math.floor(Math.random() * trans.length)];
-	v.classList.add(rColor, rTrans);
-	v.style.animationDelay = `${i*100}ms`;
+  let rTrans = trans[Math.floor(Math.random() * trans.length)](v);
+	heroTimeline.add(rTrans, i/10);
+	v.classList.add(rColor);
+});
 });
 
 // NAV SLIDER
