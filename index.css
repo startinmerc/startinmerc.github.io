@@ -8,9 +8,7 @@ body {
 	margin: 0;
 }
 
-#box {
-	font-size: 6rem;
-}
+/*=====================NAV=====================*/
 
 nav {
 	position: absolute;
@@ -49,7 +47,6 @@ nav.min button {
 	transform: scaleY(1) scaleX(1) translateX(0%);
 }
 
-
 nav button {
 	padding: 0;
 	border: 0;
@@ -81,6 +78,22 @@ nav li {
 nav li:nth-of-type(1):hover {background: blue;}
 nav li:nth-of-type(2):hover {background: green;}
 nav li:nth-of-type(3):hover {background: red;}
+
+/*====================HERO====================*/
+
+#box {
+	font-size: 6rem;
+}
+
+#box h1, #box p {
+	margin: 0;
+}
+
+#box .char {
+	animation-duration: 2270ms;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
 
 .red {color: red;}
 .blue {color: blue;}
