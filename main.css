@@ -1,0 +1,228 @@
+body {
+  font-family: 'Major Mono Display', monospace;
+  background: cornsilk;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+section {
+  min-height: 80vh;
+  width: 80%;
+  margin: 0 auto;
+}
+
+/*=====================NAV=====================*/
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: orange;
+  width: 30%;
+  height: 100vh;
+  -webkit-transition: all 400ms ease-in;
+  transition: all 400ms ease-in;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 2rem;
+}
+
+nav::before {
+  content: "menu";
+  position: absolute;
+  top: 50%;
+  left: -50%;
+  z-index: 2;
+  -webkit-transform: rotate(-90deg) translateY(100%);
+          transform: rotate(-90deg) translateY(100%);
+  -webkit-transition: all 400ms ease-in;
+  transition: all 400ms ease-in;
+  font-size: 2rem;
+}
+
+nav.min {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+nav.min::before {
+  -webkit-transform: rotate(0deg) translateY(-50%);
+          transform: rotate(0deg) translateY(-50%);
+}
+
+nav.min button {
+  -webkit-transform: scaleY(1) scaleX(1) translateX(0%);
+          transform: scaleY(1) scaleX(1) translateX(0%);
+}
+
+nav button {
+  padding: 0;
+  border: 0;
+  position: absolute;
+  height: 50%;
+  width: 25vh;
+  background: orange;
+  left: -25vh;
+  top: 25%;
+  border-radius: 25vh 0 0 25vh;
+  -webkit-transform: scaleY(2) scaleX(0.2) translateX(200%);
+          transform: scaleY(2) scaleX(0.2) translateX(200%);
+  -webkit-transition: all 400ms ease-in;
+  transition: all 400ms ease-in;
+  outline: none;
+}
+
+nav:hover button {
+  background: pink;
+}
+
+nav:hover {
+  background: pink;
+}
+
+nav li {
+  list-style: none;
+  padding: 5vh 10px;
+  color: black;
+}
+
+nav li:nth-of-type(1):hover {
+  background: blue;
+}
+
+nav li:nth-of-type(2):hover {
+  background: green;
+}
+
+nav li:nth-of-type(3):hover {
+  background: red;
+}
+
+/*====================HERO====================*/
+#hero {
+  margin: 0 auto;
+  width: 98%;
+}
+
+#hero * {
+  margin: 0;
+}
+
+#hero h1 {
+  font-size: 14vw;
+}
+
+#hero p {
+  font-size: 1.2rem;
+}
+
+#hero .char {
+  display: inline-block;
+  -webkit-animation-duration: 2270ms;
+          animation-duration: 2270ms;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
+.green {
+  color: green;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.skewPlus {
+  -webkit-animation-name: key-skewPlus;
+          animation-name: key-skewPlus;
+}
+
+.skewMinus {
+  -webkit-animation-name: key-skewMinus;
+          animation-name: key-skewMinus;
+}
+
+.rotatePlus {
+  -webkit-animation-name: key-rotatePlus;
+          animation-name: key-rotatePlus;
+}
+
+.rotateMinus {
+  -webkit-animation-name: key-rotateMinus;
+          animation-name: key-rotateMinus;
+}
+
+@-webkit-keyframes key-skewPlus {
+  to {
+    -webkit-transform: skewX(8deg);
+            transform: skewX(8deg);
+  }
+}
+
+@keyframes key-skewPlus {
+  to {
+    -webkit-transform: skewX(8deg);
+            transform: skewX(8deg);
+  }
+}
+
+@-webkit-keyframes key-skewMinus {
+  to {
+    -webkit-transform: skewX(-10deg);
+            transform: skewX(-10deg);
+  }
+}
+
+@keyframes key-skewMinus {
+  to {
+    -webkit-transform: skewX(-10deg);
+            transform: skewX(-10deg);
+  }
+}
+
+@-webkit-keyframes key-rotatePlus {
+  to {
+    -webkit-transform: skewX(3deg);
+            transform: skewX(3deg);
+  }
+}
+
+@keyframes key-rotatePlus {
+  to {
+    -webkit-transform: skewX(3deg);
+            transform: skewX(3deg);
+  }
+}
+
+@-webkit-keyframes key-rotateMinus {
+  to {
+    -webkit-transform: skewX(-5deg);
+            transform: skewX(-5deg);
+  }
+}
+
+@keyframes key-rotateMinus {
+  to {
+    -webkit-transform: skewX(-5deg);
+            transform: skewX(-5deg);
+  }
+}
+/*# sourceMappingURL=main.css.map */
