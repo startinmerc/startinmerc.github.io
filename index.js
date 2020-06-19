@@ -48,11 +48,25 @@ const heroTimeline = gsap.timeline();
 const chars = document.querySelectorAll(".char");
 
 chars.forEach((v,i)=>{
-	let rColor = colors[Math.floor(Math.random() * colors.length)];
+  let rColor = colors[Math.floor(Math.random() * colors.length)];
   let rTrans = trans[Math.floor(Math.random() * trans.length)](v);
 	heroTimeline.add(rTrans, i/10);
 	v.classList.add(rColor);
 });
+
+const scrollTimeline = gsap.timeline({scrollTrigger: {scrub: true}});
+const words = document.querySelectorAll(".word");
+
+words.forEach((v,i)=>{
+  v.childNodes.forEach((v,i)=>{
+    scrollTimeline.to(v,{
+      scale: 0.5,
+      translateX: `-${i * 50}%`
+    });
+  });
+  scrollTimeline.to(v, {
+    y: `-${i * 25}%`
+  });
 });
 
 // NAV SLIDER
