@@ -95,9 +95,6 @@ nav {
 	.char {
 		display: inline-block;
     transform-origin: top left;
-		animation-duration: 2270ms;
-		animation-timing-function: ease-in;
-		animation-fill-mode: forwards;
 	}
 }
 
@@ -105,21 +102,3 @@ nav {
 .blue {color: blue;}
 .green {color: green;}
 .yellow {color: yellow;}
-
-.skewPlus {animation-name: key-skewPlus}
-.skewMinus {animation-name: key-skewMinus}
-.rotatePlus {animation-name: key-rotatePlus}
-.rotateMinus {animation-name: key-rotateMinus}
-
-@keyframes key-skewPlus {
-	to {transform: skewX(8deg);}
-}
-@keyframes key-skewMinus {
-	to {transform: skewX(-10deg);}
-}
-@keyframes key-rotatePlus {
-	to {transform: skewX(3deg);}
-}
-@keyframes key-rotateMinus {
-	to {transform: skewX(-5deg);}
-}
