@@ -63,15 +63,13 @@ const scrollTimeline = gsap.timeline({scrollTrigger: {
 
 const words = document.querySelectorAll(".word");
 
-words.forEach((v,i)=>{
-  v.childNodes.forEach((v,i)=>{
-    scrollTimeline.to(v,{
-      scale: 0.5,
-      translateX: `-${i * 50}%`
+words.forEach((word,wordIndex)=>{
+  word.childNodes.forEach((char,charIndex)=>{
+    scrollTimeline.to(char,{
+      scale: 0.25,
+      translateX: `-${charIndex * 75}%`,
+      translateY: `-${wordIndex * 75}%`
     });
-  });
-  scrollTimeline.to(v, {
-    y: `-${i * 25}%`
   });
 });
 
