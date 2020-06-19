@@ -82,7 +82,7 @@ nav li:nth-of-type(3):hover {background: red;}
 /*====================HERO====================*/
 
 #box {
-	font-size: 6rem;
+	font-size: 7vw;
 }
 
 #box h1, #box p {
