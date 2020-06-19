@@ -81,15 +81,20 @@ nav li:nth-of-type(3):hover {background: red;}
 
 /*====================HERO====================*/
 
-#box {
-	font-size: 7vw;
-}
-
 #box h1, #box p {
 	margin: 0;
 }
 
+#box h1 {
+	font-size: 14vw;
+}
+
+#box p {
+	font-size: 1.2rem;
+}
+
 #box .char {
+	display: inline-block;
 	animation-duration: 2270ms;
 	animation-timing-function: ease-in;
 	animation-fill-mode: forwards;
