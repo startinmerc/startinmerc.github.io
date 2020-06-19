@@ -54,7 +54,13 @@ chars.forEach((v,i)=>{
 	v.classList.add(rColor);
 });
 
-const scrollTimeline = gsap.timeline({scrollTrigger: {scrub: true}});
+const scrollTimeline = gsap.timeline({scrollTrigger: {
+  scrub: true,
+  trigger: "#hero",
+  start: "top",
+  end: "bottom +=20%"
+}});
+
 const words = document.querySelectorAll(".word");
 
 words.forEach((v,i)=>{
