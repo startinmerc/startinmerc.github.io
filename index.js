@@ -6,14 +6,38 @@ const colors = [
 ];
 
 const trans = [
-	"skewPlus",
-	"skewMinus",
-	"rotatePlus",
-	"rotateMinus",
-	"none",
-	"none",
-	"none",
-	"none"
+  function skewPlus(target) {
+    let tl = gsap.to(target, {
+      skewX: "8deg",
+      duration: heroDuration
+    });
+    return tl;
+  },
+  function skewMinus(target) {
+    let tl = gsap.to(target, {
+      skewX: "-10deg",
+      duration: heroDuration
+    });
+    return tl;
+  },
+  function rotatePlus(target) {
+    let tl = gsap.to(target, {
+      rotate: "3deg",
+      duration: heroDuration
+    });
+    return tl;
+  },
+  function rotateMinus(target) {
+    let tl = gsap.to(target, {
+      rotate: "-5deg",
+      duration: heroDuration
+    });
+    return tl;
+  },
+	(target)=>(null),
+	(target)=>(null),
+	(target)=>(null),
+	(target)=>(null)
 ];
 
 Splitting();
