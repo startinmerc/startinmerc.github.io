@@ -91,7 +91,13 @@ function buildScrollTimeline(words) {
       // Start timeline when scroll and element are top aligned
       start: "top",
       // End timeline when bottom of scroll is 50% down the element
-      end: "bottom +=50%"
+      end: "bottom +=50%",
+      onLeave: ()=>{
+        head.classList.add("show");
+      },
+      onEnterBack: ()=>{
+        head.classList.remove("show");
+      }
     }
   });
   // Iterate over words
