@@ -51,6 +51,11 @@ Splitting();
 const chars = document.querySelectorAll("#hero .char");
 // List of all split words in #hero
 const words = document.querySelectorAll("#hero .word");
+// Get #head element
+const head = document.querySelector("#head");
+// Get #head chars
+const headChars = document.querySelectorAll("#head .char");
+
 // Build a gsap timeline for inital #hero transforms
 buildCharacterAnimation(chars);
 // Build ScrollTrigger timeline for #hero characters
