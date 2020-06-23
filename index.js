@@ -67,9 +67,11 @@ const scrollTimeline = gsap.timeline({scrollTrigger: {
 words.forEach((word,wordIndex)=>{
   word.childNodes.forEach((char,charIndex)=>{
     scrollTimeline.to(char,{
+      transformOrigin: `top ${wordIndex % 2 ? "right" : "left"}`,
       scale: 0.25,
-      translateX: `-${charIndex * 75}%`,
+      translateX: `${wordIndex % 2 ? "+" : "-"}${charIndex * 75}%`,
       translateY: "-100%",
+      rotate: `${wordIndex % 2 ? "+" : "-"}90deg`
     });
   });
 });
