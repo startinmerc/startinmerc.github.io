@@ -76,6 +76,15 @@ nav {
 }
 
 /*====================HERO====================*/
+:root {
+  --hero-height: 14vw;
+}
+
+@media(max-width: 500px){
+  :root {
+      --hero-height: 22vw;
+  }
+}
 
 #hero {
 	margin: 0 auto;
