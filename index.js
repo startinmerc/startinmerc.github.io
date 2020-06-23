@@ -75,6 +75,12 @@ function buildCharacterAnimation(chars){
     heroTimeline.add(rTrans, i / 10);
     // Add color class to character
     v.classList.add(rColor);
+    // Add same transition & color to corresponding #head character
+    try{
+      headChars[i].classList.add(rColor);
+      heroTimeline.add(rTrans(headChars[i]));
+      // Catch error of index being beyond #head chars
+    } catch {null};
   });
 }
 
