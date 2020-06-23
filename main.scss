@@ -87,11 +87,11 @@ nav {
 }
 
 #hero {
-	margin: 0 auto;
+  margin: 0 auto;
   width: 98%;
-  position: sticky;
-  top: 0;
-  z-index: -1;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
 	* {
 		margin: 0;
 	}
@@ -101,8 +101,20 @@ nav {
 	.char {
 		display: inline-block;
     transform-origin: top left;
-	}
+  }
 }
+
+// HEAD
+#head {
+  position: fixed;
+  top: 0;
+  left: 2%;
+  h1 {
+    margin: 0 auto;
+    font-size: calc(var(--hero-height) * 0.25);
+  }
+}
+
 
 .red {color: red;}
 .blue {color: blue;}
