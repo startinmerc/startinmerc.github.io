@@ -31,15 +31,17 @@ nav {
     padding: 0;
     border: 0;
     position: absolute;
-    height: 50%;
-    width: 25vh;
+		width: 25vw;
+		height: 12.5vw;
     background: orange;
-    left: -25vh;
-    top: 25%;
-    border-radius: 25vh 0 0 25vh;
-    transform: scaleY(2) scaleX(0.2) translateX(200%);
+		left: 0;
+		border-radius: 25vw 25vw 0 0;
+		transform-origin: center;
+    transform: translateX(calc(-75% + 5px)) rotate(-90deg);
     transition: all 400ms ease-in;
     outline: none;
+		font-family: inherit;
+		font-size: calc(var(--hero-height) * 0.25);
   }
   &.min {
     transform: translateX(100%);
