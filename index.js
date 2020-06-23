@@ -70,9 +70,9 @@ function buildCharacterAnimation(chars){
     // Pick random colour
     let rColor = colors[Math.floor(Math.random() * colors.length)];
     // Pick random transform
-    let rTrans = trans[Math.floor(Math.random() * trans.length)](v);
+    let rTrans = trans[Math.floor(Math.random() * trans.length)];
     // Add transform to timeline at index / 10 seconds
-    heroTimeline.add(rTrans, i / 10);
+    heroTimeline.add(rTrans(v), i / 10);
     // Add color class to character
     v.classList.add(rColor);
     // Add same transition & color to corresponding #head character
