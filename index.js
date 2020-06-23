@@ -5,6 +5,11 @@ const colors = [
 	'yellow'
 ];
 
+// ========HERO!========
+
+// Duration in seconds for initial character transforms
+const heroDuration = 2.2
+
 const trans = [
   function skewPlus(target) {
     let tl = gsap.to(target, {
@@ -40,41 +45,76 @@ const trans = [
 	(target)=>(null)
 ];
 
+// Split chars/words
 Splitting();
-
-// HERO CHARACTERS
-const heroDuration = 2.2
-const heroTimeline = gsap.timeline();
+// List of all split characters in #hero
 const chars = document.querySelectorAll("#hero .char");
+// List of all split words in #hero
 const words = document.querySelectorAll("#hero .word");
+// Build a gsap timeline for inital #hero transforms
+buildCharacterAnimation(chars);
+// Build ScrollTrigger timeline for #hero characters
+buildScrollTimeline(words);
 
+// Expects array of characters
+function buildCharacterAnimation(chars){
+  // Create new timeline
+  const heroTimeline = gsap.timeline();
+  // For each character...
+  chars.forEach((v, i) => {
+    // Pick random colour
+    let rColor = colors[Math.floor(Math.random() * colors.length)];
+    // Pick random transform
+    let rTrans = trans[Math.floor(Math.random() * trans.length)](v);
+    // Add transform to timeline at index / 10 seconds
+    heroTimeline.add(rTrans, i / 10);
+    // Add color class to character
+    v.classList.add(rColor);
+  });
+}
 
-chars.forEach((v,i)=>{
-  let rColor = colors[Math.floor(Math.random() * colors.length)];
-  let rTrans = trans[Math.floor(Math.random() * trans.length)](v);
-	heroTimeline.add(rTrans, i/10);
-	v.classList.add(rColor);
-});
-
-const scrollTimeline = gsap.timeline({scrollTrigger: {
-  scrub: true,
-  trigger: "#hero",
-  start: "top",
-  end: "bottom +=50%"
-}});
-
-
-words.forEach((word,wordIndex)=>{
-  word.childNodes.forEach((char,charIndex)=>{
-    scrollTimeline.to(char,{
-      transformOrigin: `top ${wordIndex % 2 ? "right" : "left"}`,
-      scale: 0,
-      translateX: `${wordIndex % 2 ? "+" : "-"}${charIndex * 75}%`,
-      translateY: "-100%",
-      rotate: `${wordIndex % 2 ? "+" : "-"}90deg`
+// Expects array of words with characters
+function buildScrollTimeline(words) {
+  // Create new timeline
+  const scrollTimeline = gsap.timeline({
+    // Add ScrollTrigger
+    scrollTrigger: {
+      // Scrub animation with scroll in real time
+      scrub: true,
+      // Watch #hero element as trigger
+      trigger: "#hero",
+      // Start timeline when scroll and element are top aligned
+      start: "top",
+      // End timeline when bottom of scroll is 50% down the element
+      end: "bottom +=50%"
+    }
+  });
+  // Iterate over words
+  words.forEach((word, wordIndex) => {
+    // For each child(character)...
+    word.childNodes.forEach((char, charIndex) => {
+      // Add CharacterScrollAnimation to scrollTimeline
+      scrollTimeline.add(buildCharacterScrollAnimation(char, charIndex, wordIndex));
     });
   });
-});
+}
+
+// Expects character node element, index of character in word, index of word in hero
+function buildCharacterScrollAnimation(char,charIndex,wordIndex){
+  // Return gsap animation...
+  return gsap.to(char, {
+    // Transform origin either top right or top left depending on odd/even
+    transformOrigin: `top ${wordIndex % 2 ? "right" : "left"}`,
+    // Scale to nothing
+    scale: 0,
+    // Translate characterIndex * 75% either left or right
+    translateX: `${wordIndex % 2 ? "+" : "-"}${charIndex * 75}%`,
+    // Translate upwards 100% so off screen
+    translateY: "-100%",
+    // Rotate 90deg clock or anti-clock
+    rotate: `${wordIndex % 2 ? "+" : "-"}90deg`
+  });
+}
 
 // NAV SLIDER
 
