@@ -69,7 +69,7 @@ words.forEach((word,wordIndex)=>{
     scrollTimeline.to(char,{
       scale: 0.25,
       translateX: `-${charIndex * 75}%`,
-      translateY: `-${wordIndex * 75}%`
+      translateY: "-100%",
     });
   });
 });
