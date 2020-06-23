@@ -60,7 +60,7 @@ const scrollTimeline = gsap.timeline({scrollTrigger: {
   scrub: true,
   trigger: "#hero",
   start: "top",
-  end: "bottom +=20%"
+  end: "bottom +=50%"
 }});
 
 
