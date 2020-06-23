@@ -96,10 +96,7 @@ nav {
 		margin: 0;
 	}
 	h1 {
-		font-size: 14vw;
-	}
-	p {
-		font-size: 1.2rem;
+    font-size: var(--hero-height);
 	}
 	.char {
 		display: inline-block;
