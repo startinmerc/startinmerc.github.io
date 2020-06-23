@@ -45,7 +45,9 @@ Splitting();
 // HERO CHARACTERS
 const heroDuration = 2.2
 const heroTimeline = gsap.timeline();
-const chars = document.querySelectorAll(".char");
+const chars = document.querySelectorAll("#hero .char");
+const words = document.querySelectorAll("#hero .word");
+
 
 chars.forEach((v,i)=>{
   let rColor = colors[Math.floor(Math.random() * colors.length)];
@@ -61,7 +63,6 @@ const scrollTimeline = gsap.timeline({scrollTrigger: {
   end: "bottom +=20%"
 }});
 
-const words = document.querySelectorAll(".word");
 
 words.forEach((word,wordIndex)=>{
   word.childNodes.forEach((char,charIndex)=>{
