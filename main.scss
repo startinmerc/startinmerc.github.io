@@ -62,7 +62,10 @@ nav {
       transform: rotate(0deg) translateY(-50%);
     }
     button {
-      transform: scaleY(1) scaleX(1) translateX(0%);
+			transform: translateX(-75%) rotate(-90deg);
+			&::before {
+				transform: scaleY(1);
+			}
     }
   }
   li {
