@@ -12,6 +12,13 @@ section {
 	margin: 0 auto;
 }
 
+.red {color: red;}
+.blue {color: blue;}
+.green {color: green;}
+.yellow {color: yellow;}
+
+$border: 8px solid black;
+
 /*=====================NAV=====================*/
 
 nav {
@@ -87,6 +94,7 @@ nav {
 }
 
 /*====================HERO====================*/
+
 :root {
 	--hero-height: 14vw;
 }
@@ -114,7 +122,8 @@ nav {
 	}
 }
 
-// HEAD
+/*====================HEAD====================*/
+
 #head {
 	position: fixed;
 	top: 0;
@@ -131,7 +140,3 @@ nav {
 }
 
 
-.red {color: red;}
-.blue {color: blue;}
-.green {color: green;}
-.yellow {color: yellow;}
