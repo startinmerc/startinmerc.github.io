@@ -188,4 +188,11 @@ sections.forEach(section=>{
 			stagger: 0.1
 		}
 	);
+	// Translate content wrapper to visible on scroll
+	sectionScrollTimeline.fromTo(headerText, {
+		y: "-100%"
+	},{
+		y: "0%",
+		duration: 1
+	});
 });
