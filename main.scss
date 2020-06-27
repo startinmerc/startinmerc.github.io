@@ -139,4 +139,32 @@ nav {
 	}
 }
 
+/*==================SECTION==================*/
 
+section {
+	min-height: 80vh;
+	width: 80%;
+	margin: 0 auto;
+	h2 {
+		font-size: 3rem;
+		margin-left: -8px;
+		margin-bottom: -8px;
+		text-transform: uppercase;
+		background: white;
+		display: inline-block;
+		position: relative;
+		border: $border;
+		padding: 8px;
+		transform: skewY(-8deg);
+	}
+	p {
+		width: 80%;
+		margin: 0 auto;
+		padding: 1rem 5%;
+		background: white;
+		border-left: $border;
+		border-right: $border;
+		&:first-of-type {border-top: $border;}
+		&:last-of-type {border-bottom: $border;}
+	}
+}
