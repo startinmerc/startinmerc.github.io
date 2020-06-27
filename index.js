@@ -155,3 +155,11 @@ const nav = document.querySelector("nav");
 nav.addEventListener("click", ()=>{
 		nav.classList.toggle("min");
 });
+
+// ===================SECTION===================
+
+const headerChars = document.querySelectorAll("section h2 .char");
+
+headerChars.forEach(char=>{
+  char.classList.add(getRandomColor());
+})
