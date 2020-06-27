@@ -174,17 +174,25 @@ sections.forEach(section=>{
 			end: "top 25%",
 		}
 	});
+	// Create section header timeline
 	let sectionTimeline = gsap.timeline();
+	// Get split characters from header
 	let headerChars = section.querySelectorAll(".char");
-	headerChars.forEach((char, index) => {
+	// Get content wrapper for section
+	let headerText = section.querySelector("div");
+	// Random colour header characters
+	headerChars.forEach(char => {
 		char.classList.add(getRandomColor());
 	});
+	// Translate characters from +100% to 0%
 	sectionTimeline.fromTo(headerChars, {
 			y: "100%"
 		}, {
 			y: "0%",
+			// Ease out & back
 			ease: "back.out(1.7)",
 			duration: 1,
+			// Stagger letters
 			stagger: 0.1
 		}
 	);
