@@ -1,3 +1,6 @@
+// ================GLOBAL DEFS================
+
+// Array of color classes
 const colors = [
 	'red',
 	'blue',
@@ -5,11 +8,20 @@ const colors = [
 	'yellow'
 ];
 
-// ========HERO!========
+// Returns random color class name
+function getRandomColor() {
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+// Split chars/words
+Splitting();
+
+//====================HERO====================
 
 // Duration in seconds for initial character transforms
 const heroDuration = 2.2
 
+// Array of GSAP transform and null functions
 const trans = [
   function skewPlus(target) {
     let tl = gsap.to(target, {
@@ -45,8 +57,11 @@ const trans = [
 	(target)=>(null)
 ];
 
-// Split chars/words
-Splitting();
+// Returns random transform
+function getRandomTransform() {
+  return trans[Math.floor(Math.random() * trans.length)];
+}
+
 // List of all split characters in #hero
 const chars = document.querySelectorAll("#hero .char");
 // List of all split words in #hero
@@ -68,9 +83,9 @@ function buildCharacterAnimation(chars){
   // For each character...
   chars.forEach((v, i) => {
     // Pick random colour
-    let rColor = colors[Math.floor(Math.random() * colors.length)];
+    let rColor = getRandomColor();
     // Pick random transform
-    let rTrans = trans[Math.floor(Math.random() * trans.length)];
+    let rTrans = getRandomTransform();
     // Add transform to timeline at index / 10 seconds
     heroTimeline.add(rTrans(v), i / 10);
     // Add color class to character
@@ -133,9 +148,8 @@ function buildCharacterScrollAnimation(char,charIndex,wordIndex){
   });
 }
 
-// NAV SLIDER
+// ==================NAV SLIDER==================
 
-const navBtn = document.querySelector("nav button");
 const nav = document.querySelector("nav");
 
 nav.addEventListener("click", ()=>{
