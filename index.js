@@ -153,13 +153,26 @@ function buildCharacterScrollAnimation(char,charIndex,wordIndex){
 const nav = document.querySelector("nav");
 
 nav.addEventListener("click", ()=>{
-		nav.classList.toggle("min");
+	nav.classList.toggle("min");
 });
 
 // ===================SECTION===================
 
-const headerChars = document.querySelectorAll("section h2 .char");
+const sections = document.querySelectorAll("section");
 
-headerChars.forEach(char=>{
-  char.classList.add(getRandomColor());
-})
+sections.forEach(section=>{
+	let sectionTimeline = gsap.timeline();
+	let headerChars = section.querySelectorAll(".char");
+	headerChars.forEach((char, index) => {
+		char.classList.add(getRandomColor());
+	});
+	sectionTimeline.fromTo(headerChars, {
+			y: "100%"
+		}, {
+			y: "0%",
+			ease: "back.out(1.7)",
+			duration: 1,
+			stagger: 0.1
+		}
+	);
+});
