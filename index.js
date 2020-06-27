@@ -161,6 +161,19 @@ nav.addEventListener("click", ()=>{
 const sections = document.querySelectorAll("section");
 
 sections.forEach(section=>{
+	// Create new scroll timeline
+	let sectionScrollTimeline = gsap.timeline({
+		scrollTrigger: {
+			// Scrub animation with scroll in real time
+			scrub: 0.2,
+			// Watch section element as trigger
+			trigger: section,
+			// Start timeline when scroller is 50% down element
+			start: "top +=50%",
+			// End timeline when element is 25% from top of screen
+			end: "top 25%",
+		}
+	});
 	let sectionTimeline = gsap.timeline();
 	let headerChars = section.querySelectorAll(".char");
 	headerChars.forEach((char, index) => {
