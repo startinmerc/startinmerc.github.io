@@ -153,6 +153,11 @@ function buildScrollTimeline(words) {
 			onEnterBack: ()=>{
 				head.classList.remove("show");
 			},
+			// Show header if page loads past hero
+			onRefresh: ({progress})=>{
+				if(progress === 1){
+					head.classList.add("show");
+				};
 			}
 		}
 	});
