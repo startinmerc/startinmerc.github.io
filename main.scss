@@ -74,7 +74,7 @@ nav {
 			background-color: orange;
 			z-index: -1;
 			border-radius: 25vw 25vw 0 0;
-			transform: scaleX(4);
+			transform: scaleX(4.01);
 			transition: all var(--nav-transition-time) ease-in;
 			border-top: $border;
 			border-left: $border;
