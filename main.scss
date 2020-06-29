@@ -30,9 +30,11 @@ $border: 8px solid black;
 }
 
 nav {
+	// Position nav on right & above all other elements
 	position: fixed;
 	top: 0;
 	right: 0;
+	z-index: 1000;
 	background: orange;
 	height: 100vh;
 	transition: transform var(--nav-transition-time) ease-in;
@@ -40,7 +42,6 @@ nav {
 	flex-direction: column;
 	justify-content: center;
 	font-size: 2rem;
-	z-index: 1000;
 	border-left: $border;
 	&::before {
 		@include pseudo();
@@ -52,43 +53,45 @@ nav {
 		transition: opacity var(--nav-transition-time) ease-out;
 	}
 	button {
+		// Style resets
 		padding: 0;
 		border: none;
-		position: absolute;
+		font-family: inherit;
 		width: 25vh;
 		height: 12.5vh;
 		background: orange;
-		left: 0;
-		border-radius: 25vw 25vw 0 0;
+		// Equal radius to width creates a semicircle
+		border-radius: 25vh 25vh 0 0;
 		transform-origin: center;
+		// Move button to halfway down page & rotate
+		position: absolute;
+		left: 0;
 		transform: translateX(calc(-75% + 5px)) rotate(-90deg);
-		transition: all 400ms ease-in;
-		outline: none;
-		font-family: inherit;
 		font-size: 2rem;
 		cursor: pointer;
 		&::before {
 			@include pseudo();
-			top: -8px;
-			left: -8px;
 			background-color: orange;
+			// Pull behind button
 			z-index: -1;
+			// Make semicircle
 			border-radius: 25vw 25vw 0 0;
+			// Stretch to just over full window height
 			transform: scaleX(4.01);
 			transition: all var(--nav-transition-time) ease-in;
+			// Add border to 3 sides
 			border-top: $border;
 			border-left: $border;
 			border-right: $border;
 			border-bottom: none;
 			border-color: orange;
-		}
-		&:focus {
-			&::before {
-				border-color: black;
-			}
+			// Move to account for border
+			top: -8px;
+			left: -8px;
 		}
 	}
 	&.min {
+		// Push off side on minimized
 		transform: translateX(100%);
 		&::before {
 			// Hide & minimize shadow
@@ -103,7 +106,9 @@ nav {
 		}
 	}
 	a {
+		// Chunk up nav links
 		padding: 5vh 10px;
+		// Add some wiggle room for button pseudo joint
 		margin-left: 10px;
 	}
 	&:hover, &:focus-within {
