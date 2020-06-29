@@ -51,7 +51,7 @@ nav {
 		transition: all 400ms ease-in;
 		outline: none;
 		font-family: inherit;
-		font-size: calc(var(--hero-height) * 0.25);
+		font-size: 2rem;
 		cursor: pointer;
 		&::before {
 			@include pseudo();
@@ -134,7 +134,7 @@ nav {
 	z-index: 1000;
 	h1 {
 		margin: 0 auto;
-		font-size: calc(var(--hero-height) * 0.25);
+		font-size: 2rem;
 	}
 	&.show {
 		transform: translateY(0%);
