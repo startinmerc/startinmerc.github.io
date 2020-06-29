@@ -210,3 +210,26 @@ section {
 		max-width: 90%;
 	}
 }
+
+// ABOUT
+.picture {
+	height: 200px;
+	width: 200px;
+	border: $border;
+	border-radius: 50%;
+	background-color: cornsilk;
+	float: right;
+	-webkit-shape-outside: circle();
+	shape-outside: circle();
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 8px;
+	margin-left: 8px;
+	margin-right: -2rem;
+	img {
+		height: auto;
+		width: 100%;
+		filter: grayscale(0.6) brightness(2) contrast(1);
+		mix-blend-mode: multiply;
+	}
+}
