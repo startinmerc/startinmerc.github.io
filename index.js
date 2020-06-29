@@ -172,6 +172,10 @@ sections.forEach(section=>{
 			start: "top +=80%",
 			// End timeline when element is 25% from top of screen
 			end: "top 25%",
+			// Trigger header animation on enter
+			onEnter: ()=>{sectionTimeline.restart()},
+			// Reverse header animation when element scrolled out of view
+			onLeaveBack: ()=>{sectionTimeline.reverse()}
 		}
 	});
 	// Create section header timeline
