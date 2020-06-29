@@ -24,13 +24,18 @@ $border: 8px solid black;
 
 /*=====================NAV=====================*/
 
+:root {
+	// Nav transition time as a variable for consistency in transition
+	--nav-transition-time: 400ms;
+}
+
 nav {
 	position: fixed;
 	top: 0;
 	right: 0;
 	background: orange;
 	height: 100vh;
-	transition: all 400ms ease-in;
+	transition: transform var(--nav-transition-time) ease-in;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -70,7 +75,7 @@ nav {
 			z-index: -1;
 			border-radius: 25vw 25vw 0 0;
 			transform: scaleX(4);
-			transition: all 400ms ease-in;
+			transition: all var(--nav-transition-time) ease-in;
 			border-top: $border;
 			border-left: $border;
 			border-right: $border;
