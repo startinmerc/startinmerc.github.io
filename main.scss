@@ -119,12 +119,14 @@ nav {
 /*====================HERO====================*/
 
 :root {
+	// Magic number - longest word fits on screen
 	--hero-height: 14vw;
 }
 
 @media(max-width: 500px){
 	:root {
-			--hero-height: 20vw;
+		// Change font size on mobile
+		--hero-height: 20vw;
 	}
 }
 
@@ -132,15 +134,18 @@ nav {
 	margin: 0 auto;
 	width: 98%;
 	min-height: 100vh;
+	// Center items shorthand
 	display: grid;
 	place-items: center;
 	* {
+		// Remove all margins
 		margin: 0;
 	}
 	h1 {
 		font-size: var(--hero-height);
 	}
 	.char {
+		// Set display for transformations on spans
 		display: inline-block;
 	}
 }
@@ -148,17 +153,21 @@ nav {
 /*====================HEAD====================*/
 
 #head {
+	// Positioning top & above all elements
 	position: fixed;
-	top: 0;
+	top: 2%;
 	left: 2%;
+	z-index: 1000;
+	// Hide initially
 	transform: translateY(-100%);
 	transition: transform 380ms ease-in;
-	z-index: 1000;
 	h1 {
-		margin: 0 auto;
+		// Clear margin
+		margin: 0;
 		font-size: 2rem;
 	}
 	&.show {
+		// Show when needed
 		transform: translateY(0%);
 	}
 }
@@ -166,18 +175,23 @@ nav {
 /*==================SECTION==================*/
 
 section {
-	min-height: 80vh;
-	width: 80%;
+	// Stop sections going too wide
+	max-width: 900px;
+	// Give some y-axis space & centre horizontally
 	margin: 10vh auto;
+	// Hide overflow caused by ScrollTrigger
 	overflow: hidden;
 	h2 {
 		font-size: 3rem;
 		margin: 0;
+		// Ensure the display font style
 		text-transform: uppercase;
 		background: white;
 		border: $border;
 		padding: 8px 5%;
+		// Hide letters sliding in
 		overflow: hidden;
+		// Position over content wrapper
 		position: relative;
 		z-index: 1;
 	}
@@ -187,5 +201,12 @@ section {
 		border-top: none;
 		margin: 0 auto;
 		padding: 1rem 5%;
+	}
+}
+
+@media(max-width: 500px){
+	section {
+		// Resize section width on mobile
+		max-width: 90%;
 	}
 }
