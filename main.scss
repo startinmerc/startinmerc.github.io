@@ -72,8 +72,8 @@ nav {
 		&:focus {
 			&::before {
 				border-color: black;
+			}
 		}
-	}
 	}
 	&.min {
 		transform: translateX(100%);
@@ -86,11 +86,6 @@ nav {
 	}
 	a {
 		padding: 5vh 10px;
-		color: black;
-		cursor: pointer;
-		&:nth-of-type(1):hover {background: blue;}
-		&:nth-of-type(2):hover {background: green;}
-		&:nth-of-type(3):hover {background: red;}
 	}
 	&:hover, &:focus-within {
 		button::before {
