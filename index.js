@@ -16,6 +16,36 @@ function getRandomColor() {
 // Split chars/words
 Splitting();
 
+// ==================LINKS==================
+
+// Grab all links
+const links = document.querySelectorAll("a");
+addLinkHovers();
+// Adds link interaction styling
+function addLinkHovers() {
+	links.forEach((a) => {
+		a.onmouseenter = () => linkEnter(a);
+		a.onmouseleave = () => linkLeave(a);
+		a.onfocus = () => linkEnter(a);
+		a.onblur = () => linkLeave(a);
+	});
+}
+
+function linkEnter(element) {
+	// Adds inset box shadow to link offset by width of element
+	element.style.boxShadow = `${element.offsetWidth}px 0 yellow inset`;
+	element.style.webkitBoxShadow = `${element.offsetWidth}px 0 yellow inset`;
+	element.style.mozBoxShadow = `${element.offsetWidth}px 0 yellow inset`;
+}
+
+function linkLeave(element) {
+	// Resets box shadow to invisible
+	element.style.boxShadow = `0px 0 yellow `;
+	element.style.boxShadow = `0px 0 yellow inset`;
+	element.style.webkitBoxShadow = `0px 0 yellow inset`;
+	element.style.mozBoxShadow = `0px 0 yellow inset`;
+}
+
 //====================HERO====================
 
 // Duration in seconds for initial character transforms
