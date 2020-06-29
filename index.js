@@ -168,8 +168,8 @@ sections.forEach(section=>{
 			scrub: 0.2,
 			// Watch section element as trigger
 			trigger: section,
-			// Start timeline when scroller is 50% down element
-			start: "top +=50%",
+			// Start timeline when scroller is 80% down element
+			start: "top +=80%",
 			// End timeline when element is 25% from top of screen
 			end: "top 25%",
 		}
@@ -191,16 +191,16 @@ sections.forEach(section=>{
 			y: "0%",
 			// Ease out & back
 			ease: "back.out(1.7)",
-			duration: 1,
+			duration: 0.7,
 			// Stagger letters
 			stagger: 0.1
 		}
 	);
+
 	// Translate content wrapper to visible on scroll
 	sectionScrollTimeline.fromTo(headerText, {
 		y: "-100%"
 	},{
-		y: "0%",
-		duration: 1
+		y: "0%"
 	});
 });
