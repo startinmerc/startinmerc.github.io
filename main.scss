@@ -55,8 +55,8 @@ nav {
 		cursor: pointer;
 		&::before {
 			@include pseudo();
-			top: -9px;
-			left: -10px;
+			top: -8px;
+			left: -8px;
 			background-color: orange;
 			z-index: -1;
 			border-radius: 25vw 25vw 0 0;
