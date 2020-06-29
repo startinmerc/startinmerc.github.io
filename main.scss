@@ -80,9 +80,7 @@ nav {
 			transform: scaleX(4.01);
 			transition: all var(--nav-transition-time) ease-in;
 			// Add border to 3 sides
-			border-top: $border;
-			border-left: $border;
-			border-right: $border;
+			border: $border;
 			border-bottom: none;
 			border-color: orange;
 			// Move to account for border
