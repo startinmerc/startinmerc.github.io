@@ -24,6 +24,8 @@ addLinkHovers();
 // Adds link interaction styling
 function addLinkHovers() {
 	links.forEach((a) => {
+		// Define transition, with duration dictated by element width
+		a.style.transition = `box-shadow ${a.offsetWidth / 2}ms ease-in`;
 		a.onmouseenter = () => linkEnter(a);
 		a.onmouseleave = () => linkLeave(a);
 		a.onfocus = () => linkEnter(a);
