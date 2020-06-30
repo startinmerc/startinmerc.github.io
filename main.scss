@@ -225,6 +225,8 @@ section {
 		margin: 0 auto;
 		// Padding on div means margins on first & last <p>s need clearing
 		padding: var(--section-padding);
+		p:first-of-type {margin-top: 0; hyphens: auto;}
+		p:last-of-type {margin-bottom: 0;}
 	}
 }
 
