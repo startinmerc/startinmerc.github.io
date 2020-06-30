@@ -205,6 +205,22 @@ section {
 		border: $border;
 		background-color: orange;
 		overflow: hidden;
+		&.aside--left {
+			// Push aside into top left corner
+			float: left;
+			margin: calc(0px - var(--section-padding) - 8px) 0px 0px calc(0px - var(--section-padding) - 8px);
+			// Polygon to dictate text wrapping
+			shape-outside: polygon(100% 0%, 0% 100%, 50% 100%, 83% 82%, 100% 50%);
+			border-radius: 0 0 50% 0;
+		}
+		&.aside--right {
+			// Push aside into top right corner
+			float: right;
+			margin: calc(0px - var(--section-padding) - 8px) calc(0px - var(--section-padding) - 8px) 0px 0px;
+			// Polygon to dictate text wrapping
+			shape-outside: polygon(0% 0%, 100% 100%, 50% 100%, 15% 81%, 0% 50%);
+			border-radius: 0 0 0 50%;
+		}
 		// Smaller at mobile size
 		@media(max-width: 500px){
 			height: 150px;
@@ -245,28 +261,9 @@ section {
 	}
 }
 
-// ABOUT
-#about {
-	aside {
-		// Push aside into top right corner
-		float: right;
-		margin: calc(0px - var(--section-padding) - 8px) calc(0px - var(--section-padding) - 8px) 0px 0px;
-		// Polygon to dictate text hyphenating
-		shape-outside: polygon(0% 0%, 100% 100%, 50% 100%, 15% 81%, 0% 50%);
-		border-radius: 0 0 0 50%;
-	}
-}
-
 // =================CONTACT SECTION=================
 
 #contact {
-	aside {
-		// Push aside into top left corner
-		float: left;
-		margin: calc(0px - var(--section-padding) - 8px) 0px 0px calc(0px - var(--section-padding) - 8px);
-		shape-outside: polygon(100% 0%, 0% 100%, 50% 100%, 83% 82%, 100% 50%);
-		border-radius: 0 0 50% 0;
-	}
 	> div {
 		display: flex;
 		// Extra margin for section, doesn't fold out fully & not sure why
