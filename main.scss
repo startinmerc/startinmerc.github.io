@@ -86,6 +86,9 @@ nav {
 			// Move to account for border
 			top: -8px;
 			left: -8px;
+			@media(max-width: 500px){
+				border-color: black;
+			}
 		}
 	}
 	&.min {
