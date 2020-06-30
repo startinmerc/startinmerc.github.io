@@ -124,11 +124,7 @@ nav {
 :root {
 	// Magic number - longest word fits on screen
 	--hero-height: 14vw;
-}
-
-@media(max-width: 500px){
-	:root {
-		// Change font size on mobile
+	@media(max-width: 500px){
 		--hero-height: 20vw;
 	}
 }
