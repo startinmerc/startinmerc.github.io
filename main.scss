@@ -218,6 +218,14 @@ section {
 			filter: grayscale(0.6) brightness(2) contrast(1);
 			mix-blend-mode: multiply;
 		}
+		// Resize SVG ghost
+		svg {
+			margin-left: 10px;
+			height: 90%;
+			width: auto;
+			overflow: unset;
+		}
+	}
 	> div {
 		background: white;
 		border: $border;
@@ -250,4 +258,21 @@ section {
 }
 
 	}
+}
+
+// ===================SVG GHOST===================
+
+.ghost__body-top, .ghost__body-low, .ghost__tail {
+	fill: white;
+}
+
+.ghost__eye {
+	fill: none;
+	stroke: black;
+	stroke-width: 5;
+}
+
+.ghost__shadow {
+	fill: black;
+	stroke: none;
 }
