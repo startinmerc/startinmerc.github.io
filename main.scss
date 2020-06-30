@@ -267,6 +267,22 @@ section {
 		shape-outside: polygon(100% 0%, 0% 100%, 50% 100%, 83% 82%, 100% 50%);
 		border-radius: 0 0 50% 0;
 	}
+	> div {
+		display: flex;
+		// Extra margin for section, doesn't fold out fully & not sure why
+		margin-top: calc(var(--section-padding) - 9px);
+		@media(max-width: 500px) {
+			flex-wrap: wrap;
+			margin-top: 0;
+		}
+		> div {
+			// Shift text wrapper right
+			margin-left: 1rem;
+			margin-right: -1rem;
+			@media(max-width: 500px) {
+				margin: 0;
+			}
+		}
 	}
 }
 
