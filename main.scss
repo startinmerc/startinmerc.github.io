@@ -177,6 +177,10 @@ nav {
 
 /*==================SECTION==================*/
 
+:root {
+ --section-padding: 2rem;
+}
+
 section {
 	// Stop sections going too wide
 	max-width: 900px;
@@ -191,7 +195,7 @@ section {
 		text-transform: uppercase;
 		background: white;
 		border: $border;
-		padding: 8px 5%;
+		padding: 8px var(--section-padding);
 		// Hide letters sliding in
 		overflow: hidden;
 		// Position over content wrapper
@@ -203,7 +207,8 @@ section {
 		border: $border;
 		border-top: none;
 		margin: 0 auto;
-		padding: 1rem 5%;
+		// Padding on div means margins on first & last <p>s need clearing
+		padding: var(--section-padding);
 	}
 }
 
