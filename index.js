@@ -248,3 +248,31 @@ sections.forEach(section=>{
 		y: "0%"
 	});
 });
+
+// CONTACT GHOST
+const ghostTimeline = gsap.timeline();
+
+buildGhostTimeline();
+
+function buildGhostTimeline() {
+	ghostTimeline.add(getShadowTimeline(), 0);
+	ghostTimeline.add(getBlinkTimeline(), 0);
+	ghostTimeline.add(getFloatTimeline(), 0);
+}
+
+function getShadowTimeline() {
+	return gsap.to('.ghost__shadow', 1, { attr: { rx: '30px', ry: '5px' }, repeat: -1, yoyo: true, ease: Power1.easeInOut });
+}
+
+function getBlinkTimeline() {
+	let tl = gsap.timeline({ repeat: -1, repeatDelay: 2, defaults: {duration: 0.18} });
+	tl.to('.ghost__eye', { attr: { ry: '0px' } });
+	tl.to('.ghost__eye', { attr: { ry: '12.5px' } });
+	tl.to('.ghost__eye', { attr: { ry: '0px' } });
+	tl.to('.ghost__eye', { attr: { ry: '12.5px' } });
+	return tl;
+}
+
+function getFloatTimeline() {
+	return gsap.fromTo('#ghost', 1, { y: '-10px' }, { y: '10px', yoyo: true, repeat: -1, ease: Power1.easeInOut });;
+}
