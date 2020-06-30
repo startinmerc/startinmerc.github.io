@@ -13,6 +13,7 @@ body {
 
 $border: 8px solid black;
 $mobile: 500px;
+$z-top: 1000;
 
 @mixin pseudo() {
 	content: "";
@@ -35,7 +36,7 @@ nav {
 	position: fixed;
 	top: 0;
 	right: 0;
-	z-index: 1000;
+	z-index: $z-top;
 	background: orange;
 	height: 100vh;
 	transition: transform var(--nav-transition-time) ease-in;
@@ -157,7 +158,7 @@ nav {
 	position: fixed;
 	top: 2%;
 	left: 2%;
-	z-index: 1000;
+	z-index: $z-top;
 	// Hide initially
 	transform: translateY(-120%);
 	transition: transform 380ms ease-in;
@@ -232,11 +233,12 @@ section {
 			height: auto;
 			width: 100%;
 			transform: scale(1.5);
-			filter: grayscale(0.6) brightness(2) contrast(1);
+			filter: grayscale(0.6) brightness(2);
 			mix-blend-mode: multiply;
 		}
 		// Resize SVG ghost
 		svg {
+			// Reposition more centered
 			margin-left: 10px;
 			height: 90%;
 			width: auto;
