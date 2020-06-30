@@ -257,6 +257,16 @@ section {
 	}
 }
 
+// =================CONTACT SECTION=================
+
+#contact {
+	aside {
+		// Push aside into top left corner
+		float: left;
+		margin: calc(0px - var(--section-padding) - 8px) 0px 0px calc(0px - var(--section-padding) - 8px);
+		shape-outside: polygon(100% 0%, 0% 100%, 50% 100%, 83% 82%, 100% 50%);
+		border-radius: 0 0 50% 0;
+	}
 	}
 }
 
