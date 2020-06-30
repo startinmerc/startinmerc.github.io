@@ -12,6 +12,7 @@ body {
 .yellow {color: yellow;}
 
 $border: 8px solid black;
+$mobile: 500px;
 
 @mixin pseudo() {
 	content: "";
@@ -86,7 +87,7 @@ nav {
 			// Move to account for border
 			top: -8px;
 			left: -8px;
-			@media(max-width: 500px){
+			@media(max-width: $mobile){
 				border-color: black;
 			}
 		}
@@ -124,7 +125,7 @@ nav {
 :root {
 	// Magic number - longest word fits on screen
 	--hero-height: 14vw;
-	@media(max-width: 500px){
+	@media(max-width: $mobile){
 		--hero-height: 20vw;
 	}
 }
@@ -222,7 +223,7 @@ section {
 			border-radius: 0 0 0 50%;
 		}
 		// Smaller at mobile size
-		@media(max-width: 500px){
+		@media(max-width: $mobile){
 			height: 150px;
 			width: 150px;
 		}
@@ -254,7 +255,7 @@ section {
 	}
 }
 
-@media(max-width: 500px){
+@media(max-width: $mobile){
 	section {
 		// Resize section width on mobile
 		max-width: 90%;
@@ -267,7 +268,7 @@ section {
 	> div {
 		padding-bottom: 5rem;
 		p:first-of-type {
-			@media(max-width: 500px){
+			@media(max-width: $mobile){
 				// Stop hyphen, push para down a bit on small screens
 				hyphens: unset;
 				margin-top: 7rem;
