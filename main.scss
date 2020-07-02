@@ -375,5 +375,21 @@ section {
 			flex-direction: column;
 		}
 	}
+
+	&:nth-of-type(1) {
+		padding: 0;
+		display: flex;
+		.col-l {
+			padding: var(--section-padding);
+			border-right: $border;
+			@media(max-width: $mobile) {
+				border-right: none;
+				padding-bottom: 0;
+			}
+		}
+		.col-r {
+			padding: var(--section-padding);
+		}
+	}
 }
 }
