@@ -305,7 +305,13 @@ function buildGhostTimeline() {
 }
 
 function getShadowTimeline() {
-	return gsap.to('.ghost__shadow', 1, { attr: { rx: '30px', ry: '5px' }, repeat: -1, yoyo: true, ease: Power1.easeInOut });
+	return gsap.to('.ghost__shadow', {
+		attr: { rx: '30px', ry: '5px' },
+		repeat: -1,
+		yoyo: true,
+		ease: Power1.easeInOut,
+		duration: 1
+	});
 }
 
 function getBlinkTimeline() {
@@ -318,5 +324,13 @@ function getBlinkTimeline() {
 }
 
 function getFloatTimeline() {
-	return gsap.fromTo('#ghost', 1, { y: '-10px' }, { y: '10px', yoyo: true, repeat: -1, ease: Power1.easeInOut });;
+	return gsap.fromTo('#ghost', { 
+		y: '-10px'
+	 },{
+		y: '10px',
+		yoyo: true,
+		repeat: -1,
+		ease: Power1.easeInOut,
+		duration: 1
+	});
 }
