@@ -162,29 +162,29 @@ function buildScrollTimeline(words) {
 		}
 	});
 	// Iterate over words
-	words.forEach((word, wordIndex) => {
+	words.forEach(word => {
 		// For each child(character)...
 		word.childNodes.forEach((char, charIndex) => {
 			// Add CharacterScrollAnimation to scrollTimeline
-			scrollTimeline.add(buildCharacterScrollAnimation(char, charIndex, wordIndex));
+			scrollTimeline.add(buildCharacterScrollAnimation(char, charIndex));
 		});
 	});
 }
 
 // Expects character node element, index of character in word, index of word in hero
-function buildCharacterScrollAnimation(char,charIndex,wordIndex){
+function buildCharacterScrollAnimation(char,charIndex){
 	// Return gsap animation...
 	return gsap.to(char, {
 		// Transform origin either top right or top left depending on odd/even
-		transformOrigin: `top ${wordIndex % 2 ? "right" : "left"}`,
+		transformOrigin: `top ${charIndex % 2 ? "right" : "left"}`,
 		// Scale to nothing
 		scale: 0,
 		// Translate characterIndex * 75% either left or right
-		translateX: `${wordIndex % 2 ? "+" : "-"}${charIndex * 75}%`,
+		translateX: `${charIndex % 2 ? "+" : "-"}${charIndex * 75}%`,
 		// Translate upwards 100% so off screen
 		translateY: "-100%",
 		// Rotate 90deg clock or anti-clock
-		rotate: `${wordIndex % 2 ? "+" : "-"}90deg`
+		rotate: `${charIndex % 2 ? "+" : "-"}90deg`
 	});
 }
 
