@@ -200,7 +200,7 @@ nav.addEventListener("click", ()=>{
 
 const sections = document.querySelectorAll("section");
 
-sections.forEach(section=>{
+sections.forEach((section,index)=>{
 	// Create new scroll timeline
 	let sectionScrollTimeline = gsap.timeline({
 		scrollTrigger: {
@@ -213,9 +213,15 @@ sections.forEach(section=>{
 			// End timeline when element is 25% from top of screen
 			end: "top 25%",
 			// Trigger header animation on enter
-			onEnter: ()=>{sectionTimeline.restart()},
+			onEnter: ()=>{
+				sectionTimeline.restart();
+				index === 2 && ghostTimeline.play();
+			},
 			// Reverse header animation when element scrolled out of view
-			onLeaveBack: ()=>{sectionTimeline.reverse()}
+			onLeaveBack: ()=>{
+				sectionTimeline.reverse();
+				index === 2 && ghostTimeline.pause();
+			}
 		}
 	});
 	// Create section header timeline
@@ -249,8 +255,9 @@ sections.forEach(section=>{
 	});
 });
 
-// CONTACT GHOST
-const ghostTimeline = gsap.timeline();
+// =================CONTACT GHOST=================
+
+const ghostTimeline = gsap.timeline({paused: true});
 
 buildGhostTimeline();
 
