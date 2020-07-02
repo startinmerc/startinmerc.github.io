@@ -364,9 +364,12 @@ section {
 	}
 
 	.portfolio-entry__title {
-		// Bump up title size & clear margins
+		// Bump up title size
 		font-size: 2rem;
-		margin: 0;
+		// Add padding & reposition using margins
+		margin: calc(var(--section-padding) * -1);
+		margin-bottom: var(--section-padding);
+		padding: var(--section-padding);
 	}
 
 	.portfolio-entry__tech {
