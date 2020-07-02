@@ -376,31 +376,41 @@ section {
 		}
 	}
 
+	// Elements 1,5,9...
 	&:nth-of-type(4n+1) {
+		// Clear container padding
 		padding: 0;
+		// Add flex
 		display: flex;
 		.col-l {
+			// Re-add padding
 			padding: var(--section-padding);
+			// Dividing border
 			border-right: $border;
 			@media(max-width: $mobile) {
+				// Hide border & padding on mobile
 				border-right: none;
 				padding-bottom: 0;
 			}
 		}
 		.col-r {
+			// Re-add padding
 			padding: var(--section-padding);
 		}
 	}
 	
+	// Elements 3,7,11...
 	&:nth-of-type(4n+3) {
+		// Clear container padding
 		padding: 0;
+		// Add flex
 		display: flex;
 		flex-direction: row-reverse;
 		.col-r {
 			padding: var(--section-padding);
 			border-right: $border;
 			@media(max-width: $mobile) {
-				border-right: none;
+				// Hide padding on mobile
 				padding-bottom: 0;
 			}
 		}
@@ -410,7 +420,7 @@ section {
 	}
 
 	@media(max-width: $mobile) {
-		flex-direction: column;
+		// Realign as columns on mobile
 	}
 }
 }
