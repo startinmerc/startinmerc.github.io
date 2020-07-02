@@ -29,6 +29,11 @@ $z-top: 1000;
 	width: 100%;
 }
 
+@mixin image-filter() {
+	filter: grayscale(0.6) brightness(2);
+	mix-blend-mode: multiply;
+}
+
 /*=====================NAV=====================*/
 
 :root {
@@ -235,11 +240,10 @@ section {
 		}
 		// Add filters to blend images into orangeyness
 		img {
+			@include image-filter();
 			height: auto;
 			width: 100%;
 			transform: scale(1.5);
-			filter: grayscale(0.6) brightness(2);
-			mix-blend-mode: multiply;
 		}
 		// Resize SVG ghost
 		svg {
@@ -337,7 +341,7 @@ section {
 	}
 
 	.portfolio-entry__img  {
-		@include orange-filter();
+		@include image-filter();
 		box-sizing: border-box;
 		position: absolute;
 		top: 0;
