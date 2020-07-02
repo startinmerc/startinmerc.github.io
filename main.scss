@@ -273,7 +273,7 @@ section {
 
 #contact {
 	> div {
-		padding-bottom: 5rem;
+		padding-bottom: 15vh;
 		p:first-of-type {
 			@media(max-width: $mobile){
 				// Stop hyphen, push para down a bit on small screens
