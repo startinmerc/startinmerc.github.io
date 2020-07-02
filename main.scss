@@ -396,6 +396,11 @@ section {
 		.col-r {
 			// Re-add padding
 			padding: var(--section-padding);
+			@media(max-width: $mobile) {
+				// Hide border & padding on mobile
+				border-right: none;
+				padding-top: 0;
+			}
 		}
 	}
 	
@@ -406,21 +411,30 @@ section {
 		// Add flex
 		display: flex;
 		flex-direction: row-reverse;
-		.col-r {
+		.col-l {
+			// Re-add padding
 			padding: var(--section-padding);
-			border-right: $border;
 			@media(max-width: $mobile) {
 				// Hide padding on mobile
 				padding-bottom: 0;
 			}
 		}
-		.col-l {
+		.col-r {
+			// Re-add padding
 			padding: var(--section-padding);
+			// Dividing border
+			border-right: $border;
+			@media(max-width: $mobile) {
+				// Hide border & padding on mobile
+				border-right: none;
+				padding-top: 0;
+			}
 		}
 	}
 
 	@media(max-width: $mobile) {
 		// Realign as columns on mobile
+		flex-direction: column !important;
 	}
 }
 }
