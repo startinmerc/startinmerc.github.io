@@ -199,9 +199,11 @@ nav.addEventListener("click", ()=>{
 // =================PORTFOLIO=================
 
 const portfolioButtons = document.querySelectorAll(".button-grid button");
+const portfolioEntryHeaders = document.querySelectorAll(".portfolio-entry__title");
 const portfolioEntries = document.querySelectorAll(".portfolio-entry");
 
 addButtonListeners();
+addPortColors();
 
 function addButtonListeners() {
 	portfolioButtons.forEach((btn, ind) => {
@@ -212,6 +214,19 @@ function addButtonListeners() {
 	});
 }
 
+function addPortColors() {
+	portfolioButtons.forEach((btn, ind) => {
+		// Get random color
+		let rColor = getRandomColor();
+		// Add random color to button background
+		btn.style.background = rColor;
+		// Add random color to corresponding entry header
+		try {
+			portfolioEntryHeaders[ind].style.background = rColor;
+		// Hacky, but it works ;)
+		} catch {null};
+	})
+}
 
 function portClick(evt) {
 	// Scroll corresponding entry into view
