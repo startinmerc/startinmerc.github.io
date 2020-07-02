@@ -261,7 +261,7 @@ section {
 		margin: 0 auto;
 		// Padding on div means margins on first & last <p>s need clearing
 		padding: var(--section-padding);
-		p:first-of-type {margin-top: 0; hyphens: auto;}
+		p:first-of-type {margin-top: 0;}
 		p:last-of-type {margin-bottom: 0;}
 	}
 }
@@ -273,6 +273,16 @@ section {
 	}
 }
 
+// ==================ABOUT SECTION==================
+
+#about {
+	> div {
+		p:first-of-type {
+			hyphens: auto;
+		}
+	}
+}
+
 // =================CONTACT SECTION=================
 
 #contact {
@@ -280,8 +290,7 @@ section {
 		padding-bottom: 15vh;
 		p:first-of-type {
 			@media(max-width: $mobile){
-				// Stop hyphen, push para down a bit on small screens
-				hyphens: unset;
+				// Push para down a bit on small screens
 				margin-top: 7rem;
 			}
 		}
