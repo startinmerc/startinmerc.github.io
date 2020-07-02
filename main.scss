@@ -310,18 +310,19 @@ section {
 #portfolio {
 
 	.button-grid {
+		// Responsive grid layout for buttons
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		// Gap between buttons to replicate $border
 		grid-gap: 8px;
 		background-color: black;
-		padding: 0;
-		overflow: hidden;
-		border-bottom: $border;
 		button {
+			// Style resets
 			border: none;
 			text-align: center;
 			padding: 1em 0;
 			font-size: 1rem;
+			// Bold weight for colours
 			font-weight: bold;
 			cursor: pointer;
 			&:hover {
@@ -333,16 +334,17 @@ section {
 
 .portfolio-entry {
 	padding: var(--section-padding);
+	// Positon & overflow for background image containment
 	position: relative;
 	overflow: hidden;
 	text-align: center;
-	&:not(:first-of-type) {
-		border-top: $border;
-	}
+	// Border divider for entries
+	border-top: $border;
 
 	.portfolio-entry__img  {
+		// Filter background image
 		@include image-filter();
-		box-sizing: border-box;
+		// Position to cover entry & push to back
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -353,19 +355,22 @@ section {
 	}
 
 	.portfolio-entry__title {
+		// Bump up title size & clear margins
 		font-size: 2rem;
 		margin: 0;
 	}
 
 	.portfolio-entry__tech {
+		// Alternate style for tech list
 		font-weight: bold;
 		margin-top: 1em !important;
 	}
 
 	.portfolio-entry__links {
+		// Flex links list
 		display: flex;
 		justify-content: space-around;
-
+		// Change to column on mobile
 		@media(max-width: $mobile) {
 			flex-direction: column;
 		}
