@@ -466,6 +466,10 @@ footer {
 	.footer-links {
 		display: flex;
 		justify-content: space-around;
+
+		@media(max-width: $mobile) {
+			flex-direction: column;
+		}
 	}
 
 	ul {
@@ -475,6 +479,7 @@ footer {
 
 	.main-link {
 		font-size: 1.2rem;
+		margin-bottom: 1em;
 	}
 
 	.sub-link {
