@@ -300,3 +300,71 @@ section {
 	fill: black;
 	stroke: none;
 }
+
+// ==================PORTFOLIO==================
+
+#portfolio {
+
+	.button-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		grid-gap: 8px;
+		background-color: black;
+		padding: 0;
+		overflow: hidden;
+		border-bottom: $border;
+		button {
+			border: none;
+			text-align: center;
+			padding: 1em 0;
+			font-size: 1rem;
+			font-weight: bold;
+			cursor: pointer;
+			&:hover {
+				color: white;
+			}
+		}
+	}
+}
+
+.portfolio-entry {
+	padding: var(--section-padding);
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	&:not(:first-of-type) {
+		border-top: $border;
+	}
+
+	.portfolio-entry__img  {
+		@include orange-filter();
+		box-sizing: border-box;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.2;
+		width: 100%;
+		height: auto;
+		z-index: -1;
+	}
+
+	.portfolio-entry__title {
+		font-size: 2rem;
+		margin: 0;
+	}
+
+	.portfolio-entry__tech {
+		font-weight: bold;
+		margin-top: 1em !important;
+	}
+
+	.portfolio-entry__links {
+		display: flex;
+		justify-content: space-around;
+
+		@media(max-width: $mobile) {
+			flex-direction: column;
+		}
+	}
+}
+}
