@@ -449,4 +449,38 @@ section {
 		flex-direction: column !important;
 	}
 }
+
+// FOOTER
+
+footer {
+
+	padding: 1rem var(--section-padding);
+	background-color: orange;
+	text-align: center;
+	border-top: $border;
+
+	h3 {
+		font-size: 1.5rem;
+	}
+
+	.footer-links {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.main-link {
+		font-size: 1.2rem;
+	}
+
+	.sub-link {
+		font-size: 1rem;
+		&:first-of-type {
+			margin-top: 0.5em;
+		}
+	}
 }
