@@ -196,6 +196,28 @@ nav.addEventListener("click", ()=>{
 	nav.classList.toggle("min");
 });
 
+// =================PORTFOLIO=================
+
+const portfolioButtons = document.querySelectorAll(".button-grid button");
+const portfolioEntries = document.querySelectorAll(".portfolio-entry");
+
+addButtonListeners();
+
+function addButtonListeners() {
+	portfolioButtons.forEach((btn, ind) => {
+		// Add index as parameter on button
+		btn.param = ind;
+		// Add click listener to button
+		btn.addEventListener("click", portClick, false);
+	});
+}
+
+
+function portClick(evt) {
+	// Scroll corresponding entry into view
+	portfolioEntries[evt.target.param].scrollIntoView();
+}
+
 // ===================SECTION===================
 
 const sections = document.querySelectorAll("section");
