@@ -337,8 +337,28 @@ section {
 			// Bold weight for colours
 			font-weight: bold;
 			cursor: pointer;
-			&:hover {
-				color: white;
+			position: relative;
+			// Push in front of pseudo
+			z-index: 1;
+			// Hide pseudo overflow
+			overflow: hidden;
+
+			&::before {
+				@include pseudo();
+				background-color: orange;
+				// Push to back
+				z-index: -1;
+				transform: skewX(-40deg) scaleX(0);
+				transform-origin: right;
+				width: 200%;
+				left: -25%;
+				transition: transform 320ms ease-in;
+			}
+
+			&:hover::before {
+				transform: skewX(-40deg) scaleX(1);
+				// Swap transform-origin on mouse leave with pure CSS!
+				transform-origin: left;
 			}
 		}
 	}
