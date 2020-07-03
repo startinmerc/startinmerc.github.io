@@ -295,6 +295,7 @@ sections.forEach((section,index)=>{
 	});
 });
 
+
 // =================CONTACT GHOST=================
 
 const ghostTimeline = gsap.timeline({paused: true});
@@ -309,6 +310,7 @@ function buildGhostTimeline() {
 
 function getShadowTimeline() {
 	return gsap.to('.ghost__shadow', {
+		// Animate SVG Path attributes
 		attr: { rx: '30px', ry: '5px' },
 		repeat: -1,
 		yoyo: true,
@@ -318,7 +320,9 @@ function getShadowTimeline() {
 }
 
 function getBlinkTimeline() {
+	// Independent timeline to animate eye blinking
 	let tl = gsap.timeline({ repeat: -1, repeatDelay: 2, defaults: {duration: 0.18} });
+	// Attribute not scale to avoid line distortion
 	tl.to('.ghost__eye', { attr: { ry: '0px' } });
 	tl.to('.ghost__eye', { attr: { ry: '12.5px' } });
 	tl.to('.ghost__eye', { attr: { ry: '0px' } });
@@ -344,6 +348,7 @@ function getEyeMove(element) {
 
 function eyeMove(e) {
 	gsap.to(".ghost__eye", {
+		// Coordinates within element
 		x: e.layerX / 100,
 		y: e.layerY / 30,
 		ease: "linear",
