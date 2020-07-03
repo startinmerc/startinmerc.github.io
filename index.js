@@ -334,3 +334,16 @@ function getFloatTimeline() {
 		duration: 1
 	});
 }
+
+function getEyeMove(element) {
+	element.addEventListener('mousemove', eyeMove);
+}
+
+function eyeMove(e) {
+	gsap.to(".ghost__eye", {
+		x: e.layerX / 100,
+		y: e.layerY / 30,
+		ease: "linear",
+		duration: 0.2
+	});
+}
