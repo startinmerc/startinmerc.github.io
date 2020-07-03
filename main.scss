@@ -254,7 +254,7 @@ section {
 			overflow: unset;
 		}
 	}
-	> div {
+	.section-container {
 		background: white;
 		border: $border;
 		border-top: none;
@@ -276,7 +276,7 @@ section {
 // ==================ABOUT SECTION==================
 
 #about {
-	> div {
+	.section-container {
 		p:first-of-type {
 			hyphens: auto;
 		}
@@ -286,7 +286,7 @@ section {
 // =================CONTACT SECTION=================
 
 #contact {
-	> div {
+	.section-container {
 		padding-bottom: 15vh;
 		p:first-of-type {
 			@media(max-width: $mobile){
@@ -320,6 +320,9 @@ section {
 // ==================PORTFOLIO==================
 
 #portfolio {
+	.section-container {
+		padding: 0;
+	}
 
 	.button-grid {
 		// Responsive grid layout for buttons

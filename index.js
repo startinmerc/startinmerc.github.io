@@ -269,7 +269,7 @@ sections.forEach((section,index)=>{
 	// Get split characters from header
 	let headerChars = section.querySelectorAll(".char");
 	// Get content wrapper for section
-	let headerText = section.querySelector("div");
+	let headerText = section.querySelector(".section-container");
 	// Random colour header characters
 	headerChars.forEach(char => {
 		char.classList.add(getRandomColor());
