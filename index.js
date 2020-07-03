@@ -111,11 +111,6 @@ const trans = [
 	(target)=>(null)
 ];
 
-// Returns random transform
-function getRandomTransform() {
-	return trans[Math.floor(Math.random() * trans.length)];
-}
-
 // List of all split characters in #hero
 const chars = document.querySelectorAll("#hero .char");
 // List of all split words in #hero
@@ -131,6 +126,11 @@ function getHeroGSAP(){
 	buildCharacterAnimation(chars);
 	// Build ScrollTrigger timeline for #hero characters
 	buildScrollTimeline(words);
+}
+
+// Returns random transform tween
+function getRandomTransform() {
+	return trans[Math.floor(Math.random() * trans.length)];
 }
 
 // Expects array of characters
@@ -215,6 +215,7 @@ function buildCharacterScrollAnimation(char,charIndex){
 
 // ==================NAV SLIDER==================
 
+// Find <nav>
 const nav = document.querySelector("nav");
 
 // Add click listener to toggle min class, i.e show/hide
@@ -226,10 +227,14 @@ function addNavListener(){
 
 // =================PORTFOLIO=================
 
+// Get all portfolio buttons
 const portfolioButtons = document.querySelectorAll(".button-grid button");
-const portfolioEntryHeaders = document.querySelectorAll(".portfolio-entry__title");
+// Get all portfolio entries
 const portfolioEntries = document.querySelectorAll(".portfolio-entry");
+// Get all portfolio entry titles
+const portfolioEntryHeaders = document.querySelectorAll(".portfolio-entry__title");
 
+// Add click listeners to all portfolio buttons
 function addButtonListeners() {
 	portfolioButtons.forEach((btn, ind) => {
 		// Add index as parameter on button
@@ -239,6 +244,12 @@ function addButtonListeners() {
 	});
 }
 
+function portClick(evt) {
+	// Scroll corresponding entry into view
+	portfolioEntries[evt.target.param].scrollIntoView();
+}
+
+// Add random colors to matching buttons & entry headers
 function addPortColors() {
 	portfolioButtons.forEach((btn, ind) => {
 		// Get random color
@@ -248,18 +259,14 @@ function addPortColors() {
 		// Add random color to corresponding entry header
 		try {
 			portfolioEntryHeaders[ind].style.background = rColor;
-		// Hacky, but it works ;)
-		} catch {null};
+			// Hacky, but it works ;)
+		} catch { null };
 	})
-}
-
-function portClick(evt) {
-	// Scroll corresponding entry into view
-	portfolioEntries[evt.target.param].scrollIntoView();
 }
 
 // ===================SECTION===================
 
+// Get all <section> elements
 const sections = document.querySelectorAll("section");
 
 // Builds GSAP ScrollTrigger timeline for each section
@@ -328,15 +335,17 @@ function buildSectionScrolls(){
 
 // =================CONTACT GHOST=================
 
+// Create GSAP timeline for SVG Ghost
 const ghostTimeline = gsap.timeline({paused: true});
 
+// Assemble all ghost tweens to timeline
 function buildGhostTimeline() {
 	ghostTimeline.add(getShadowTween(), 0);
 	ghostTimeline.add(getBlinkTimeline(), 0);
 	ghostTimeline.add(getFloatTween(), 0);
 }
 
-function getShadowTimeline() {
+// Animates shadow
 function getShadowTween() {
 	return gsap.to('.ghost__shadow', {
 		// Animate SVG Path attributes
@@ -348,6 +357,7 @@ function getShadowTween() {
 	});
 }
 
+// Independent blink timeline
 function getBlinkTimeline() {
 	// Independent timeline to animate eye blinking
 	let tl = gsap.timeline({ repeat: -1, repeatDelay: 2, defaults: {duration: 0.18} });
@@ -372,10 +382,13 @@ function getFloatTween() {
 	});
 }
 
+// Adds mouse move listener to element for ghost eye movement
+// Called by onEnter of #contact ScrollTrigger
 function getEyeMove(element) {
 	element.addEventListener('mousemove', eyeMove);
 }
 
+// Offsets eyes slightly based on cursor position in given element
 function eyeMove(e) {
 	gsap.to(".ghost__eye", {
 		// Coordinates within element
