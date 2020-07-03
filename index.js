@@ -210,7 +210,7 @@ function addButtonListeners() {
 		// Add index as parameter on button
 		btn.param = ind;
 		// Add click listener to button
-		btn.addEventListener("click", portClick, false);
+		btn.addEventListener("click", portClick);
 	});
 }
 
