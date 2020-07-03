@@ -417,6 +417,9 @@ section {
 		// Change to column on mobile
 		@media(max-width: $mobile) {
 			flex-direction: column;
+			a {
+				margin-bottom: 1em;
+			}
 		}
 	}
 
