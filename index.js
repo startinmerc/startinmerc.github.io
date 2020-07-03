@@ -1,27 +1,12 @@
+// =========GLOBAL TRIGGER FUNCTIONS=========
+
 // Manipulates DOM so needs to be called first
 Splitting();
-
-// ================GLOBAL DEFS================
-
-// Array of color classes
-const colors = [
-	'red',
-	'blue',
-	'green',
-	'yellow'
-];
-
-// Returns random color class name
-function getRandomColor() {
-	return colors[Math.floor(Math.random() * colors.length)];
-}
-
-// =========GLOBAL TRIGGER FUNCTIONS=========
 
 // Trigger all JavaScript when page is ready
 document.addEventListener('DOMContentLoaded', ready);
 
-function ready(){
+function ready() {
 	// Build all GSAP timelines for #hero
 	getHeroGSAP();
 	// Add click listener for nav show/hide
@@ -36,6 +21,21 @@ function ready(){
 	buildSectionScrolls();
 	// Build all GSAP timelines for SVG Ghost
 	buildGhostTimeline();
+}
+
+// ================COLOUR DEFS================
+
+// Array of color classes
+const colors = [
+	'red',
+	'blue',
+	'green',
+	'yellow'
+];
+
+// Returns random color class name
+function getRandomColor() {
+	return colors[Math.floor(Math.random() * colors.length)];
 }
 
 // ==================LINKS==================
