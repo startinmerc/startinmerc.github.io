@@ -1,3 +1,6 @@
+// Manipulates DOM so needs to be called first
+Splitting();
+
 // ================GLOBAL DEFS================
 
 // Array of color classes
@@ -13,14 +16,33 @@ function getRandomColor() {
 	return colors[Math.floor(Math.random() * colors.length)];
 }
 
-// Split chars/words
-Splitting();
+// =========GLOBAL TRIGGER FUNCTIONS=========
+
+// Trigger all JavaScript when page is ready
+document.addEventListener('DOMContentLoaded', ready);
+
+function ready(){
+	// Build all GSAP timelines for #hero
+	getHeroGSAP();
+	// Add click listener for nav show/hide
+	addNavListener();
+	// Add click listeners for buttons
+	addButtonListeners();
+	// Add colors to buttons & headers in portfolio
+	addPortColors();
+	// Add link styling
+	addLinkHovers();
+	// Build <section> ScrollTrigger animations
+	buildSectionScrolls();
+	// Build all GSAP timelines for SVG Ghost
+	buildGhostTimeline();
+}
 
 // ==================LINKS==================
 
 // Grab all links
 const links = document.querySelectorAll("a");
-addLinkHovers();
+
 // Adds link interaction styling
 function addLinkHovers() {
 	links.forEach((a) => {
@@ -103,10 +125,13 @@ const head = document.querySelector("#head");
 // Get #head chars
 const headChars = document.querySelectorAll("#head .char");
 
-// Build a gsap timeline for inital #hero transforms
-buildCharacterAnimation(chars);
-// Build ScrollTrigger timeline for #hero characters
-buildScrollTimeline(words);
+// Master function to get all #hero GSAP
+function getHeroGSAP(){
+	// Build a gsap timeline for inital #hero transforms
+	buildCharacterAnimation(chars);
+	// Build ScrollTrigger timeline for #hero characters
+	buildScrollTimeline(words);
+}
 
 // Expects array of characters
 function buildCharacterAnimation(chars){
@@ -192,18 +217,18 @@ function buildCharacterScrollAnimation(char,charIndex){
 
 const nav = document.querySelector("nav");
 
-nav.addEventListener("click", ()=>{
-	nav.classList.toggle("min");
-});
+// Add click listener to toggle min class, i.e show/hide
+function addNavListener(){
+	nav.addEventListener("click", () => {
+		nav.classList.toggle("min");
+	});
+}
 
 // =================PORTFOLIO=================
 
 const portfolioButtons = document.querySelectorAll(".button-grid button");
 const portfolioEntryHeaders = document.querySelectorAll(".portfolio-entry__title");
 const portfolioEntries = document.querySelectorAll(".portfolio-entry");
-
-addButtonListeners();
-addPortColors();
 
 function addButtonListeners() {
 	portfolioButtons.forEach((btn, ind) => {
@@ -237,45 +262,49 @@ function portClick(evt) {
 
 const sections = document.querySelectorAll("section");
 
-sections.forEach((section,index)=>{
-	// Create new scroll timeline
-	let sectionScrollTimeline = gsap.timeline({
-		scrollTrigger: {
-			// Scrub animation with scroll in real time
-			scrub: 0.2,
-			// Watch section element as trigger
-			trigger: section,
-			// Start timeline when scroller is 80% down element
-			start: "top +=80%",
-			// End timeline when element is 25% from top of screen
-			end: "top 25%",
-			// Trigger header animation on enter
-			onEnter: ()=>{
-				sectionTimeline.restart();
-				// Play ghost timeline if contact section
-				index === 2 && ghostTimeline.play();
-				index === 2 && getEyeMove(section);
-			},
-			// Reverse header animation when element scrolled out of view
-			onLeaveBack: ()=>{
-				sectionTimeline.reverse();
-				// Pause ghost tomeline if contact section
-				index === 2 && ghostTimeline.pause();
+// Builds GSAP ScrollTrigger timeline for each section
+function buildSectionScrolls(){
+	sections.forEach((section, index) => {
+		// Create new scroll timeline
+		let sectionScrollTimeline = gsap.timeline({
+			scrollTrigger: {
+				// Scrub animation with scroll in real time
+				scrub: 0.2,
+				// Watch section element as trigger
+				trigger: section,
+				// Start timeline when scroller is 80% down element
+				start: "top +=80%",
+				// End timeline when element is 25% from top of screen
+				end: "top 25%",
+				// Trigger header animation on enter
+				onEnter: () => {
+					sectionTimeline.restart();
+					// Play ghost timeline if contact section
+					index === 2 && ghostTimeline.play();
+					index === 2 && getEyeMove(section);
+				},
+				// Reverse header animation when element scrolled out of view
+				onLeaveBack: () => {
+					sectionTimeline.reverse();
+					// Pause ghost timeline if contact section
+					index === 2 && ghostTimeline.pause();
+				}
 			}
-		}
-	});
-	// Create section header timeline
-	let sectionTimeline = gsap.timeline();
-	// Get split characters from header
-	let headerChars = section.querySelectorAll(".char");
-	// Get content wrapper for section
-	let headerText = section.querySelector(".section-container");
-	// Random colour header characters
-	headerChars.forEach(char => {
-		char.classList.add(getRandomColor());
-	});
-	// Translate characters from +100% to 0%
-	sectionTimeline.fromTo(headerChars, {
+		});
+		// Create section header timeline
+		let sectionTimeline = gsap.timeline();
+		// Get split characters from header
+		let headerChars = section.querySelectorAll(".char");
+		// Get content wrapper for section
+		let headerText = section.querySelector(".section-container");
+
+		// Random colour header characters
+		headerChars.forEach(char => {
+			char.classList.add(getRandomColor());
+		});
+
+		// Translate characters from +100% to 0%
+		sectionTimeline.fromTo(headerChars, {
 			y: "100%"
 		}, {
 			y: "0%",
@@ -285,30 +314,30 @@ sections.forEach((section,index)=>{
 			// Stagger letters
 			stagger: 0.1
 		}
-	);
+		);
 
-	// Translate content wrapper to visible on scroll
-	sectionScrollTimeline.fromTo(headerText, {
-		y: "-100%"
-	},{
-		y: "0%"
+		// Translate content wrapper to visible on scroll
+		sectionScrollTimeline.fromTo(headerText, {
+			y: "-100%"
+		}, {
+			y: "0%"
+		});
 	});
-});
+}
 
 
 // =================CONTACT GHOST=================
 
 const ghostTimeline = gsap.timeline({paused: true});
 
-buildGhostTimeline();
-
 function buildGhostTimeline() {
-	ghostTimeline.add(getShadowTimeline(), 0);
+	ghostTimeline.add(getShadowTween(), 0);
 	ghostTimeline.add(getBlinkTimeline(), 0);
-	ghostTimeline.add(getFloatTimeline(), 0);
+	ghostTimeline.add(getFloatTween(), 0);
 }
 
 function getShadowTimeline() {
+function getShadowTween() {
 	return gsap.to('.ghost__shadow', {
 		// Animate SVG Path attributes
 		attr: { rx: '30px', ry: '5px' },
@@ -330,7 +359,8 @@ function getBlinkTimeline() {
 	return tl;
 }
 
-function getFloatTimeline() {
+// Float tween for whole ghost SVG group
+function getFloatTween() {
 	return gsap.fromTo('#ghost', { 
 		y: '-10px'
 	 },{
