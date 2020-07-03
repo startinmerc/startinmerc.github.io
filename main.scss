@@ -364,6 +364,12 @@ section {
 		width: 100%;
 		height: auto;
 		z-index: -1;
+
+		@media(max-width: $mobile) {
+			height: 100%;
+			width: auto;
+			left: -50%;
+		}
 	}
 
 	.portfolio-entry__title {
