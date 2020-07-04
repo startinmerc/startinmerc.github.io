@@ -75,28 +75,29 @@ nav {
 		// Equal radius to width creates a semicircle
 		border-radius: 25vh 25vh 0 0;
 		transform-origin: center;
-		// Move button to halfway down page & rotate
+		// Move button to quarter down page & rotate
 		position: absolute;
+		top: 12.5vh;
 		left: 0;
 		transform: translateX(calc(-75% + 5px)) rotate(-90deg);
 		font-size: 2rem;
 		cursor: pointer;
 		&::before {
 			@include pseudo();
+			// Double height to make equal width & height
+			height: 200%;
 			background-color: orange;
 			// Pull behind button
 			z-index: -1;
-			// Make semicircle
-			border-radius: 25vw 25vw 0 0;
-			// Stretch to just over full window height
-			transform: scaleX(4.01);
+			// Make circle
+			border-radius: 50%;
 			transition: all var(--nav-transition-time) ease-in;
 			// Add border to 3 sides
 			border: $border;
 			border-bottom: none;
 			border-color: orange;
 			// Move to account for border
-			top: -8px;
+			top: -13px;
 			left: -8px;
 			@media(max-width: $mobile){
 				border-color: black;
