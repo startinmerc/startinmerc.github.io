@@ -91,17 +91,15 @@ nav {
 			z-index: -1;
 			// Make circle
 			border-radius: 50%;
+			// Rotate to black bordered side
+			transform: rotate(-45deg);
 			transition: all var(--nav-transition-time) ease-in;
-			// Add border to 3 sides
+			// Add half orange, half black border
 			border: $border;
-			border-bottom: none;
-			border-color: orange;
+			border-color: black black orange orange;
 			// Move to account for border
 			top: -13px;
 			left: -8px;
-			@media(max-width: $mobile){
-				border-color: black;
-			}
 		}
 	}
 	&.min {
@@ -115,20 +113,20 @@ nav {
 		button {
 			transform: translateX(-75%) rotate(-90deg);
 			&::before {
-				transform: scaleY(1);
+				transform: rotate(135deg);
+			}
+		}
+		&:hover, &:focus-within {
+			button::before {
+				transform: rotate(-45deg);
 			}
 		}
 	}
 	a {
 		// Chunk up nav links
 		padding: 5vh 10px;
-		// Add some wiggle room for button pseudo joint
-		margin-left: 10px;
-	}
-	&:hover, &:focus-within {
-		button::before {
-			border-color: black;
-		}
+		// Position over button pseudo
+		z-index: 1;
 	}
 }
 
