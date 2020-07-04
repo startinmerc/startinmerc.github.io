@@ -45,14 +45,27 @@ const links = document.querySelectorAll("a");
 
 // Adds link interaction styling
 function addLinkHovers() {
-	links.forEach((a) => {
-		// Define transition, with duration dictated by element width
-		a.style.transition = `box-shadow ${a.offsetWidth}ms ease-in`;
-		a.onmouseenter = () => linkEnter(a);
-		a.onmouseleave = () => linkLeave(a);
-		a.onfocus = () => linkEnter(a);
-		a.onblur = () => linkLeave(a);
-	});
+	// Detect if Chrome
+	const isChrome = !!window.chrome;
+
+	if(isChrome){
+		links.forEach(a => {
+			a.style.transition = `background 230ms ease-in`;
+			a.onmouseenter = ()=> a.style.backgroundColor = "yellow";
+			a.onmouseleave = ()=> a.style.backgroundColor = "transparent";
+			a.onfocus = ()=> a.style.backgroundColor = "yellow";
+			a.onblur = ()=> a.style.backgroundColor = "transparent";
+		})
+	} else {
+		links.forEach((a) => {
+			// Define transition, with duration dictated by element width
+			a.style.transition = `box-shadow ${a.offsetWidth}ms ease-in`;
+			a.onmouseenter = () => linkEnter(a);
+			a.onmouseleave = () => linkLeave(a);
+			a.onfocus = () => linkEnter(a);
+			a.onblur = () => linkLeave(a);
+		});
+	}
 }
 
 function linkEnter(element) {
