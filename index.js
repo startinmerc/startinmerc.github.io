@@ -41,8 +41,7 @@ function getRandomColor() {
 // ==================LINKS==================
 
 // Grab all links
-const links = document.querySelectorAll("a");
-
+const links = Array.from(document.querySelectorAll("a:not(.nav-link"));
 // Adds link interaction styling
 function addLinkHovers() {
 	// Detect if Chrome

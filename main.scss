@@ -102,6 +102,15 @@ nav {
 			left: -8px;
 		}
 	}
+
+	.nav-link {
+		// Chunk up nav links
+		padding: 5vh 10px;
+		// Position over button pseudo
+		z-index: 1;
+		// Beefy font size
+		font-size: calc(var(--hero-height) * 0.5);
+	}
 	&.min {
 		// Push off side on minimized
 		transform: translateX(100%);
@@ -122,12 +131,6 @@ nav {
 				transform: rotate(-45deg);
 			}
 		}
-	}
-	a {
-		// Chunk up nav links
-		padding: 5vh 10px;
-		// Position over button pseudo
-		z-index: 1;
 	}
 }
 
