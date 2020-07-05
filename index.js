@@ -44,30 +44,39 @@ function getRandomColor() {
 const links = Array.from(document.querySelectorAll("a:not(.nav-link"));
 // Adds link interaction styling
 function addLinkHovers() {
-	// Detect if Chrome
-	const isChrome = !!window.chrome;
+	// Detect if Firefox,
+	// Horz if true, Vert if not
+	const isMoz = navigator.userAgent.indexOf("Firefox") > 0;
 
-	if(isChrome){
+	if (!isMoz) {
 		links.forEach(a => {
-			a.style.transition = `background 230ms ease-in`;
-			a.onmouseenter = ()=> a.style.backgroundColor = "yellow";
-			a.onmouseleave = ()=> a.style.backgroundColor = "transparent";
-			a.onfocus = ()=> a.style.backgroundColor = "yellow";
-			a.onblur = ()=> a.style.backgroundColor = "transparent";
+			// Define transition, with duration dictated by element width
+			a.style.transition = `box-shadow 230ms ease-in`;
+			a.onmouseenter = () => horzLinkEnter(a);
+			a.onmouseleave = () => linkLeave(a);
+			a.onfocus = () => horzLinkEnter(a);
+			a.onblur = () => linkLeave(a);
 		})
 	} else {
 		links.forEach((a) => {
 			// Define transition, with duration dictated by element width
 			a.style.transition = `box-shadow ${a.offsetWidth}ms ease-in`;
-			a.onmouseenter = () => linkEnter(a);
+			a.onmouseenter = () => vertLinkEnter(a);
 			a.onmouseleave = () => linkLeave(a);
-			a.onfocus = () => linkEnter(a);
+			a.onfocus = () => vertLinkEnter(a);
 			a.onblur = () => linkLeave(a);
 		});
 	}
 }
 
-function linkEnter(element) {
+function horzLinkEnter(element) {
+	// Adds inset box shadow to link from bottom
+	element.style.boxShadow = -`0px -${element.offsetHeight}px yellow inset`;
+	element.style.webkitBoxShadow = `0px -${element.offsetHeight}px yellow inset`;
+	element.style.mozBoxShadow = `0px -${element.offsetHeight}px yellow inset`;
+}
+
+function vertLinkEnter(element) {
 	// Adds inset box shadow to link offset by width of element
 	element.style.boxShadow = `${element.offsetWidth}px 0 yellow inset`;
 	element.style.webkitBoxShadow = `${element.offsetWidth}px 0 yellow inset`;
@@ -76,7 +85,6 @@ function linkEnter(element) {
 
 function linkLeave(element) {
 	// Resets box shadow to invisible
-	element.style.boxShadow = `0px 0 yellow `;
 	element.style.boxShadow = `0px 0 yellow inset`;
 	element.style.webkitBoxShadow = `0px 0 yellow inset`;
 	element.style.mozBoxShadow = `0px 0 yellow inset`;
