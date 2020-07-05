@@ -52,7 +52,9 @@ nav {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	font-size: 2rem;
+
 	&::before {
 		@include pseudo();
 		// Shadow over page to extend click listener
@@ -62,6 +64,7 @@ nav {
 		background-color: black;
 		transition: opacity var(--nav-transition-time) ease-out;
 	}
+	
 	button {
 		// Style resets
 		padding: 0;
@@ -120,11 +123,13 @@ nav {
 	&.min {
 		// Push off side on minimized
 		transform: translateX(100%);
+
 		&::before {
 			// Hide & minimize shadow
 			transform: scaleX(0);
 			opacity: 0;
 		}
+
 		button {
 			transform: translateX(-75%) rotate(-90deg);
 			&::before {
@@ -132,7 +137,8 @@ nav {
 				transform: rotate(135deg) scale(1);
 			}
 		}
-		&:hover, &:focus-within {
+
+		&:hover {
 			button::before {
 				transform: rotate(-45deg);
 			}
