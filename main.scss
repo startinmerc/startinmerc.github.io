@@ -78,7 +78,7 @@ nav {
 		position: absolute;
 		top: 12.5vh;
 		left: 0;
-		transform: translateX(calc(-75% + 5px)) rotate(-90deg);
+		transform: translate(-75%,32.5vh) rotate(-90deg);
 		font-size: 2rem;
 		cursor: pointer;
 		&::before {
@@ -91,8 +91,8 @@ nav {
 			// Make circle
 			border-radius: 50%;
 			// Rotate to black bordered side
-			transform: rotate(-45deg);
 			transition: all var(--nav-transition-time) ease-in;
+			transform: rotate(-45deg) scale(6) translate(-25%,25%);
 			// Add half orange, half black border
 			border: $border;
 			border-color: black black orange orange;
@@ -112,7 +112,8 @@ nav {
 		button {
 			transform: translateX(-75%) rotate(-90deg);
 			&::before {
-				transform: rotate(135deg);
+				transition-delay: 0ms;
+				transform: rotate(135deg) scale(1);
 			}
 		}
 		&:hover, &:focus-within {
