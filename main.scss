@@ -77,9 +77,11 @@ nav {
 		position: absolute;
 		top: 12.5vh;
 		left: 0;
+		transition: transform var(--nav-transition-time) ease-in;
 		transform: translate(-75%,32.5vh) rotate(-90deg);
 		font-size: 2rem;
 		cursor: pointer;
+
 		&::before {
 			@include pseudo();
 			// Double height to make equal width & height
@@ -90,8 +92,8 @@ nav {
 			// Make circle
 			border-radius: 50%;
 			// Rotate to black bordered side
-			transition: all var(--nav-transition-time) ease-in;
 			transform: rotate(-45deg) scale(6) translate(-25%,25%);
+			transition: transform var(--nav-transition-time) ease-in;
 			// Add half orange, half black border
 			border: $border;
 			border-color: black black orange orange;
