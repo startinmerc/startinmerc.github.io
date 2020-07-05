@@ -54,7 +54,6 @@ nav {
 	flex-direction: column;
 	justify-content: center;
 	font-size: 2rem;
-	border-left: $border;
 	&::before {
 		@include pseudo();
 		// Shadow over page to extend click listener
@@ -98,7 +97,7 @@ nav {
 			border: $border;
 			border-color: black black orange orange;
 			// Move to account for border
-			top: -13px;
+			top: -8px;
 			left: -8px;
 		}
 	}
