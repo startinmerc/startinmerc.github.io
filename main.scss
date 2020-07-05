@@ -399,25 +399,6 @@ section {
 	// Border divider for entries
 	border-top: $border;
 
-	.portfolio-entry__img  {
-		// Filter background image
-		@include image-filter();
-		// Position to cover entry & push to back
-		position: absolute;
-		top: 0;
-		left: 0;
-		opacity: 0.2;
-		width: 100%;
-		height: auto;
-		z-index: -1;
-
-		@media(max-width: $mobile) {
-			height: 100%;
-			width: auto;
-			left: -50%;
-		}
-	}
-
 	.portfolio-entry__title {
 		// Bump up title size
 		font-size: 2rem;
