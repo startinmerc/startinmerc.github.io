@@ -110,6 +110,12 @@ nav {
 		z-index: 1;
 		// Beefy font size
 		font-size: calc(var(--hero-height) * 0.5);
+		transition: transform 270ms ease-in;
+		transform: translateX(0%);
+		// Stagger slide-in of links
+		&:nth-of-type(1){transition-delay: 100ms};
+		&:nth-of-type(2){transition-delay: 200ms};
+		&:nth-of-type(3){transition-delay: 300ms};
 	}
 	&.min {
 		// Push off side on minimized
@@ -130,6 +136,14 @@ nav {
 			button::before {
 				transform: rotate(-45deg);
 			}
+		}
+
+		.nav-link {
+			// Translate off screen for slide-in
+			transform: translateX(100vw);
+			&:nth-of-type(1){transition-delay: 200ms};
+			&:nth-of-type(2){transition-delay: 100ms};
+			&:nth-of-type(3){transition-delay: 000ms};
 		}
 	}
 }
