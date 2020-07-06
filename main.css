@@ -11,10 +11,6 @@ h1, h2, h3, h4, h4, .display {
   font-family: 'Major Mono Display', monospace;
 }
 
-a {
-  border-collapse: separate;
-}
-
 .red {
   color: red;
 }
@@ -243,8 +239,8 @@ nav.min .nav-link:nth-of-type(3) {
   top: 2%;
   left: 2%;
   z-index: 1000;
-  -webkit-transform: translateY(-120%);
-          transform: translateY(-120%);
+  -webkit-transform: translateY(-200%);
+          transform: translateY(-200%);
   -webkit-transition: -webkit-transform 380ms ease-in;
   transition: -webkit-transform 380ms ease-in;
   transition: transform 380ms ease-in;
