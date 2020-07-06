@@ -11,6 +11,10 @@ h1, h2, h3, h4, h4, .display {
   font-family: 'Major Mono Display', monospace;
 }
 
+a {
+  border-collapse: separate;
+}
+
 .red {
   color: red;
 }
@@ -37,7 +41,6 @@ nav {
   top: 0;
   right: 0;
   z-index: 1000;
-  background: orange;
   height: 100vh;
   -webkit-transition: -webkit-transform var(--nav-transition-time) ease-in;
   transition: -webkit-transform var(--nav-transition-time) ease-in;
@@ -53,8 +56,10 @@ nav {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 2rem;
-  border-left: 8px solid black;
 }
 
 nav::before {
@@ -65,11 +70,11 @@ nav::before {
   height: 100%;
   width: 100%;
   width: 100vw;
-  left: -100vw;
+  left: -50vw;
   opacity: 0.2;
   background-color: black;
-  -webkit-transition: opacity var(--nav-transition-time) ease-out;
-  transition: opacity var(--nav-transition-time) ease-out;
+  -webkit-transition: opacity var(--nav-transition-time) ease-out var(--nav-transition-time);
+  transition: opacity var(--nav-transition-time) ease-out var(--nav-transition-time);
 }
 
 nav button {
@@ -83,9 +88,14 @@ nav button {
   -webkit-transform-origin: center;
           transform-origin: center;
   position: absolute;
+  top: 12.5vh;
   left: 0;
-  -webkit-transform: translateX(calc(-75% + 5px)) rotate(-90deg);
-          transform: translateX(calc(-75% + 5px)) rotate(-90deg);
+  -webkit-transition: -webkit-transform var(--nav-transition-time) ease-in;
+  transition: -webkit-transform var(--nav-transition-time) ease-in;
+  transition: transform var(--nav-transition-time) ease-in;
+  transition: transform var(--nav-transition-time) ease-in, -webkit-transform var(--nav-transition-time) ease-in;
+  -webkit-transform: translate(-75%, 32.5vh) rotate(-90deg);
+          transform: translate(-75%, 32.5vh) rotate(-90deg);
   font-size: 2rem;
   cursor: pointer;
 }
@@ -97,24 +107,54 @@ nav button::before {
   left: 0;
   height: 100%;
   width: 100%;
+  height: 200%;
   background-color: orange;
   z-index: -1;
-  border-radius: 25vw 25vw 0 0;
-  -webkit-transform: scaleX(4.01);
-          transform: scaleX(4.01);
-  -webkit-transition: all var(--nav-transition-time) ease-in;
-  transition: all var(--nav-transition-time) ease-in;
+  border-radius: 50%;
+  -webkit-transform: rotate(-45deg) scale(6) translate(-25%, 25%);
+          transform: rotate(-45deg) scale(6) translate(-25%, 25%);
+  -webkit-transition: -webkit-transform var(--nav-transition-time) ease-in;
+  transition: -webkit-transform var(--nav-transition-time) ease-in;
+  transition: transform var(--nav-transition-time) ease-in;
+  transition: transform var(--nav-transition-time) ease-in, -webkit-transform var(--nav-transition-time) ease-in;
   border: 8px solid black;
-  border-bottom: none;
-  border-color: orange;
+  border-color: black black orange orange;
   top: -8px;
   left: -8px;
 }
 
-@media (max-width: 500px) {
-  nav button::before {
-    border-color: black;
-  }
+nav .nav-link {
+  padding: 5vh 10px;
+  z-index: 1;
+  font-size: calc(var(--hero-height) * 0.5);
+  -webkit-transition: -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
+  transition: -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
+  transition: transform 270ms ease-in, box-shadow 270ms ease-in;
+  transition: transform 270ms ease-in, box-shadow 270ms ease-in, -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  -webkit-box-shadow: 0px 0px yellow inset;
+          box-shadow: 0px 0px yellow inset;
+}
+
+nav .nav-link:nth-of-type(1) {
+  -webkit-transition-delay: 100ms;
+          transition-delay: 100ms;
+}
+
+nav .nav-link:nth-of-type(2) {
+  -webkit-transition-delay: 200ms;
+          transition-delay: 200ms;
+}
+
+nav .nav-link:nth-of-type(3) {
+  -webkit-transition-delay: 300ms;
+          transition-delay: 300ms;
+}
+
+nav .nav-link:hover {
+  -webkit-box-shadow: -50vw 0px yellow inset;
+          box-shadow: -50vw 0px yellow inset;
 }
 
 nav.min {
@@ -134,17 +174,35 @@ nav.min button {
 }
 
 nav.min button::before {
-  -webkit-transform: scaleY(1);
-          transform: scaleY(1);
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+  -webkit-transform: rotate(135deg) scale(1);
+          transform: rotate(135deg) scale(1);
 }
 
-nav a {
-  padding: 5vh 10px;
-  margin-left: 10px;
+nav.min:hover button::before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
-nav:hover button::before, nav:focus-within button::before {
-  border-color: black;
+nav.min .nav-link {
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
+}
+
+nav.min .nav-link:nth-of-type(1) {
+  -webkit-transition-delay: 200ms;
+          transition-delay: 200ms;
+}
+
+nav.min .nav-link:nth-of-type(2) {
+  -webkit-transition-delay: 100ms;
+          transition-delay: 100ms;
+}
+
+nav.min .nav-link:nth-of-type(3) {
+  -webkit-transition-delay: 000ms;
+          transition-delay: 000ms;
 }
 
 /*====================HERO====================*/
@@ -390,27 +448,6 @@ section .section-container p:last-of-type {
   overflow: hidden;
   text-align: center;
   border-top: 8px solid black;
-}
-
-.portfolio-entry .portfolio-entry__img {
-  -webkit-filter: grayscale(0.6) brightness(2);
-          filter: grayscale(0.6) brightness(2);
-  mix-blend-mode: multiply;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0.2;
-  width: 100%;
-  height: auto;
-  z-index: -1;
-}
-
-@media (max-width: 500px) {
-  .portfolio-entry .portfolio-entry__img {
-    height: 100%;
-    width: auto;
-    left: -50%;
-  }
 }
 
 .portfolio-entry .portfolio-entry__title {
