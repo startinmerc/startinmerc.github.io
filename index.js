@@ -60,7 +60,7 @@ function addLinkHovers() {
 	} else {
 		links.forEach((a) => {
 			// Define transition, with duration dictated by element width
-			a.style.transition = `box-shadow ${a.offsetWidth}ms ease-in`;
+			a.style.transition = `box-shadow ${Math.max(230, a.offsetWidth)}ms ease-in`;
 			a.onmouseenter = () => vertLinkEnter(a);
 			a.onmouseleave = () => linkLeave(a);
 			a.onfocus = () => vertLinkEnter(a);
