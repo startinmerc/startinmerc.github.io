@@ -59,10 +59,10 @@ nav {
 		@include pseudo();
 		// Shadow over page to extend click listener
 		width: 100vw;
-		left: -100vw;
+		left: -50vw;
 		opacity: 0.2;
 		background-color: black;
-		transition: opacity var(--nav-transition-time) ease-out;
+		transition: opacity var(--nav-transition-time) ease-out var(--nav-transition-time);
 	}
 	
 	button {
