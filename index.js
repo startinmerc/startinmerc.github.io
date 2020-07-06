@@ -41,7 +41,7 @@ function getRandomColor() {
 // ==================LINKS==================
 
 // Grab all links
-const links = Array.from(document.querySelectorAll("a:not(.nav-link"));
+const links = Array.from(document.querySelectorAll("a:not(.nav-link)"));
 // Adds link interaction styling
 function addLinkHovers() {
 	// Detect if Firefox,
