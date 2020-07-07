@@ -239,7 +239,7 @@ const nav = document.querySelector("nav");
 // Add click listener to toggle min class, i.e show/hide
 function addNavListener(){
 	nav.addEventListener("click", () => {
-		nav.classList.toggle("min");
+		nav.classList.toggle("max");
 	});
 }
 
