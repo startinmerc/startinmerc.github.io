@@ -319,7 +319,7 @@ const portfolioEntryHeaders = document.querySelectorAll(".portfolio-entry__title
 function addPortColors() {
 	portfolioLinks.forEach((btn, ind) => {
 		// Get random color
-		let rColor = getRandomColor();
+		let rColor = getRandomBgColor();
 		// Add random color to button background
 		btn.style.background = rColor;
 		// Add random color to corresponding entry header
