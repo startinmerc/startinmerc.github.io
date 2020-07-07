@@ -110,6 +110,16 @@ const trans = [
 		});
 		return tl;
 	},
+	function rotateFull(target) {
+		let tl = gsap.to(target, {
+			rotate: "360deg",
+			duration: heroDuration,
+			repeatDelay: 3,
+			repeat: -1,
+			ease: "back.inOut(1.7)"
+		});
+		return tl;
+	},
 	(target)=>(null),
 	(target)=>(null),
 	(target)=>(null),
