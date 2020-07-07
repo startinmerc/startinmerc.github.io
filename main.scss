@@ -514,35 +514,30 @@ footer {
 		"f7 f8 f8"
 		"f7 f9 f10";
 	text-align: center;
-	border-top: $border;
 
 	h3 {
+		// Center in grid cell
+		@include grid-center();
 		font-size: 1.5rem;
-	}
-
-	.footer-links {
-		display: flex;
-		justify-content: space-around;
-
-		@media(max-width: $mobile) {
-			flex-direction: column;
-		}
-	}
-
-	ul {
-		list-style: none;
-		padding: 0;
+		margin: 0;
 	}
 
 	.main-link {
+		// Center in grid cell
+		@include grid-center();
 		font-size: 1.2rem;
-		margin-bottom: 1em;
 	}
 
-	.sub-link {
-		font-size: 1rem;
-		&:first-of-type {
-			margin-top: 0.5em;
+	.sub-link-container {
+		// Clear list styling
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		// Space out links
+		li {
+			margin-bottom: 0.5rem;
 		}
+	}
+
 	}
 }
