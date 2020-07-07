@@ -158,6 +158,8 @@ function getRandomTransform() {
 
 // Create new timeline
 const heroTimeline = gsap.timeline();
+// Create header timeline
+const headerTimeline = gsap.timeline();
 
 // Expects array of characters
 function buildCharacterAnimation(chars){
