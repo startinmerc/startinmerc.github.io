@@ -459,5 +459,7 @@ function colorFooterBlocks() {
 	footerBlocks.forEach(node => {
 		// Assign random background color
 		node.style.background = getRandomBgColor();
+		// Randomise background color on mouseover
+		node.onmouseenter = () => node.style.background = getRandomBgColor();
 	});
 }
