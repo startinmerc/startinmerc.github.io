@@ -554,6 +554,7 @@ footer {
 		@include grid-center();
 		// Half border to combine with cell/outer border
 		border: $half-border;
+		padding: 0.5rem 0;
 		font-size: 1.5rem;
 		margin: 0;
 		// Assign grid areas
@@ -567,6 +568,7 @@ footer {
 		@include grid-center();
 		// Half border to combine with cell/outer border
 		border: $half-border;
+		padding: 0.5rem 0;
 		font-size: 1.2rem;
 		// Assign grid areas
 		&:nth-of-type(1) {grid-area: f4;}
@@ -577,11 +579,11 @@ footer {
 	.sub-link-container {
 		// Half border to combine with cell/outer border
 		border: $half-border;
+		padding: 0.5rem 0;
 		grid-area: f7;
 		// Clear list styling
 		list-style: none;
 		margin: 0;
-		padding: 0;
 		// Space out links
 		li {
 			margin-bottom: 0.5rem;
@@ -591,6 +593,7 @@ footer {
 	.block {
 		// Half border to combine with cell/outer border
 		border: $half-border;
+		padding: 0.5rem 0;
 		// Assign grid areas
 		&:nth-of-type(1){grid-area: f3};
 		&:nth-of-type(2){grid-area: f5};
