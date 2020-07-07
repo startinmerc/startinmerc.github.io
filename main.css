@@ -27,6 +27,22 @@ h1, h2, h3, h4, h4, .display {
   color: yellow;
 }
 
+a {
+  text-decoration: none;
+  -webkit-transition: -webkit-box-shadow 230ms ease-in;
+  transition: -webkit-box-shadow 230ms ease-in;
+  transition: box-shadow 230ms ease-in;
+  transition: box-shadow 230ms ease-in, -webkit-box-shadow 230ms ease-in;
+  -webkit-box-shadow: 0px 0px yellow inset;
+          box-shadow: 0px 0px yellow inset;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+}
+
+a:visited {
+  color: blue;
+}
+
 /*=====================NAV=====================*/
 :root {
   --nav-transition-time: 400ms;
@@ -119,7 +135,7 @@ nav button::before {
   left: -8px;
 }
 
-nav .nav-link {
+nav a {
   padding: 5vh 10px;
   z-index: 1;
   font-size: calc(var(--hero-height) * 0.5);
@@ -133,24 +149,24 @@ nav .nav-link {
           box-shadow: 0px 0px yellow inset;
 }
 
-nav .nav-link:nth-of-type(1) {
+nav a:nth-of-type(1) {
   -webkit-transition-delay: 100ms;
           transition-delay: 100ms;
 }
 
-nav .nav-link:nth-of-type(2) {
+nav a:nth-of-type(2) {
   -webkit-transition-delay: 200ms;
           transition-delay: 200ms;
 }
 
-nav .nav-link:nth-of-type(3) {
+nav a:nth-of-type(3) {
   -webkit-transition-delay: 300ms;
           transition-delay: 300ms;
 }
 
-nav .nav-link:hover {
-  -webkit-box-shadow: -50vw 0px yellow inset;
-          box-shadow: -50vw 0px yellow inset;
+nav a:hover {
+  -webkit-box-shadow: 0px calc((var(--hero-height) + 10vh) * -1) yellow inset;
+          box-shadow: 0px calc((var(--hero-height) + 10vh) * -1) yellow inset;
 }
 
 nav.min {
@@ -181,22 +197,22 @@ nav.min:hover button::before {
           transform: rotate(-45deg);
 }
 
-nav.min .nav-link {
+nav.min a {
   -webkit-transform: translateX(100vw);
           transform: translateX(100vw);
 }
 
-nav.min .nav-link:nth-of-type(1) {
+nav.min a:nth-of-type(1) {
   -webkit-transition-delay: 200ms;
           transition-delay: 200ms;
 }
 
-nav.min .nav-link:nth-of-type(2) {
+nav.min a:nth-of-type(2) {
   -webkit-transition-delay: 100ms;
           transition-delay: 100ms;
 }
 
-nav.min .nav-link:nth-of-type(3) {
+nav.min a:nth-of-type(3) {
   -webkit-transition-delay: 000ms;
           transition-delay: 000ms;
 }
@@ -213,12 +229,12 @@ nav.min .nav-link:nth-of-type(3) {
 }
 
 #hero {
-  margin: 0 auto;
-  width: 98%;
-  min-height: 100vh;
   display: -ms-grid;
   display: grid;
   place-items: center;
+  margin: 0 auto;
+  width: 98%;
+  min-height: 100vh;
 }
 
 #hero * {
@@ -290,14 +306,14 @@ section aside {
 
 section aside.aside--left {
   float: left;
-  margin: calc(0px - var(--section-padding) - 8px) 0px 0px calc(0px - var(--section-padding) - 8px);
+  margin: calc(0px - var(--section-padding) - 8px) 5px 5px calc(0px - var(--section-padding) - 8px);
   shape-outside: polygon(100% 0%, 0% 100%, 50% 100%, 83% 82%, 100% 50%);
   border-radius: 0 0 50% 0;
 }
 
 section aside.aside--right {
   float: right;
-  margin: calc(0px - var(--section-padding) - 8px) calc(0px - var(--section-padding) - 8px) 0px 0px;
+  margin: calc(0px - var(--section-padding) - 8px) calc(0px - var(--section-padding) - 8px) 5px 5px;
   shape-outside: polygon(0% 0%, 100% 100%, 50% 100%, 15% 81%, 0% 50%);
   border-radius: 0 0 0 50%;
 }
@@ -398,11 +414,15 @@ section .section-container p:last-of-type {
   background-color: black;
 }
 
-#portfolio .button-grid button {
+#portfolio .button-grid a {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
   border: none;
   text-align: center;
   padding: 1em 0;
   font-size: 1rem;
+  color: black;
   font-weight: bold;
   cursor: pointer;
   position: relative;
@@ -410,7 +430,7 @@ section .section-container p:last-of-type {
   overflow: hidden;
 }
 
-#portfolio .button-grid button::before {
+#portfolio .button-grid a::before {
   content: "";
   position: absolute;
   top: 0;
@@ -431,7 +451,7 @@ section .section-container p:last-of-type {
   transition: transform 320ms ease-in, -webkit-transform 320ms ease-in;
 }
 
-#portfolio .button-grid button:hover::before {
+#portfolio .button-grid a:hover::before {
   -webkit-transform: skewX(-40deg) scaleX(1);
           transform: skewX(-40deg) scaleX(1);
   -webkit-transform-origin: left;
