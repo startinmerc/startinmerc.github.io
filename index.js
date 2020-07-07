@@ -172,7 +172,7 @@ function buildCharacterAnimation(chars){
 		// Add transform to timeline at index / 10 seconds
 		heroTimeline.add(rTrans(v), i / 10);
 		// Add color class to character
-		v.classList.add(rColor);
+		v.style.color = rColor;
 		// Add same transition & color to corresponding #head character
 		addToHeader(rColor,rTrans,i);
 	});
