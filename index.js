@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', ready);
 function ready() {
 	// Build all GSAP timelines for #hero
 	getHeroGSAP();
-	// Add click listeners for buttons
-	addButtonListeners();
 	// Build nav timelines & add click listener to nav
 	buildNav();
 	// Add colors to buttons & headers in portfolio
@@ -287,39 +285,19 @@ function buildNavTimelines() {
 // =================PORTFOLIO=================
 
 // Get all portfolio buttons
-const portfolioButtons = document.querySelectorAll(".button-grid a");
-// Get all portfolio entries
-const portfolioEntries = document.querySelectorAll(".portfolio-entry");
+const portfolioLinks = document.querySelectorAll(".button-grid a");
 // Get all portfolio entry titles
 const portfolioEntryHeaders = document.querySelectorAll(".portfolio-entry__title");
 
-// Add click listeners to all portfolio buttons
-function addButtonListeners() {
-	portfolioButtons.forEach((btn, ind) => {
-		// Add index as parameter on button
-		btn.param = ind;
-		// Add click listener to button
-		btn.addEventListener("click", portClick);
-	});
-}
-
-function portClick(evt) {
-	// Scroll corresponding entry into view
-	portfolioEntries[evt.target.param].scrollIntoView();
-}
-
 // Add random colors to matching buttons & entry headers
 function addPortColors() {
-	portfolioButtons.forEach((btn, ind) => {
+	portfolioLinks.forEach((btn, ind) => {
 		// Get random color
 		let rColor = getRandomColor();
 		// Add random color to button background
 		btn.style.background = rColor;
 		// Add random color to corresponding entry header
-		try {
-			portfolioEntryHeaders[ind].style.background = rColor;
-			// Hacky, but it works ;)
-		} catch { null };
+		portfolioEntryHeaders[ind].style.background = rColor;
 	})
 }
 
