@@ -148,10 +148,11 @@ function getRandomTransform() {
 	return trans[Math.floor(Math.random() * trans.length)];
 }
 
+// Create new timeline
+const heroTimeline = gsap.timeline();
+
 // Expects array of characters
 function buildCharacterAnimation(chars){
-	// Create new timeline
-	const heroTimeline = gsap.timeline();
 	// For each character...
 	chars.forEach((v, i) => {
 		// Pick random colour
@@ -188,10 +189,12 @@ function buildScrollTimeline(words) {
 			// Show header when animation is finished
 			onLeave: ()=>{
 				head.classList.add("show");
+				heroTimeline.pause();
 			},
 			// Hide header when hero scrolls back into view
 			onEnterBack: ()=>{
 				head.classList.remove("show");
+				heroTimeline.play();
 			},
 			// Show header if page loads past hero
 			onRefresh: ({progress})=>{
