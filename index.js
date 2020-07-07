@@ -445,3 +445,19 @@ function eyeMove(e) {
 		duration: 0.2
 	});
 }
+
+// ======================FOOTER======================
+
+// Get all blocks and header elements from footer
+const footerBlocks = [
+	...document.querySelectorAll(".block"),
+	...document.querySelectorAll("footer h3")
+];
+
+function colorFooterBlocks() {
+	// Iterate over all footer blocks
+	footerBlocks.forEach(node => {
+		// Assign random background color
+		node.style.background = getRandomBgColor();
+	});
+}
