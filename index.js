@@ -44,20 +44,6 @@ function getRandomColor() {
 const links = Array.from(document.querySelectorAll("a:not(.custom-link)"));
 // Adds link interaction styling
 function addLinkHovers() {
-	// Detect if Firefox,
-	// Horz if true, Vert if not
-	const isMoz = navigator.userAgent.indexOf("Firefox") > 0;
-
-	if (!isMoz) {
-		links.forEach(a => {
-			// Define transition, with duration dictated by element width
-			a.style.transition = `box-shadow 230ms ease-in`;
-			a.onmouseenter = () => horzLinkEnter(a);
-			a.onmouseleave = () => linkLeave(a);
-			a.onfocus = () => horzLinkEnter(a);
-			a.onblur = () => linkLeave(a);
-		})
-	} else {
 		links.forEach((a) => {
 			// Define transition, with duration dictated by element width
 			a.style.transition = `box-shadow ${Math.max(230, a.offsetWidth)}ms ease-in`;
@@ -66,14 +52,13 @@ function addLinkHovers() {
 			a.onfocus = () => vertLinkEnter(a);
 			a.onblur = () => linkLeave(a);
 		});
-	}
 }
 
 function horzLinkEnter(element) {
 	// Adds inset box shadow to link from bottom
-	element.style.boxShadow = -`0px -${element.offsetHeight}px yellow inset`;
-	element.style.webkitBoxShadow = `0px -${element.offsetHeight}px yellow inset`;
-	element.style.mozBoxShadow = `0px -${element.offsetHeight}px yellow inset`;
+	element.style.boxShadow = -`0px -${element.offsetHeight * 0.8}px yellow inset`;
+	element.style.webkitBoxShadow = `0px -${element.offsetHeight * 0.8}px yellow inset`;
+	element.style.mozBoxShadow = `0px -${element.offsetHeight * 0.8}px yellow inset`;
 }
 
 function vertLinkEnter(element) {
