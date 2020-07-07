@@ -174,12 +174,20 @@ function buildCharacterAnimation(chars){
 		// Add color class to character
 		v.classList.add(rColor);
 		// Add same transition & color to corresponding #head character
-		try{
-			headChars[i].classList.add(rColor);
-			heroTimeline.add(rTrans(headChars[i]));
-			// Catch error of index being beyond #head chars
-		} catch {null};
+		addToHeader(rColor,rTrans,i);
 	});
+}
+
+// Adds supplied color & trans to header
+function addToHeader(color, trans, index) {
+	// Try adding to headChars[index]
+	try {
+		// Change color in corresponding header
+		headChars[index].style.color = color;
+		// If trans supplied, 
+		headerTimeline.add(trans(headChars[index]));
+		// Catch error of index being beyond #head chars
+	} catch { null };
 }
 
 // Expects array of words with characters
