@@ -31,6 +31,12 @@ a {
 		color: blue;
 	}
 }
+
+@mixin grid-center() {
+	display: grid;
+	place-items: center;
+}
+
 @mixin pseudo() {
 	content: "";
 	position: absolute;
@@ -183,12 +189,10 @@ nav {
 }
 
 #hero {
+	@include grid-center();
 	margin: 0 auto;
 	width: 98%;
 	min-height: 100vh;
-	// Center items shorthand
-	display: grid;
-	place-items: center;
 	* {
 		// Remove all margins
 		margin: 0;
@@ -373,6 +377,7 @@ section {
 		grid-gap: 8px;
 		background-color: black;
 		a {
+			@include grid-center();
 			// Style resets
 			border: none;
 			text-align: center;
