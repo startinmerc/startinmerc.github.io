@@ -140,7 +140,8 @@ nav button::before {
 }
 
 nav a {
-  padding: 5vh 10px;
+  padding: 10px;
+  margin: 5vh 0;
   z-index: 1;
   font-size: calc(var(--hero-height) * 0.5);
   -webkit-transition: -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
@@ -149,13 +150,51 @@ nav a {
   transition: transform 270ms ease-in, box-shadow 270ms ease-in, -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
   -webkit-transform: translateX(100vw);
           transform: translateX(100vw);
-  -webkit-box-shadow: 0px 0px yellow inset;
-          box-shadow: 0px 0px yellow inset;
 }
 
-nav a:hover, nav a:focus {
-  -webkit-box-shadow: 0px calc((var(--hero-height) + 10vh) * -1) yellow inset;
-          box-shadow: 0px calc((var(--hero-height) + 10vh) * -1) yellow inset;
+nav a::before, nav a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  height: 8px;
+  background-color: yellow;
+  -webkit-transition: -webkit-transform 270ms ease-in;
+  transition: -webkit-transform 270ms ease-in;
+  transition: transform 270ms ease-in;
+  transition: transform 270ms ease-in, -webkit-transform 270ms ease-in;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+}
+
+nav a::before {
+  top: 5vh;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+nav a::after {
+  top: initial;
+  bottom: 5vh;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  z-index: -1;
+}
+
+nav a:hover::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+nav a:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
 
 nav:hover button::before, nav:focus button::before {
@@ -455,9 +494,13 @@ section .section-container p:last-of-type {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .portfolio-entry .portfolio-entry__links a {
+  .portfolio-entry .portfolio-entry__links a:not(:last-of-type) {
     margin-bottom: 1em;
   }
+}
+
+.portfolio-entry .col-l p:last-of-type {
+  margin-bottom: 0.5em !important;
 }
 
 .portfolio-entry:nth-of-type(4n+1) {
@@ -533,6 +576,7 @@ section .section-container p:last-of-type {
 }
 
 footer {
+  margin-top: 15%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -550,6 +594,7 @@ footer h3 {
   display: grid;
   place-items: center;
   border: 4px solid black;
+  padding: 0.5rem 0;
   font-size: 1.5rem;
   margin: 0;
 }
@@ -579,6 +624,7 @@ footer .main-link {
   display: grid;
   place-items: center;
   border: 4px solid black;
+  padding: 0.5rem 0;
   font-size: 1.2rem;
 }
 
@@ -603,13 +649,13 @@ footer .main-link:nth-of-type(3) {
 
 footer .sub-link-container {
   border: 4px solid black;
+  padding: 0.5rem 0;
   -ms-grid-row: 4;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: f7;
   list-style: none;
   margin: 0;
-  padding: 0;
 }
 
 footer .sub-link-container li {
@@ -618,6 +664,7 @@ footer .sub-link-container li {
 
 footer .block {
   border: 4px solid black;
+  padding: 0.5rem 0;
 }
 
 footer .block:nth-of-type(1) {
