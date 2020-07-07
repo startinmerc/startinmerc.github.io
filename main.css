@@ -72,6 +72,8 @@ nav {
       -ms-flex-align: center;
           align-items: center;
   font-size: 2rem;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
 
 nav::before {
@@ -83,10 +85,12 @@ nav::before {
   width: 100%;
   width: 100vw;
   left: -50vw;
-  opacity: 0.2;
+  opacity: 0;
   background-color: black;
-  -webkit-transition: opacity var(--nav-transition-time) ease-out var(--nav-transition-time);
-  transition: opacity var(--nav-transition-time) ease-out var(--nav-transition-time);
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: opacity var(--nav-transition-time) ease-out;
+  transition: opacity var(--nav-transition-time) ease-out;
 }
 
 nav button {
@@ -106,8 +110,8 @@ nav button {
   transition: -webkit-transform var(--nav-transition-time) ease-in;
   transition: transform var(--nav-transition-time) ease-in;
   transition: transform var(--nav-transition-time) ease-in, -webkit-transform var(--nav-transition-time) ease-in;
-  -webkit-transform: translate(-75%, 32.5vh) rotate(-90deg);
-          transform: translate(-75%, 32.5vh) rotate(-90deg);
+  -webkit-transform: translate(-75%, 0vh) rotate(-90deg);
+          transform: translate(-75%, 0vh) rotate(-90deg);
   font-size: 2rem;
   cursor: pointer;
 }
@@ -123,8 +127,8 @@ nav button::before {
   background-color: orange;
   z-index: -1;
   border-radius: 50%;
-  -webkit-transform: rotate(-45deg) scale(6) translate(-25%, 25%);
-          transform: rotate(-45deg) scale(6) translate(-25%, 25%);
+  -webkit-transform: rotate(135deg) scale(1);
+          transform: rotate(135deg) scale(1);
   -webkit-transition: -webkit-transform var(--nav-transition-time) ease-in;
   transition: -webkit-transform var(--nav-transition-time) ease-in;
   transition: transform var(--nav-transition-time) ease-in;
@@ -143,78 +147,36 @@ nav a {
   transition: -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
   transition: transform 270ms ease-in, box-shadow 270ms ease-in;
   transition: transform 270ms ease-in, box-shadow 270ms ease-in, -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
-  -webkit-transform: translateX(0%);
-          transform: translateX(0%);
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
   -webkit-box-shadow: 0px 0px yellow inset;
           box-shadow: 0px 0px yellow inset;
 }
 
-nav a:nth-of-type(1) {
-  -webkit-transition-delay: 100ms;
-          transition-delay: 100ms;
-}
-
-nav a:nth-of-type(2) {
-  -webkit-transition-delay: 200ms;
-          transition-delay: 200ms;
-}
-
-nav a:nth-of-type(3) {
-  -webkit-transition-delay: 300ms;
-          transition-delay: 300ms;
-}
-
-nav a:hover {
+nav a:hover, nav a:focus {
   -webkit-box-shadow: 0px calc((var(--hero-height) + 10vh) * -1) yellow inset;
           box-shadow: 0px calc((var(--hero-height) + 10vh) * -1) yellow inset;
 }
 
-nav.min {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-}
-
-nav.min::before {
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  opacity: 0;
-}
-
-nav.min button {
-  -webkit-transform: translateX(-75%) rotate(-90deg);
-          transform: translateX(-75%) rotate(-90deg);
-}
-
-nav.min button::before {
-  -webkit-transition-delay: 0ms;
-          transition-delay: 0ms;
-  -webkit-transform: rotate(135deg) scale(1);
-          transform: rotate(135deg) scale(1);
-}
-
-nav.min:hover button::before {
+nav:hover button::before, nav:focus button::before {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
-nav.min a {
-  -webkit-transform: translateX(100vw);
-          transform: translateX(100vw);
+nav.max::before {
+  -webkit-transition-delay: var(--nav-transition-time);
+          transition-delay: var(--nav-transition-time);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 0.2;
 }
 
-nav.min a:nth-of-type(1) {
-  -webkit-transition-delay: 200ms;
-          transition-delay: 200ms;
-}
-
-nav.min a:nth-of-type(2) {
-  -webkit-transition-delay: 100ms;
-          transition-delay: 100ms;
-}
-
-nav.min a:nth-of-type(3) {
-  -webkit-transition-delay: 000ms;
-          transition-delay: 000ms;
+nav.max button::before {
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+  -webkit-transform: rotate(-45deg) scale(6) translate(-25%, 25%);
+          transform: rotate(-45deg) scale(6) translate(-25%, 25%);
+  border-color: black;
 }
 
 /*====================HERO====================*/
