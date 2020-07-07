@@ -138,12 +138,37 @@ nav {
 		transition: transform 270ms ease-in,
 		 box-shadow 270ms ease-in;
 		transform: translateX(100vw);
-		// Box-shadow
-		box-shadow: 0px 0px yellow inset;
-		// Hover offset of negative text height + padding
-		// Because box-shadow can't be percentage :(
-		&:hover, &:focus {
-			box-shadow: 0px calc((var(--hero-height) + 10vh) * -1) yellow inset;
+
+		&::before, &::after {
+			@include pseudo();
+			height: 8px;
+			background-color: yellow;
+			transition: transform 270ms ease-in;
+			transform: scaleX(0);
+		}
+
+		&::before {
+			top: 5vh;
+			transform-origin: left;
+		}
+
+		&::after {
+			top: initial;
+			bottom: 5vh;
+			transform-origin: right;
+			z-index: -1;
+		}
+
+		&:hover {
+			&::before {
+				transform: scaleX(1);
+				transform-origin: right;
+			}
+			
+			&::after {
+				transform: scaleX(1);
+				transform-origin: left;
+			}
 		}
 	}
 
