@@ -459,10 +459,14 @@ section {
 		// Change to column on mobile
 		@media(max-width: $mobile) {
 			flex-direction: column;
-			a {
+			a:not(:last-of-type) {
 				margin-bottom: 1em;
 			}
 		}
+	}
+
+	.col-l p:last-of-type {
+		margin-bottom: 0.5em !important;
 	}
 
 	// Elements 1,5,9...
