@@ -265,7 +265,7 @@ section {
 		&.aside--left {
 			// Push aside into top left corner
 			float: left;
-			margin: calc(0px - var(--section-padding) - 8px) 0px 0px calc(0px - var(--section-padding) - 8px);
+			margin: calc(0px - var(--section-padding) - 8px) 5px 5px calc(0px - var(--section-padding) - 8px);
 			// Polygon to dictate text wrapping
 			shape-outside: polygon(100% 0%, 0% 100%, 50% 100%, 83% 82%, 100% 50%);
 			border-radius: 0 0 50% 0;
@@ -273,7 +273,7 @@ section {
 		&.aside--right {
 			// Push aside into top right corner
 			float: right;
-			margin: calc(0px - var(--section-padding) - 8px) calc(0px - var(--section-padding) - 8px) 0px 0px;
+			margin: calc(0px - var(--section-padding) - 8px) calc(0px - var(--section-padding) - 8px) 5px 5px;
 			// Polygon to dictate text wrapping
 			shape-outside: polygon(0% 0%, 100% 100%, 50% 100%, 15% 81%, 0% 50%);
 			border-radius: 0 0 0 50%;
