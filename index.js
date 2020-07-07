@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', ready);
 function ready() {
 	// Build all GSAP timelines for #hero
 	getHeroGSAP();
-	// Add click listener for nav show/hide
-	addNavListener();
 	// Add click listeners for buttons
 	addButtonListeners();
+	// Build nav timelines & add click listener to nav
+	buildNav();
 	// Add colors to buttons & headers in portfolio
 	addPortColors();
 	// Add link styling
@@ -236,11 +236,52 @@ function buildCharacterScrollAnimation(char,charIndex){
 // Find <nav>
 const nav = document.querySelector("nav");
 
+function buildNav() {
+	// Make nav timelines
+	buildNavTimelines();
+	// Add click listener
+	addNavListener();
+}
+
 // Add click listener to toggle min class, i.e show/hide
 function addNavListener(){
 	nav.addEventListener("click", () => {
-		nav.classList.toggle("max");
+		// Play appropriate timeline
+		if(nav.classList.contains("max")){
+			navTimelineMin.restart();
+		} else {
+			navTimelineMax.restart();
+		}
 	});
+}
+
+const navTimelineMax = gsap.timeline({
+	// Set default speed for tweens
+	defaults: {duration: "400ms"},
+	// Toggle max class to trigger pseudo animations
+	onStart: ()=> {nav.classList.toggle("max")},
+	// Change focus
+	onComplete: ()=>{nav.focus()}
+});
+
+const navTimelineMin = gsap.timeline({
+	// Set default speed for tweens
+	defaults: {duration: "100ms"},
+	// Toggle max class to trigger pseudo animations
+	onStart: ()=> {nav.classList.toggle("max")},
+	// Change focus
+	onComplete: ()=>{nav.blur()}
+});
+
+function buildNavTimelines() {
+	// Add tweens to maximise nav timeline
+	navTimelineMax.to("nav", { translateX: "0%" }, 0);
+	navTimelineMax.to("nav button", { translateY: "32.5vh" }, 0);
+	navTimelineMax.to("nav a", { translateX: 0, stagger: 0.1 }, 0.2);
+	// Add tweens to minimise nav timeline
+	navTimelineMin.to("nav a", { translateX: "100vw", stagger: 0.1 });
+	navTimelineMin.to("nav", { translateX: "100%" }, 0);
+	navTimelineMin.to("nav button", { translateY: "0vh" }, 0);	
 }
 
 // =================PORTFOLIO=================

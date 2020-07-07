@@ -152,22 +152,15 @@ nav {
 	}
 
 	&.max {
-		transform: translateX(0%);
 		&::before {
 			transition-delay: var(--nav-transition-time);
 			transform: scale(1);
 			opacity: 0.2;
 		}
-		button {
-			transform: translateY(32.5vh);
-		}
 		button::before {
 			transition-delay: 0ms;
 			transform: rotate(-45deg) scale(6) translate(-25%, 25%);
 			border-color: black;
-		}
-		a {
-			transform: translateX(0%);
 		}
 	}
 }
