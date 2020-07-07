@@ -31,9 +31,19 @@ const colors = [
 	'yellow'
 ];
 
+const bgColors = [
+	'white',
+	...colors
+]
+
 // Returns random color class name
 function getRandomColor() {
 	return colors[Math.floor(Math.random() * colors.length)];
+}
+
+// Returns random background color
+function getRandomBgColor() {
+	return bgColors[Math.floor(Math.random() * bgColors.length)];
 }
 
 // ==================LINKS==================
