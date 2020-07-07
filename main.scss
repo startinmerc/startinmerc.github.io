@@ -503,9 +503,16 @@ section {
 // FOOTER
 
 footer {
-
-	padding: 1rem var(--section-padding);
-	background-color: orange;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: repeat(5, minmax(1rem, auto));
+	// Name grid areas (took a while!)
+	grid-template-areas: 
+		"f1 f1 f2"
+		"f3 f4 f2"
+		"f3 f5 f6"
+		"f7 f8 f8"
+		"f7 f9 f10";
 	text-align: center;
 	border-top: $border;
 
