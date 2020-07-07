@@ -110,7 +110,7 @@ const trans = [
 	},
 	function rotateFull(target) {
 		let tl = gsap.to(target, {
-			rotate: "360deg",
+			rotate: "+=360deg",
 			duration: heroDuration,
 			repeatDelay: 3,
 			repeat: -1,
