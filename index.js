@@ -19,6 +19,8 @@ function ready() {
 	buildSectionScrolls();
 	// Build all GSAP timelines for SVG Ghost
 	buildGhostTimeline();
+	// Add colors to footer
+	colorFooterBlocks();
 }
 
 // ================COLOUR DEFS================
