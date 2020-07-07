@@ -359,12 +359,13 @@ section {
 		// Gap between buttons to replicate $border
 		grid-gap: 8px;
 		background-color: black;
-		button {
+		a {
 			// Style resets
 			border: none;
 			text-align: center;
 			padding: 1em 0;
 			font-size: 1rem;
+			color: black;
 			// Bold weight for colours
 			font-weight: bold;
 			cursor: pointer;

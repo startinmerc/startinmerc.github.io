@@ -248,7 +248,7 @@ function addNavListener(){
 // =================PORTFOLIO=================
 
 // Get all portfolio buttons
-const portfolioButtons = document.querySelectorAll(".button-grid button");
+const portfolioButtons = document.querySelectorAll(".button-grid a");
 // Get all portfolio entries
 const portfolioEntries = document.querySelectorAll(".portfolio-entry");
 // Get all portfolio entry titles
