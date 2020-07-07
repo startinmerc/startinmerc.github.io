@@ -20,6 +20,17 @@ $border: 8px solid black;
 $mobile: 500px;
 $z-top: 1000;
 
+a {
+	// Set default link styling
+	text-decoration: none;
+	transition: box-shadow 230ms ease-in;
+	box-shadow: 0px 0px yellow inset;
+	// Replicate box-shadow hover effect on line-overflow links
+	box-decoration-break: clone;
+	&:visited {
+		color: blue;
+	}
+}
 @mixin pseudo() {
 	content: "";
 	position: absolute;
