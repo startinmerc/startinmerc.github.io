@@ -17,6 +17,7 @@ h1,h2,h3,h4,h4,.display {
 .yellow {color: yellow;}
 
 $border: 8px solid black;
+$half-border: 4px solid black;
 $mobile: 500px;
 $z-top: 1000;
 
@@ -514,10 +515,14 @@ footer {
 		"f7 f8 f8"
 		"f7 f9 f10";
 	text-align: center;
+	// Half border to combine with grid item borders
+	border: $half-border;
 
 	h3 {
 		// Center in grid cell
 		@include grid-center();
+		// Half border to combine with cell/outer border
+		border: $half-border;
 		font-size: 1.5rem;
 		margin: 0;
 		// Assign grid areas
@@ -529,6 +534,8 @@ footer {
 	.main-link {
 		// Center in grid cell
 		@include grid-center();
+		// Half border to combine with cell/outer border
+		border: $half-border;
 		font-size: 1.2rem;
 		// Assign grid areas
 		&:nth-of-type(1) {grid-area: f4;}
@@ -537,6 +544,8 @@ footer {
 	}
 
 	.sub-link-container {
+		// Half border to combine with cell/outer border
+		border: $half-border;
 		grid-area: f7;
 		// Clear list styling
 		list-style: none;
@@ -549,6 +558,8 @@ footer {
 	}
 
 	.block {
+		// Half border to combine with cell/outer border
+		border: $half-border;
 		// Assign grid areas
 		&:nth-of-type(1){grid-area: f3};
 		&:nth-of-type(2){grid-area: f5};
