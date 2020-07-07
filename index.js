@@ -175,6 +175,12 @@ function buildCharacterAnimation(chars){
 		v.style.color = rColor;
 		// Add same transition & color to corresponding #head character
 		addToHeader(rColor,rTrans,i);
+		// Mouseover
+		v.onmouseenter = () => {
+			let rColor = getRandomColor();
+			v.style.color = rColor;
+			addToHeader(rColor,null,i);
+		};
 	});
 }
 
