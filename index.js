@@ -226,13 +226,10 @@ function buildScrollTimeline(words) {
 			}
 		}
 	});
-	// Iterate over words
-	words.forEach(word => {
-		// For each child(character)...
-		word.childNodes.forEach((char, charIndex) => {
-			// Add CharacterScrollAnimation to scrollTimeline
-			scrollTimeline.add(buildCharacterScrollAnimation(char, charIndex));
-		});
+	// Reverse characters & iterate over
+	[...chars].reverse().forEach((char, charIndex) => {
+		// Add CharacterScrollAnimation to scrollTimeline
+		scrollTimeline.add(buildCharacterScrollAnimation(char, charIndex));
 	});
 }
 
