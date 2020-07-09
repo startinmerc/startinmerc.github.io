@@ -368,7 +368,7 @@ function buildSectionScrolls(){
 
 		// Translate characters from +100% to 0%
 		sectionTimeline.fromTo(headerChars, {
-			y: "100%"
+			y: "300%"
 		}, {
 			y: "0%",
 			// Ease out & back
