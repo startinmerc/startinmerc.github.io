@@ -267,8 +267,6 @@ section {
 	h2 {
 		font-size: 3rem;
 		margin: 0;
-		// Ensure the display font style
-		text-transform: uppercase;
 		background: white;
 		border: $border;
 		padding: 8px var(--section-padding);
@@ -277,6 +275,10 @@ section {
 		// Position over content wrapper
 		position: relative;
 		z-index: 1;
+		.char {
+			// Hide initially
+			transform: translateY(100%);
+		}
 	}
 	aside {
 		// Aside illustrations for sections
