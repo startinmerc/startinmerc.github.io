@@ -11,32 +11,59 @@ h1, h2, h3, h4, h4, .display {
   font-family: 'Major Mono Display', monospace;
 }
 
-.red {
+.ft-red {
   color: red;
 }
 
-.blue {
+.ft-blue {
   color: blue;
 }
 
-.green {
+.ft-green {
   color: green;
 }
 
-.yellow {
+.ft-yellow {
   color: yellow;
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-blue {
+  background-color: blue;
+  color: white !important;
+}
+
+.bg-green {
+  background-color: green;
+  color: white !important;
+}
+
+.bg-yellow {
+  background-color: yellow;
+}
+
+.bg-white {
+  background-color: white;
 }
 
 a {
   text-decoration: none;
-  -webkit-transition: -webkit-box-shadow 230ms ease-in;
-  transition: -webkit-box-shadow 230ms ease-in;
-  transition: box-shadow 230ms ease-in;
-  transition: box-shadow 230ms ease-in, -webkit-box-shadow 230ms ease-in;
-  -webkit-box-shadow: 0px 0px yellow inset;
-          box-shadow: 0px 0px yellow inset;
-  -webkit-box-decoration-break: clone;
-          box-decoration-break: clone;
+}
+
+a:not(.custom-link) {
+  -webkit-transition: background-size 270ms ease-in;
+  transition: background-size 270ms ease-in;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(yellow), to(yellow));
+  background-image: linear-gradient(yellow 0%, yellow 100%);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+}
+
+a:not(.custom-link):hover {
+  background-size: 100% 100%;
 }
 
 a:visited {
@@ -83,8 +110,8 @@ nav::before {
   left: 0;
   height: 100%;
   width: 100%;
-  width: 100vw;
-  left: -50vw;
+  width: 110vw;
+  left: -55vw;
   opacity: 0;
   background-color: black;
   -webkit-transform: scale(0);
@@ -170,14 +197,14 @@ nav a::before, nav a::after {
 }
 
 nav a::before {
-  top: 5vh;
+  top: 0.1em;
   -webkit-transform-origin: left;
           transform-origin: left;
 }
 
 nav a::after {
   top: initial;
-  bottom: 5vh;
+  bottom: 0;
   -webkit-transform-origin: right;
           transform-origin: right;
   z-index: -1;
@@ -288,13 +315,17 @@ section {
 section h2 {
   font-size: 3rem;
   margin: 0;
-  text-transform: uppercase;
   background: white;
   border: 8px solid black;
   padding: 8px var(--section-padding);
   overflow: hidden;
   position: relative;
   z-index: 1;
+}
+
+section h2 .char {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
 }
 
 section aside {
@@ -425,10 +456,10 @@ section .section-container p:last-of-type {
   font-size: 1rem;
   color: black;
   font-weight: bold;
-  cursor: pointer;
   position: relative;
   z-index: 1;
   overflow: hidden;
+  text-decoration: underline;
 }
 
 #portfolio .button-grid a::before {
@@ -472,6 +503,7 @@ section .section-container p:last-of-type {
   margin: calc(var(--section-padding) * -1);
   margin-bottom: var(--section-padding);
   padding: var(--section-padding);
+  border-bottom: 8px solid black;
 }
 
 .portfolio-entry .portfolio-entry__tech {
