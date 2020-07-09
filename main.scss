@@ -214,9 +214,9 @@ nav {
 
 :root {
 	// Magic number - longest word fits on screen
-	--hero-height: 14vw;
+	--hero-height: 10vw;
 	@media(max-width: $mobile){
-		--hero-height: 20vw;
+		--hero-height: 18vw;
 	}
 }
 
