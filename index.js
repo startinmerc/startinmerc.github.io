@@ -206,8 +206,8 @@ function buildScrollTimeline(words) {
 			trigger: "#hero",
 			// Start timeline when scroll and element are top aligned
 			start: "top",
-			// End timeline when bottom of scroll is 50% down the element
-			end: "bottom +=50%",
+			// End timeline when bottom of scroll is 20% from top of screen
+			end: "bottom 20%",
 			// Show header when animation is finished
 			onLeave: ()=>{
 				head.classList.add("show");
@@ -356,7 +356,7 @@ function buildSectionScrolls(){
 					sectionTimeline.reverse();
 					// Pause ghost timeline if contact section
 					index === 2 && ghostTimeline.pause();
-				}
+				},
 			}
 		});
 		// Create section header timeline
