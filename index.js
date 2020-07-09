@@ -239,8 +239,8 @@ function buildCharacterScrollAnimation(char,charIndex){
 		transformOrigin: `top ${charIndex % 2 ? "right" : "left"}`,
 		// Scale to nothing
 		scale: 0,
-		// Translate characterIndex * 75% either left or right
-		translateX: `${charIndex % 2 ? "+" : "-"}${charIndex * 75}%`,
+		// Translate 100% either left or right
+		translateX: `${charIndex % 2 ? "+" : "-"}100%`,
 		// Translate upwards 100% so off screen
 		translateY: "-100%",
 		// Rotate 90deg clock or anti-clock
