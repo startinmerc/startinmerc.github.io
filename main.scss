@@ -166,13 +166,13 @@ nav {
 		}
 
 		&::before {
-			top: 5vh;
+			top: 0.1em;
 			transform-origin: left;
 		}
 
 		&::after {
 			top: initial;
-			bottom: 5vh;
+			bottom: 0;
 			transform-origin: right;
 			z-index: -1;
 		}
