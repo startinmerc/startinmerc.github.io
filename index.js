@@ -46,11 +46,23 @@ function getRandomFtColor() {
 	return ftColors[Math.floor(Math.random() * ftColors.length)];
 }
 
+function replaceFtColor(node,rColor = getRandomFtColor()) {
+	ftColors.forEach(c => {
+		node.classList.remove(c);
+	});
+	node.classList.add(rColor);
 }
 
 // Returns random background color
 function getRandomBgColor() {
 	return bgColors[Math.floor(Math.random() * bgColors.length)];
+}
+
+function replaceBgColor(node,rColor = getRandomBgColor()) {
+	bgColors.forEach(c => {
+		node.classList.remove(c);
+	});
+	node.classList.add(rColor);
 }
 
 // ==================LINKS==================
