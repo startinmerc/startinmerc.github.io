@@ -134,8 +134,6 @@ const trans = [
 
 // List of all split characters in #hero
 const chars = document.querySelectorAll("#hero .char");
-// List of all split words in #hero
-const words = document.querySelectorAll("#hero .word");
 // Get #head element
 const head = document.querySelector("#head");
 // Get #head chars
@@ -146,7 +144,7 @@ function getHeroGSAP(){
 	// Build a gsap timeline for inital #hero transforms
 	buildCharacterAnimation(chars);
 	// Build ScrollTrigger timeline for #hero characters
-	buildScrollTimeline(words);
+	buildScrollTimeline(chars);
 }
 
 // Returns random transform tween
@@ -195,7 +193,7 @@ function addToHeader(color, trans = null, index) {
 }
 
 // Expects array of words with characters
-function buildScrollTimeline(words) {
+function buildScrollTimeline(chars) {
 	// Create new timeline
 	const scrollTimeline = gsap.timeline({
 		// Add ScrollTrigger
