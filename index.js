@@ -160,19 +160,19 @@ function buildCharacterAnimation(chars){
 	// For each character...
 	chars.forEach((v, i) => {
 		// Pick random colour
-		let rColor = getRandomColor();
+		let rColor = getRandomFtColor();
 		// Pick random transform
 		let rTrans = getRandomTransform();
 		// Add transform to timeline at index / 10 seconds
 		heroTimeline.add(rTrans(v), i / 10);
 		// Add color class to character
-		v.style.color = rColor;
+		v.classList.add(rColor);
 		// Add same transition & color to corresponding #head character
 		addToHeader(rColor,rTrans,i);
 		// Mouseover
 		v.onmouseenter = () => {
-			let rColor = getRandomColor();
-			v.style.color = rColor;
+			let rColor = getRandomFtColor();
+			replaceFtColor(v,rColor);
 			addToHeader(rColor,null,i);
 		};
 	});
@@ -183,7 +183,7 @@ function addToHeader(color, trans, index) {
 	// Try adding to headChars[index]
 	try {
 		// Change color in corresponding header
-		headChars[index].style.color = color;
+		replaceFtColor(headChars[index],color);
 		// If trans supplied, 
 		headerTimeline.add(trans(headChars[index]));
 		// Catch error of index being beyond #head chars
@@ -315,9 +315,9 @@ function addPortColors() {
 		// Get random color
 		let rColor = getRandomBgColor();
 		// Add random color to button background
-		btn.style.background = rColor;
+		btn.classList.add(rColor);
 		// Add random color to corresponding entry header
-		portfolioEntryHeaders[ind].style.background = rColor;
+		portfolioEntryHeaders[ind].classList.add(rColor);
 	})
 }
 
@@ -364,7 +364,7 @@ function buildSectionScrolls(){
 
 		// Random colour header characters
 		headerChars.forEach(char => {
-			char.classList.add(getRandomColor());
+			char.classList.add(getRandomFtColor());
 		});
 
 		// Translate characters from +100% to 0%
@@ -468,8 +468,10 @@ function colorFooterBlocks() {
 	// Iterate over all footer blocks
 	footerBlocks.forEach(node => {
 		// Assign random background color
-		node.style.background = getRandomBgColor();
+		node.classList.add(getRandomBgColor());
 		// Randomise background color on mouseover
-		node.onmouseenter = () => node.style.background = getRandomBgColor();
+		node.onmouseenter = () => {
+			replaceBgColor(node);
+		};
 	});
 }
