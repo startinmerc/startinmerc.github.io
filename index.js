@@ -179,13 +179,13 @@ function buildCharacterAnimation(chars){
 }
 
 // Adds supplied color & trans to header
-function addToHeader(color, trans, index) {
+function addToHeader(color, trans = null, index) {
 	// Try adding to headChars[index]
 	try {
 		// Change color in corresponding header
 		replaceFtColor(headChars[index],color);
 		// If trans supplied, 
-		headerTimeline.add(trans(headChars[index]));
+		trans && headerTimeline.add(trans(headChars[index]));
 		// Catch error of index being beyond #head chars
 	} catch { null };
 }
