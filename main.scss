@@ -33,16 +33,16 @@ $z-top: 1000;
 a {
 	// Set default link styling
 	text-decoration: none;
-	// 	Set transition
+	// Set transition
 	&:not(.custom-link) {
 		transition: background-size 270ms ease-in;
-		// 	Background image as hard-stop gradient
+		// Background image as hard-stop gradient
 		background-image: linear-gradient(yellow 0%, yellow 100%);
-		// 	set gradient to 0% width
+		// Set gradient to 0% width
 		background-size: 0% 100%;
 		background-repeat: no-repeat;
 		&:hover {
-			//  fill background
+			// Fill background
 			background-size: 100% 100%;
 		}
 	}

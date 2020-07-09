@@ -46,7 +46,9 @@ function getRandomFtColor() {
 	return ftColors[Math.floor(Math.random() * ftColors.length)];
 }
 
+// Replace ft-... class in supplied node
 function replaceFtColor(node,rColor = getRandomFtColor()) {
+	// Not the most performant
 	ftColors.forEach(c => {
 		node.classList.remove(c);
 	});
@@ -58,7 +60,9 @@ function getRandomBgColor() {
 	return bgColors[Math.floor(Math.random() * bgColors.length)];
 }
 
+// Replace bg-... class in supplied node
 function replaceBgColor(node,rColor = getRandomBgColor()) {
+	// Not the most performant
 	bgColors.forEach(c => {
 		node.classList.remove(c);
 	});
