@@ -26,21 +26,26 @@ function ready() {
 // ================COLOUR DEFS================
 
 // Array of color classes
-const colors = [
-	'red',
-	'blue',
-	'green',
-	'yellow'
+const ftColors = [
+	'ft-red',
+	'ft-blue',
+	'ft-green',
+	'ft-yellow'
 ];
 
 const bgColors = [
-	'white',
-	...colors
+	'bg-red',
+	'bg-blue',
+	'bg-green',
+	'bg-yellow',
+	'bg-white',
 ]
 
 // Returns random color class name
-function getRandomColor() {
-	return colors[Math.floor(Math.random() * colors.length)];
+function getRandomFtColor() {
+	return ftColors[Math.floor(Math.random() * ftColors.length)];
+}
+
 }
 
 // Returns random background color
