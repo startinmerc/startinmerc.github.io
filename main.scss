@@ -465,6 +465,10 @@ section {
 		margin: calc(var(--section-padding) * -1);
 		margin-bottom: var(--section-padding);
 		padding: var(--section-padding);
+
+		&.bg-white {
+			border-bottom: $border;
+		}
 	}
 
 	.portfolio-entry__tech {
