@@ -205,7 +205,7 @@ function buildScrollTimeline(chars) {
 			// Start timeline when scroll and element are top aligned
 			start: "top",
 			// End timeline when bottom of scroll is 20% from top of screen
-			end: "bottom 20%",
+			end: "bottom 35%",
 			// Show header when animation is finished
 			onLeave: ()=>{
 				head.classList.add("show");
