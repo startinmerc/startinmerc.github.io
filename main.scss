@@ -95,8 +95,8 @@ nav {
 	&::before {
 		@include pseudo();
 		// Shadow over page to extend click listener
-		width: 100vw;
-		left: -50vw;
+		width: 110vw;
+		left: -55vw;
 		opacity: 0;
 		background-color: black;
 		transform: scale(0);
