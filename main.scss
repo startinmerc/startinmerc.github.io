@@ -24,10 +24,19 @@ $z-top: 1000;
 a {
 	// Set default link styling
 	text-decoration: none;
-	transition: box-shadow 230ms ease-in;
-	box-shadow: 0px 0px yellow inset;
-	// Replicate box-shadow hover effect on line-overflow links
-	box-decoration-break: clone;
+	// 	Set transition
+	&:not(.custom-link) {
+		transition: background-size 270ms ease-in;
+		// 	Background image as hard-stop gradient
+		background-image: linear-gradient(yellow 0%, yellow 100%);
+		// 	set gradient to 0% width
+		background-size: 0% 100%;
+		background-repeat: no-repeat;
+		&:hover {
+			//  fill background
+			background-size: 100% 100%;
+		}
+	}
 	&:visited {
 		color: blue;
 	}
