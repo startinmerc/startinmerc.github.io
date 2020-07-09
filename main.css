@@ -110,8 +110,8 @@ nav::before {
   left: 0;
   height: 100%;
   width: 100%;
-  width: 110vw;
-  left: -55vw;
+  width: 200vw;
+  left: -100vw;
   opacity: 0;
   background-color: black;
   -webkit-transform: scale(0);
@@ -247,12 +247,12 @@ nav.max button::before {
 
 /*====================HERO====================*/
 :root {
-  --hero-height: 14vw;
+  --hero-height: 10vw;
 }
 
 @media (max-width: 500px) {
   :root {
-    --hero-height: 20vw;
+    --hero-height: 18vw;
   }
 }
 
@@ -261,8 +261,13 @@ nav.max button::before {
   display: grid;
   place-items: center;
   margin: 0 auto;
-  width: 98%;
+  width: 100%;
   min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1%;
+  z-index: -1;
 }
 
 #hero * {
@@ -271,6 +276,7 @@ nav.max button::before {
 
 #hero h1 {
   font-size: var(--hero-height);
+  cursor: default;
 }
 
 #hero .char {
@@ -394,6 +400,10 @@ section .section-container p:last-of-type {
   section {
     max-width: 90%;
   }
+}
+
+#about {
+  margin-top: 100vh;
 }
 
 #about .section-container p:first-of-type {
