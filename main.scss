@@ -11,10 +11,11 @@ h1,h2,h3,h4,h4,.display {
 	font-family: 'Major Mono Display', monospace;
 }
 
-.red {color: red;}
-.blue {color: blue;}
-.green {color: green;}
-.yellow {color: yellow;}
+// Font color classes
+.ft-red {color: red;}
+.ft-blue {color: blue;}
+.ft-green {color: green;}
+.ft-yellow {color: yellow;}
 
 $border: 8px solid black;
 $half-border: 4px solid black;
