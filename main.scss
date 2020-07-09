@@ -223,8 +223,13 @@ nav {
 #hero {
 	@include grid-center();
 	margin: 0 auto;
-	width: 98%;
+	width: 100%;
 	min-height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 1%;
+	z-index: -1;
 	* {
 		// Remove all margins
 		margin: 0;
@@ -355,6 +360,7 @@ section {
 // ==================ABOUT SECTION==================
 
 #about {
+	margin-top: 100vh;
 	.section-container {
 		p:first-of-type {
 			hyphens: auto;
