@@ -54,35 +54,10 @@ function getRandomBgColor() {
 const links = Array.from(document.querySelectorAll("a:not(.custom-link)"));
 // Adds link interaction styling
 function addLinkHovers() {
-		links.forEach((a) => {
-			// Define transition, with duration dictated by element width
-			a.style.transition = `box-shadow ${Math.max(230, a.offsetWidth)}ms ease-in`;
-			a.onmouseenter = () => vertLinkEnter(a);
-			a.onmouseleave = () => linkLeave(a);
-			a.onfocus = () => vertLinkEnter(a);
-			a.onblur = () => linkLeave(a);
-		});
-}
-
-function horzLinkEnter(element) {
-	// Adds inset box shadow to link from bottom
-	element.style.boxShadow = -`0px -${element.offsetHeight * 0.8}px yellow inset`;
-	element.style.webkitBoxShadow = `0px -${element.offsetHeight * 0.8}px yellow inset`;
-	element.style.mozBoxShadow = `0px -${element.offsetHeight * 0.8}px yellow inset`;
-}
-
-function vertLinkEnter(element) {
-	// Adds inset box shadow to link offset by width of element
-	element.style.boxShadow = `${element.offsetWidth}px 0 yellow inset`;
-	element.style.webkitBoxShadow = `${element.offsetWidth}px 0 yellow inset`;
-	element.style.mozBoxShadow = `${element.offsetWidth}px 0 yellow inset`;
-}
-
-function linkLeave(element) {
-	// Resets box shadow to invisible
-	element.style.boxShadow = `0px 0 yellow inset`;
-	element.style.webkitBoxShadow = `0px 0 yellow inset`;
-	element.style.mozBoxShadow = `0px 0 yellow inset`;
+	links.forEach((a) => {
+		// Define transition duration dictated by element width
+		a.style.transitionDuration = `${Math.max(230, a.offsetWidth / 2)}ms `;
+	});
 }
 
 //====================HERO====================
