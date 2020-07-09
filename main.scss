@@ -409,12 +409,13 @@ section {
 			color: black;
 			// Bold weight for colours
 			font-weight: bold;
-			cursor: pointer;
 			position: relative;
 			// Push in front of pseudo
 			z-index: 1;
 			// Hide pseudo overflow
 			overflow: hidden;
+			// Reinastate underline
+			text-decoration: underline;
 
 			&::before {
 				@include pseudo();
