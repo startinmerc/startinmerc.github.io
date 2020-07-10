@@ -344,15 +344,10 @@ function buildSectionScrolls(){
 				// Trigger header animation on enter
 				onEnter: () => {
 					sectionTimeline.restart();
-					// Play ghost timeline if contact section
-					index === 1 && ghostTimeline.play();
-					index === 1 && getEyeMove(section);
 				},
 				// Reverse header animation when element scrolled out of view
 				onLeaveBack: () => {
 					sectionTimeline.reverse();
-					// Pause ghost timeline if contact section
-					index === 1 && ghostTimeline.pause();
 				},
 				onLeave: () => {
 					// Play portfolio header tween if About is left
@@ -402,6 +397,7 @@ function buildSectionScrolls(){
 	portChars.forEach(char => {
 		char.classList.add(getRandomFtColor());
 	});
+
 	// Portfolio header tween
 	const portHeaderTween = gsap.fromTo(portChars, {
 			y: "300%"
@@ -415,6 +411,7 @@ function buildSectionScrolls(){
 			paused: true
 		}
 	);
+
 	// Create seperate portfolio ScrollTrigger
 	ScrollTrigger.create({
 		trigger: "#portfolio",
