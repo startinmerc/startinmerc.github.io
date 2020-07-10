@@ -324,15 +324,66 @@ function buildCharacterScrollAnimation(char,charIndex){
 	});
 }
 
+// =================GHOST=================
 
+// Create GSAP timeline for SVG Ghost
+const ghostTimeline = gsap.timeline({
+	paused: true,
+	onStart: document.getElementById("hero").addEventListener("mousemove", eyeMove)
+});
 
+// Assemble all ghost tweens to timeline
+function buildGhostTimeline() {
+	ghostTimeline.add(getShadowTween(), 0);
+	ghostTimeline.add(getBlinkTimeline(), 0);
+	ghostTimeline.add(getFloatTween(), 0);
 }
 
+// Animates shadow
+function getShadowTween() {
+	return gsap.to('.ghost__shadow', {
+		// Animate SVG Path attributes
+		attr: { rx: '30px', ry: '5px' },
+		repeat: -1,
+		yoyo: true,
+		ease: Power1.easeInOut,
+		duration: 1
 	});
 }
 
+// Independent blink timeline
+function getBlinkTimeline() {
+	// Independent timeline to animate eye blinking
+	let tl = gsap.timeline({ repeat: -1, repeatDelay: 2, defaults: { duration: 0.18 } });
+	// Attribute not scale to avoid line distortion
+	tl.to('.ghost__eye', { attr: { ry: '0px' } });
+	tl.to('.ghost__eye', { attr: { ry: '12.5px' } });
+	tl.to('.ghost__eye', { attr: { ry: '0px' } });
+	tl.to('.ghost__eye', { attr: { ry: '12.5px' } });
+	return tl;
+}
 
+// Float tween for whole ghost SVG group
+function getFloatTween() {
+	return gsap.fromTo('#ghost', {
+		y: '-10px'
+	}, {
+		y: '10px',
+		yoyo: true,
+		repeat: -1,
+		ease: Power1.easeInOut,
+		duration: 1
+	});
+}
 
+function eyeMove(e) {
+	gsap.to(".ghost__eye", {
+		// Coordinates within element
+		x: e.clientX / 70,
+		y: e.clientY / 70,
+		ease: "linear",
+		duration: 0.2
+	});
 }
 
 // =================PORTFOLIO=================
@@ -453,72 +504,6 @@ function buildSectionScrolls(){
 		pinSpacing: false,
 		onLeaveBack: () => portHeaderTween.reverse(),
 		onEnterBack: () => portHeaderTween.restart(),
-	});
-}
-
-// =================CONTACT GHOST=================
-
-// Create GSAP timeline for SVG Ghost
-const ghostTimeline = gsap.timeline({paused: true});
-
-// Assemble all ghost tweens to timeline
-function buildGhostTimeline() {
-	ghostTimeline.add(getShadowTween(), 0);
-	ghostTimeline.add(getBlinkTimeline(), 0);
-	ghostTimeline.add(getFloatTween(), 0);
-}
-
-// Animates shadow
-function getShadowTween() {
-	return gsap.to('.ghost__shadow', {
-		// Animate SVG Path attributes
-		attr: { rx: '30px', ry: '5px' },
-		repeat: -1,
-		yoyo: true,
-		ease: Power1.easeInOut,
-		duration: 1
-	});
-}
-
-// Independent blink timeline
-function getBlinkTimeline() {
-	// Independent timeline to animate eye blinking
-	let tl = gsap.timeline({ repeat: -1, repeatDelay: 2, defaults: {duration: 0.18} });
-	// Attribute not scale to avoid line distortion
-	tl.to('.ghost__eye', { attr: { ry: '0px' } });
-	tl.to('.ghost__eye', { attr: { ry: '12.5px' } });
-	tl.to('.ghost__eye', { attr: { ry: '0px' } });
-	tl.to('.ghost__eye', { attr: { ry: '12.5px' } });
-	return tl;
-}
-
-// Float tween for whole ghost SVG group
-function getFloatTween() {
-	return gsap.fromTo('#ghost', { 
-		y: '-10px'
-	 },{
-		y: '10px',
-		yoyo: true,
-		repeat: -1,
-		ease: Power1.easeInOut,
-		duration: 1
-	});
-}
-
-// Adds mouse move listener to element for ghost eye movement
-// Called by onEnter of #contact ScrollTrigger
-function getEyeMove(element) {
-	element.addEventListener('mousemove', eyeMove);
-}
-
-// Offsets eyes slightly based on cursor position in given element
-function eyeMove(e) {
-	gsap.to(".ghost__eye", {
-		// Coordinates within element
-		x: e.layerX / 100,
-		y: e.layerY / 30,
-		ease: "linear",
-		duration: 0.2
 	});
 }
 
