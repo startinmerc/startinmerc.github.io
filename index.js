@@ -203,9 +203,9 @@ function buildScrollTimeline(chars) {
 			// Watch #hero element as trigger
 			trigger: "#hero",
 			// Start timeline when scroll and element are top aligned
-			start: "top",
+			start: "top top",
 			// End timeline when bottom of scroll is 20% from top of screen
-			end: "bottom 35%",
+			end: "bottom 20%",
 			// Show header when animation is finished
 			onLeave: ()=>{
 				head.classList.add("show");
@@ -221,7 +221,9 @@ function buildScrollTimeline(chars) {
 				if(progress === 1){
 					head.classList.add("show");
 				};
-			}
+			},
+			pin: true,
+			pinSpacing: false
 		}
 	});
 	// Reverse characters & iterate over
