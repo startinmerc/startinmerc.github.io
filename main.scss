@@ -226,18 +226,51 @@ nav {
 	width: 100%;
 	min-height: 100vh;
 	padding: 1%;
+
 	* {
 		// Remove all margins
 		margin: 0;
 	}
+
 	h1 {
 		font-size: var(--hero-height);
 		cursor: default;
 	}
+
 	.char {
 		// Set display for transformations on spans
 		display: inline-block;
 	}
+
+	svg {
+		height: 33%;
+		width: auto;
+		position: absolute;
+		right: 10%;
+		bottom: 10%;
+		overflow: visible;
+		z-index: -1;
+	}
+}
+
+// ===================SVG GHOST===================
+
+.ghost__body-top, .ghost__body-low, .ghost__tail, .ghost__eye {
+	fill: white;
+}
+
+.ghost__eye {
+	stroke: black;
+	stroke-width: 5;
+}
+
+.ghost__shadow {
+	fill: black;
+	stroke: none;
+}
+
+.ghost__tail {
+	transform: translateX(70%);
 }
 
 /*====================HEAD====================*/
@@ -324,15 +357,6 @@ section {
 			@include image-filter();
 			height: auto;
 			width: 100%;
-			transform: scale(1.5);
-		}
-		// Resize SVG ghost
-		svg {
-			// Reposition more centered
-			margin-left: 10px;
-			height: 90%;
-			width: auto;
-			overflow: unset;
 		}
 	}
 	.section-container {
@@ -379,23 +403,6 @@ section {
 			padding-bottom: var(--section-padding);
 		}
 	}
-}
-
-// ===================SVG GHOST===================
-
-.ghost__body-top, .ghost__body-low, .ghost__tail {
-	fill: white;
-}
-
-.ghost__eye {
-	fill: none;
-	stroke: black;
-	stroke-width: 5;
-}
-
-.ghost__shadow {
-	fill: black;
-	stroke: none;
 }
 
 // ==================PORTFOLIO==================
