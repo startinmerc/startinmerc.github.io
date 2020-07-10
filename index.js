@@ -352,6 +352,10 @@ function buildSectionScrolls(){
 					// Pause ghost timeline if contact section
 					index === 2 && ghostTimeline.pause();
 				},
+				onLeave: () => {
+					// Play portfolio header tween if About is left
+					index === 0 && portHeaderTween.restart();
+				}
 			}
 		});
 		// Create section header timeline
@@ -386,8 +390,28 @@ function buildSectionScrolls(){
 			y: "0%"
 		});
 	});
-}
 
+	// Portfolio header characters
+	const portChars = document.querySelectorAll(".portfolio-header .char");
+
+	// Random colour portfolio header characters
+	portChars.forEach(char => {
+		char.classList.add(getRandomFtColor());
+	});
+	// Portfolio header tween
+	const portHeaderTween = gsap.fromTo(portChars, {
+			y: "300%"
+		}, {
+			y: "0%",
+			// Ease out & back
+			ease: "back.out(1.7)",
+			duration: 0.7,
+			// Stagger letters
+			stagger: 0.1,
+			paused: true
+		}
+	);
+}
 
 // =================CONTACT GHOST=================
 
