@@ -345,14 +345,14 @@ function buildSectionScrolls(){
 				onEnter: () => {
 					sectionTimeline.restart();
 					// Play ghost timeline if contact section
-					index === 2 && ghostTimeline.play();
-					index === 2 && getEyeMove(section);
+					index === 1 && ghostTimeline.play();
+					index === 1 && getEyeMove(section);
 				},
 				// Reverse header animation when element scrolled out of view
 				onLeaveBack: () => {
 					sectionTimeline.reverse();
 					// Pause ghost timeline if contact section
-					index === 2 && ghostTimeline.pause();
+					index === 1 && ghostTimeline.pause();
 				},
 				onLeave: () => {
 					// Play portfolio header tween if About is left
