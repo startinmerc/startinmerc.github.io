@@ -301,7 +301,7 @@ function buildScrollTimeline(chars) {
 		scrollTimeline.add(buildCharacterScrollAnimation(char, charIndex));
 	});
 	// Fade ghost
-	scrollTimeline.to('.ghost__body-top, .ghost__body-low, .ghost__tail, .ghost__shadow',{
+	scrollTimeline.to('#hero svg',{
 		opacity: 0,
 		duration: 8
 	},2)
