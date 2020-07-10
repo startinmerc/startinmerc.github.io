@@ -393,6 +393,8 @@ function buildSectionScrolls(){
 
 	// Portfolio header characters
 	const portChars = document.querySelectorAll(".portfolio-header .char");
+	// Portfolio header height
+	const portHeight = document.querySelector(".portfolio-header").offsetHeight;
 
 	// Random colour portfolio header characters
 	portChars.forEach(char => {
@@ -411,6 +413,16 @@ function buildSectionScrolls(){
 			paused: true
 		}
 	);
+	// Create seperate portfolio ScrollTrigger
+	ScrollTrigger.create({
+		trigger: "#portfolio",
+		start: "top",
+		end: `bottom ${portHeight}px`,
+		pin: ".portfolio-header",
+		pinSpacing: false,
+		onLeaveBack: () => portHeaderTween.reverse(),
+		onEnterBack: () => portHeaderTween.restart(),
+	});
 }
 
 // =================CONTACT GHOST=================
