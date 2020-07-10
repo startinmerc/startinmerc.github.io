@@ -206,21 +206,37 @@ function buildScrollTimeline(chars) {
 			start: "top top",
 			// End timeline when bottom of scroll is 20% from top of screen
 			end: "bottom 20%",
-			// Show header when animation is finished
+			// When scrolled to end
 			onLeave: ()=>{
+				// Show header
 				head.classList.add("show");
+				// Pause character animations
 				heroTimeline.pause();
+				// Pause ghost timeline
+				ghostTimeline.pause();
+				// Remove eye tracker
+				document.getElementById("hero").removeEventListener("mousemove", eyeMove);
 			},
-			// Hide header when hero scrolls back into view
+			// When back in view
 			onEnterBack: ()=>{
+				// Hide header
 				head.classList.remove("show");
+				// Resume character animations
 				heroTimeline.play();
+				// Resume ghost timeline
+				ghostTimeline.play();
+				// Readd eye tracker
+				document.getElementById("hero").addEventListener("mousemove", eyeMove);
 			},
 			// Show header if page loads past hero
 			onRefresh: ({progress})=>{
 				if(progress === 1){
 					head.classList.add("show");
 				};
+			},
+			onEnter: ()=>{
+				// Play ghost timeline at start
+				ghostTimeline.play();
 			},
 			pin: true,
 			pinSpacing: false
@@ -231,6 +247,11 @@ function buildScrollTimeline(chars) {
 		// Add CharacterScrollAnimation to scrollTimeline
 		scrollTimeline.add(buildCharacterScrollAnimation(char, charIndex));
 	});
+	// Fade ghost
+	scrollTimeline.to('.ghost__body-top, .ghost__body-low, .ghost__tail, .ghost__shadow',{
+		opacity: 0,
+		duration: 8
+	},2)
 }
 
 // Expects character node element, index of character in word, index of word in hero
