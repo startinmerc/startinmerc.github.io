@@ -323,7 +323,7 @@ function addPortColors() {
 // ===================SECTION===================
 
 // Get all <section> elements
-const sections = document.querySelectorAll("section");
+const sections = document.querySelectorAll("section:not(#portfolio)");
 
 // Builds GSAP ScrollTrigger timeline for each section
 function buildSectionScrolls(){
