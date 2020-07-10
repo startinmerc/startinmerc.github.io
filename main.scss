@@ -406,6 +406,19 @@ section {
 // ==================PORTFOLIO==================
 
 #portfolio {
+
+	// Container for header & button grid
+	.portfolio-header {
+		// Above entries
+		z-index: 2;
+		border-bottom: $border;
+		h2 {
+			// Move away from <header>
+			text-align: center;
+			padding: 2% var(--section-padding);
+		}
+	}
+
 	.section-container {
 		padding: 0;
 	}
@@ -417,6 +430,9 @@ section {
 		// Gap between buttons to replicate $border
 		grid-gap: 8px;
 		background-color: black;
+		// Y-borders
+		border-left: $border;
+		border-right: $border;
 		a {
 			@include grid-center();
 			// Style resets
@@ -464,6 +480,9 @@ section {
 	text-align: center;
 	// Border divider for entries
 	border-top: $border;
+	&:first-of-type {
+		border-top: none;
+	}
 
 	.portfolio-entry__title {
 		// Bump up title size
