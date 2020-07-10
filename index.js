@@ -37,7 +37,7 @@ const bgColors = [
 	'bg-red',
 	'bg-blue',
 	'bg-green',
-	'bg-yellow',
+	'bg-gray',
 	'bg-white',
 ]
 

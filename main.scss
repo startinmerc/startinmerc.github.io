@@ -19,11 +19,12 @@ h1,h2,h3,h4,h4,.display {
 
 // Background color classes
 .bg-red {background-color: red;}
+.bg-gray {background-color: lightgray;}
+.bg-white {background-color: white;}
 // Add font color overrides for contrast
 .bg-blue {background-color: blue; color: white !important;}
 .bg-green {background-color: green; color: white !important;}
-.bg-yellow {background-color: yellow;}
-.bg-white {background-color: white;}
+
 
 $border: 8px solid black;
 $half-border: 4px solid black;
