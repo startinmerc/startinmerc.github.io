@@ -31,6 +31,26 @@ $half-border: 4px solid black;
 $mobile: 500px;
 $z-top: 1000;
 
+@mixin grid-center() {
+	display: grid;
+	place-items: center;
+}
+
+@mixin pseudo() {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+@mixin image-filter() {
+	filter: grayscale(0.6) brightness(2);
+	mix-blend-mode: multiply;
+}
+
+
 a {
 	// Set default link styling
 	text-decoration: none;
@@ -52,24 +72,52 @@ a {
 	}
 }
 
-@mixin grid-center() {
-	display: grid;
-	place-items: center;
+
+
+.custom-link--box {
+	@include grid-center();
+	// Style resets
+	text-align: center;
+	// Bold weight for colours
+	font-weight: bold;
+	position: relative;
+	// Push in front of pseudo
+	z-index: 1;
+	// Hide pseudo overflow
+	overflow: hidden;
+	// Reinstate underline
+	text-decoration: underline;
+
+	&.bg-blue, &.bg-green {
+		color: white;
+	}
+
+	&.bg-red {
+		color: black;
+	}
+
+	&::before {
+		@include pseudo();
+		background-color: yellow;
+		// Push to back
+		z-index: -1;
+		transform: skewX(-40deg) scaleX(0);
+		transform-origin: right;
+		width: 200%;
+		left: -25%;
+		transition: transform 320ms ease-in;
+	}
+
+	&:hover {
+		color: blue;
+		&::before {
+			transform: skewX(-40deg) scaleX(1);
+			// Swap transform-origin on mouse leave with pure CSS!
+			transform-origin: left;
+		}
+	}
 }
 
-@mixin pseudo() {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-}
-
-@mixin image-filter() {
-	filter: grayscale(0.6) brightness(2);
-	mix-blend-mode: multiply;
-}
 
 /*=====================NAV=====================*/
 
@@ -440,46 +488,8 @@ section {
 		border-left: $border;
 		border-right: $border;
 		a {
-			@include grid-center();
-			// Style resets
-			border: none;
-			text-align: center;
 			padding: 1em 0;
 			font-size: 1rem;
-			color: black;
-			// Bold weight for colours
-			font-weight: bold;
-			position: relative;
-			// Push in front of pseudo
-			z-index: 1;
-			// Hide pseudo overflow
-			overflow: hidden;
-			// Reinstate underline
-			text-decoration: underline;
-			&.bg-blue, &.bg-green {
-				color: white;
-			}
-
-			&::before {
-				@include pseudo();
-				background-color: yellow;
-				// Push to back
-				z-index: -1;
-				transform: skewX(-40deg) scaleX(0);
-				transform-origin: right;
-				width: 200%;
-				left: -25%;
-				transition: transform 320ms ease-in;
-			}
-
-			&:hover {
-				color: blue;
-				&::before {
-					transform: skewX(-40deg) scaleX(1);
-					// Swap transform-origin on mouse leave with pure CSS!
-					transform-origin: left;
-				}
-			}
 		}
 	}
 }
