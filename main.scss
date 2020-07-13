@@ -514,6 +514,10 @@ section {
 		margin-bottom: var(--section-padding);
 		padding: var(--section-padding);
 		border-bottom: $border;
+		// Clear margin from header
+		h3 {
+			margin: 0;
+		}
 	}
 
 	.portfolio-entry__tech {

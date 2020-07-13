@@ -547,6 +547,10 @@ section .section-container p:last-of-type {
   border-bottom: 8px solid black;
 }
 
+.portfolio-entry .portfolio-entry__title h3 {
+  margin: 0;
+}
+
 .portfolio-entry .portfolio-entry__tech {
   font-weight: bold;
   margin-top: 1em !important;
