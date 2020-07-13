@@ -171,10 +171,10 @@ nav a {
   margin: 5vh 0;
   z-index: 1;
   font-size: calc(var(--hero-height) * 0.5);
-  -webkit-transition: -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
-  transition: -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
-  transition: transform 270ms ease-in, box-shadow 270ms ease-in;
-  transition: transform 270ms ease-in, box-shadow 270ms ease-in, -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
+  -webkit-transition: -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
+  transition: -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
+  transition: transform 270ms ease-in, box-shadow 270ms ease-in;
+  transition: transform 270ms ease-in, box-shadow 270ms ease-in, -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
   -webkit-transform: translateX(100vw);
           transform: translateX(100vw);
 }
@@ -647,11 +647,11 @@ footer {
   margin-top: 15%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   -ms-grid-rows: (minmax(1rem, auto))[5];
       grid-template-rows: repeat(5, minmax(1rem, auto));
-      grid-template-areas: "f1 f1 f2" "f3 f4 f2" "f3 f5 f6" "f7 f8 f8" "f7 f9 f10";
+      grid-template-areas: "f1 f1 f2" "f3 f4 f2" "f3 f5 f6" "f7 f8 f8" "f7 f9 f10";
   text-align: center;
   border: 4px solid black;
   background-color: white;
