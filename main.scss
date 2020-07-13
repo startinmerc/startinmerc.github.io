@@ -22,8 +22,8 @@ h1,h2,h3,h4,h4,.display {
 .bg-gray {background-color: lightgray;}
 .bg-white {background-color: white;}
 // Add font color overrides for contrast
-.bg-blue {background-color: blue; color: white !important;}
-.bg-green {background-color: green; color: white !important;}
+.bg-blue {background-color: blue; color: white;}
+.bg-green {background-color: green; color: white;}
 
 
 $border: 8px solid black;
@@ -456,10 +456,13 @@ section {
 			overflow: hidden;
 			// Reinstate underline
 			text-decoration: underline;
+			&.bg-blue, &.bg-green {
+				color: white;
+			}
 
 			&::before {
 				@include pseudo();
-				background-color: orange;
+				background-color: yellow;
 				// Push to back
 				z-index: -1;
 				transform: skewX(-40deg) scaleX(0);
@@ -469,10 +472,13 @@ section {
 				transition: transform 320ms ease-in;
 			}
 
-			&:hover::before {
-				transform: skewX(-40deg) scaleX(1);
-				// Swap transform-origin on mouse leave with pure CSS!
-				transform-origin: left;
+			&:hover {
+				color: blue;
+				&::before {
+					transform: skewX(-40deg) scaleX(1);
+					// Swap transform-origin on mouse leave with pure CSS!
+					transform-origin: left;
+				}
 			}
 		}
 	}
