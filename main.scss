@@ -596,7 +596,7 @@ section {
 footer {
 	margin-top: 15%;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(5, minmax(1rem, auto));
 	// Name grid areas (took a while!)
 	grid-template-areas: 
