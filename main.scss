@@ -486,9 +486,9 @@ section {
 		z-index: 2;
 		border-bottom: $border;
 		h2 {
-			// Move away from <header>
-			text-align: center;
-			padding: 2% var(--section-padding);
+			@media(max-width: $mobile){
+				font-size: 2rem;
+			}
 		}
 	}
 
@@ -499,7 +499,7 @@ section {
 	.button-grid {
 		// Responsive grid layout for buttons
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
 		// Gap between buttons to replicate $border
 		grid-gap: 8px;
 		background-color: var(--col-1);

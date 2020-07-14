@@ -407,6 +407,12 @@ nav.max button::before {
   --section-padding: 2rem;
 }
 
+@media (max-width: 500px) {
+  :root {
+    --section-padding: 1rem;
+  }
+}
+
 section {
   max-width: 900px;
   margin: 10vh auto;
@@ -520,9 +526,10 @@ section .section-container p:last-of-type {
   border-bottom: 8px solid var(--col-1);
 }
 
-#portfolio .portfolio-header h2 {
-  text-align: center;
-  padding: 2% var(--section-padding);
+@media (max-width: 500px) {
+  #portfolio .portfolio-header h2 {
+    font-size: 2rem;
+  }
 }
 
 #portfolio .section-container {
@@ -532,8 +539,8 @@ section .section-container p:last-of-type {
 #portfolio .button-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(140px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  -ms-grid-columns: (minmax(25%, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
   grid-gap: 8px;
   background-color: var(--col-1);
   border-left: 8px solid var(--col-1);
