@@ -314,7 +314,7 @@ nav.max button::before {
 
 @media (max-width: 500px) {
   :root {
-    --hero-height: 18vw;
+    --hero-height: 21vw;
   }
 }
 
