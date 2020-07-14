@@ -27,18 +27,19 @@ function ready() {
 
 // Array of color classes
 const ftColors = [
-	'ft-red',
-	'ft-blue',
-	'ft-green',
-	'ft-yellow'
+	'ft-1',
+	'ft-2',
+	'ft-3',
+	'ft-4',
+	'ft-5',
 ];
 
 const bgColors = [
-	'bg-red',
-	'bg-blue',
-	'bg-green',
-	'bg-gray',
-	'bg-white',
+	'bg-1',
+	'bg-2',
+	'bg-3',
+	'bg-4',
+	'bg-5',
 ]
 
 // Returns random color class name

@@ -1,6 +1,6 @@
 body {
 	font-family: 'PT Mono', monospace;
-	background: cornsilk;
+	background: #e4c1f9;
 	min-height: 100vh;
 	overflow-x: hidden;
 	margin: 0;
@@ -11,23 +11,31 @@ h1,h2,h3,h4,h4,.display {
 	font-family: 'Major Mono Display', monospace;
 }
 
+:root {
+	--col-1: #011627;
+	--col-2: #f71735;
+	--col-3: #41ead4;
+	--col-4: #ff9f1c;
+	--col-5: #fdfffc;
+}
+
 // Font color classes
-.ft-red {color: red;}
-.ft-blue {color: blue;}
-.ft-green {color: green;}
-.ft-yellow {color: yellow;}
+.ft-1 {color: var(--col-1);}
+.ft-2 {color: var(--col-2);}
+.ft-3 {color: var(--col-3);}
+.ft-4 {color: var(--col-4);}
+.ft-5 {color: var(--col-5);}
 
 // Background color classes
-.bg-red {background-color: red;}
-.bg-gray {background-color: lightgray;}
-.bg-white {background-color: white;}
-// Add font color overrides for contrast
-.bg-blue {background-color: blue; color: white;}
-.bg-green {background-color: green; color: white;}
+.bg-1 {background-color: var(--col-1); color: var(--col-5) !important;}
+.bg-2 {background-color: var(--col-2);}
+.bg-3 {background-color: var(--col-3);}
+.bg-4 {background-color: var(--col-5);}
+.bg-5 {background-color: var(--col-5);}
 
 
-$border: 8px solid black;
-$half-border: 4px solid black;
+$border: 8px solid var(--col-1);
+$half-border: 4px solid var(--col-1);
 $mobile: 500px;
 $z-top: 1000;
 
@@ -58,7 +66,7 @@ a {
 	&:not(.custom-link) {
 		transition: background-size 270ms ease-in;
 		// Background image as hard-stop gradient
-		background-image: linear-gradient(yellow 0%, yellow 100%);
+		background-image: linear-gradient(var(--col-4) 0%, var(--col-4) 100%);
 		// Set gradient to 0% width
 		background-size: 0% 100%;
 		background-repeat: no-repeat;
@@ -88,17 +96,9 @@ a {
 	// Reinstate underline
 	text-decoration: underline;
 
-	&.bg-blue, &.bg-green {
-		color: white;
-	}
-
-	&.bg-red {
-		color: black;
-	}
-
 	&::before {
 		@include pseudo();
-		background-color: yellow;
+		background-color: var(--col-4);
 		// Push to back
 		z-index: -1;
 		transform: skewX(-40deg) scaleX(0);
@@ -147,7 +147,7 @@ nav {
 		width: 200vw;
 		left: -100vw;
 		opacity: 0;
-		background-color: black;
+		background-color: var(--col-1);
 		transform: scale(0);
 		transition: opacity var(--nav-transition-time) ease-out;
 	}
@@ -159,7 +159,7 @@ nav {
 		font-family: inherit;
 		width: 25vh;
 		height: 12.5vh;
-		background: orange;
+		background: transparent;
 		// Equal radius to width creates a semicircle
 		border-radius: 25vh 25vh 0 0;
 		transform-origin: center;
@@ -176,17 +176,17 @@ nav {
 			@include pseudo();
 			// Double height to make equal width & height
 			height: 200%;
-			background-color: orange;
+			background-color: var(--col-3);
 			// Pull behind button
 			z-index: -1;
 			// Make circle
 			border-radius: 50%;
-			// Rotate to black bordered side
+			// Rotate to var(--col-1) bordered side
 			transform: rotate(135deg) scale(1);
 			transition: transform var(--nav-transition-time) ease-in;
-			// Add half orange, half black border
+			// Add half var(--col-3), half var(--col-1) border
 			border: $border;
-			border-color: black black orange orange;
+			border-color: var(--col-1) var(--col-1) var(--col-4) var(--col-4);
 			// Move to account for border
 			top: -8px;
 			left: -8px;
@@ -209,7 +209,7 @@ nav {
 		&::before, &::after {
 			@include pseudo();
 			height: 8px;
-			background-color: yellow;
+			background-color: var(--col-4);
 			transition: transform 270ms ease-in;
 			transform: scaleX(0);
 		}
@@ -254,7 +254,7 @@ nav {
 		button::before {
 			transition-delay: 0ms;
 			transform: rotate(-45deg) scale(6) translate(-25%, 25%);
-			border-color: black;
+			border-color: var(--col-1);
 		}
 	}
 }
@@ -305,16 +305,16 @@ nav {
 // ===================SVG GHOST===================
 
 .ghost__body-top, .ghost__body-low, .ghost__tail, .ghost__eye {
-	fill: white;
+	fill: var(--col-5);
 }
 
 .ghost__eye {
-	stroke: black;
+	stroke: var(--col-1);
 	stroke-width: 5;
 }
 
 .ghost__shadow {
-	fill: black;
+	fill: var(--col-1);
 	stroke: none;
 }
 
@@ -360,7 +360,7 @@ section {
 	h2 {
 		font-size: 3rem;
 		margin: 0;
-		background: white;
+		background: var(--col-5);
 		border: $border;
 		padding: 8px var(--section-padding);
 		// Hide letters sliding in
@@ -378,7 +378,7 @@ section {
 		height: 200px;
 		width: 200px;
 		border: $border;
-		background-color: orange;
+		background-color: var(--col-3);
 		overflow: hidden;
 		&.aside--left {
 			// Push aside into top left corner
@@ -401,7 +401,7 @@ section {
 			height: 150px;
 			width: 150px;
 		}
-		// Add filters to blend images into orangeyness
+		// Add filters to blend images into var(--col-3)yness
 		img {
 			@include image-filter();
 			height: auto;
@@ -409,7 +409,7 @@ section {
 		}
 	}
 	.section-container {
-		background: white;
+		background: var(--col-5);
 		border: $border;
 		border-top: none;
 		margin: 0 auto;
@@ -483,7 +483,7 @@ section {
 		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 		// Gap between buttons to replicate $border
 		grid-gap: 8px;
-		background-color: black;
+		background-color: var(--col-1);
 		// Y-borders
 		border-left: $border;
 		border-right: $border;
@@ -622,7 +622,7 @@ footer {
 	text-align: center;
 	// Half border to combine with grid item borders
 	border: $half-border;
-	background-color: white;
+	background-color: var(--col-5);
 
 	h3 {
 		// Center in grid cell
