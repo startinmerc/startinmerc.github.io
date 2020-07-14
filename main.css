@@ -305,6 +305,7 @@ nav.max button::before {
   -webkit-transform: rotate(-45deg) scale(6) translate(-25%, 25%);
           transform: rotate(-45deg) scale(6) translate(-25%, 25%);
   border-color: var(--col-1);
+  background-size: 100% 150%;
 }
 
 /*====================HERO====================*/
