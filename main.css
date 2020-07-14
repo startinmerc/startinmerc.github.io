@@ -198,6 +198,12 @@ nav button {
   cursor: pointer;
 }
 
+@media (max-width: 500px) {
+  nav button {
+    top: 2vh;
+  }
+}
+
 nav button::before {
   content: "";
   position: absolute;

@@ -171,6 +171,9 @@ nav {
 		transform: translate(-75%,0vh) rotate(-90deg);
 		font-size: 2rem;
 		cursor: pointer;
+		@media(max-width: $mobile){
+			top: 2vh;
+		}
 
 		&::before {
 			@include pseudo();
