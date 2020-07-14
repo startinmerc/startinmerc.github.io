@@ -333,6 +333,13 @@ nav.max button::before {
 
 #hero .char {
   display: inline-block;
+  text-shadow: 5px 5px 0px var(--col-1);
+}
+
+@media (max-width: 500px) {
+  #hero .char {
+    text-shadow: 4px 2px 0px var(--col-1);
+  }
 }
 
 #hero svg {
@@ -376,6 +383,7 @@ nav.max button::before {
   transition: -webkit-transform 380ms ease-in;
   transition: transform 380ms ease-in;
   transition: transform 380ms ease-in, -webkit-transform 380ms ease-in;
+  text-shadow: 2px 2px 0px var(--col-1);
 }
 
 #head h1 {

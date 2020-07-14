@@ -290,6 +290,10 @@ nav {
 	.char {
 		// Set display for transformations on spans
 		display: inline-block;
+		text-shadow: 5px 5px 0px var(--col-1);
+		@media(max-width: $mobile){
+			text-shadow: 4px 2px 0px var(--col-1);
+		}
 	}
 
 	svg {
@@ -334,6 +338,14 @@ nav {
 	// Hide initially
 	transform: translateY(-200%);
 	transition: transform 380ms ease-in;
+	// Add drop shadow
+	text-shadow: 2px 2px 0px var(--col-1);
+	// Push right on mobile to avoid header conflict
+	// @media(max-width: $mobile){
+	// 	left: initial;
+	// 	right: 2%;
+	// 	z-index: calc(1001);
+	// }
 	h1 {
 		// Clear margin
 		margin: 0;
