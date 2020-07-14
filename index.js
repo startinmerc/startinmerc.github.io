@@ -43,7 +43,11 @@ const bgColors = [
 ]
 
 // Returns random color class name
-function getRandomFtColor() {
+function getRandomFtColor(section = false) {
+	// Exclude white if section header
+	if (section) {
+		return ftColors[Math.floor(Math.random() * (ftColors.length - 1))];
+	}
 	return ftColors[Math.floor(Math.random() * ftColors.length)];
 }
 
@@ -448,7 +452,7 @@ function buildSectionScrolls(){
 
 		// Random colour header characters
 		headerChars.forEach(char => {
-			char.classList.add(getRandomFtColor());
+			char.classList.add(getRandomFtColor(true));
 		});
 
 		// Translate characters from +100% to 0%
@@ -479,7 +483,7 @@ function buildSectionScrolls(){
 
 	// Random colour portfolio header characters
 	portChars.forEach(char => {
-		char.classList.add(getRandomFtColor());
+		char.classList.add(getRandomFtColor(true));
 	});
 
 	// Portfolio header tween
