@@ -361,6 +361,9 @@ nav {
 
 :root {
  --section-padding: 2rem;
+ @media(max-width: $mobile){
+	 --section-padding: 1rem;
+ }
 }
 
 section {
