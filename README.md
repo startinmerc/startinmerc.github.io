@@ -20,5 +20,6 @@ This is my first project developed entirely with SASS, using VSCode and a live c
 
 TO DO:
 
-* Gradient/noise on body background
-* Pin portfolio navigation
+* Implement master ScrollTrigger timeline for all scrollers
+* Refresh pins etc. on resize
+* Master timeline should fix page loads at non-top
