@@ -23,6 +23,8 @@ function ready() {
 	colorFooterBlocks();
 }
 
+const isMobile = window.innerWidth < 500;
+
 // ================COLOUR DEFS================
 
 // Array of color classes
@@ -507,8 +509,30 @@ function buildSectionScrolls(){
 		end: `bottom ${portHeight}px`,
 		pin: ".portfolio-header",
 		pinSpacing: false,
-		onLeaveBack: () => portHeaderTween.reverse(),
-		onEnterBack: () => portHeaderTween.restart(),
+		onLeaveBack: () => {
+			// Show header again
+			isMobile && head.classList.add("show");
+			// Hide header
+			portHeaderTween.reverse();
+		},
+		onEnterBack: () => {
+			// Move header out of the way
+			isMobile && head.classList.remove("show");
+			// Play header
+			portHeaderTween.restart();
+		},
+		onEnter: ()=>{
+			// Move header out of the way
+			isMobile && head.classList.remove("show");
+			// Play header
+			portHeaderTween.restart();
+		},
+		onLeave: ()=>{
+			// Show header again
+			isMobile && head.classList.add("show");
+			// Hide header
+			portHeaderTween.reverse();
+		}
 	});
 }
 
