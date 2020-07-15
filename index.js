@@ -134,12 +134,12 @@ const navTimelineMin = gsap.timeline({
 function buildNavTimelines() {
 	// Add tweens to maximise nav timeline
 	navTimelineMax.to("nav", { translateX: "0%" }, 0);
-	navTimelineMax.to("nav button", { translateY: "32.5vh" }, 0);
-	navTimelineMax.to("nav a", { translateX: 0, stagger: 0.1 }, 0.2);
+	navTimelineMax.to("nav button", { translateY: "325%" }, 0);
+	navTimelineMax.to("nav a", { translateX: "0%", stagger: 0.1 }, 0.2);
 	// Add tweens to minimise nav timeline
-	navTimelineMin.to("nav a", { translateX: "100vw", stagger: 0.1 });
+	navTimelineMin.to("nav a", { translateX: "200%", stagger: 0.1 });
 	navTimelineMin.to("nav", { translateX: "100%" }, 0);
-	navTimelineMin.to("nav button", { translateY: "0vh" }, 0);
+	navTimelineMin.to("nav button", { translateY: "0%" }, 0);
 }
 
 //====================HERO====================
