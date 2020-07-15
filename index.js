@@ -82,7 +82,7 @@ function replaceBgColor(node,rColor = getRandomBgColor()) {
 // Adds link interaction styling
 function addLinkHovers() {
 	// Grab all links
-	const links = Array.from(document.querySelectorAll("a"));
+	let links = Array.from(document.querySelectorAll("a"));
 
 	links.forEach((a) => {
 		// Define transition duration dictated by element width
@@ -114,7 +114,7 @@ function addNavListener() {
 	});
 }
 
-const navTimelineMax = gsap.timeline({
+let navTimelineMax = gsap.timeline({
 	// Set default speed for tweens
 	defaults: { duration: "400ms" },
 	// Toggle max class to trigger pseudo animations
@@ -123,7 +123,7 @@ const navTimelineMax = gsap.timeline({
 	onComplete: () => { nav.focus() }
 });
 
-const navTimelineMin = gsap.timeline({
+let navTimelineMin = gsap.timeline({
 	// Set default speed for tweens
 	defaults: { duration: "100ms" },
 	// Toggle max class to trigger pseudo animations
@@ -189,15 +189,11 @@ const trans = [
 	(target)=>(null)
 ];
 
-// List of all split characters in #hero
-const chars = document.querySelectorAll("#hero .char");
-// Get #head element
-const head = document.querySelector("#head");
-// Get #head chars
-const headChars = document.querySelectorAll("#head .char");
 
 // Master function to get all #hero GSAP
 function getHeroGSAP(){
+	// List of all split characters in #hero
+	const chars = document.querySelectorAll("#hero .char");
 	// Build a gsap timeline for inital #hero transforms
 	buildCharacterAnimation(chars);
 	// Build ScrollTrigger timeline for #hero characters
@@ -234,6 +230,8 @@ function buildCharacterAnimation(chars){
 
 // Adds supplied color & trans to header
 function addToHeader(color, trans = null, index) {
+	// Get #head chars
+	const headChars = document.querySelectorAll("#head .char");
 	// Try adding to headChars[index]
 	try {
 		// Change color in corresponding header
@@ -246,8 +244,12 @@ function addToHeader(color, trans = null, index) {
 
 // Expects array of words with characters
 function buildScrollTimeline(chars) {
+	// Get #head element
+	const head = document.querySelector("#head");
+	// Get #hero element
+	const hero = document.querySelector("#hero");
 	// Create new timeline
-	const scrollTimeline = gsap.timeline({
+	const heroScrollTimeline = gsap.timeline({
 		// Add ScrollTrigger
 		scrollTrigger: {
 			// Scrub animation with scroll in real time
@@ -267,7 +269,7 @@ function buildScrollTimeline(chars) {
 				// Pause ghost timeline
 				ghostTimeline.pause();
 				// Remove eye tracker
-				document.getElementById("hero").removeEventListener("mousemove", eyeMove);
+				hero.removeEventListener("mousemove", eyeMove);
 			},
 			// When back in view
 			onEnterBack: ()=>{
@@ -278,7 +280,7 @@ function buildScrollTimeline(chars) {
 				// Resume ghost timeline
 				ghostTimeline.play();
 				// Readd eye tracker
-				document.getElementById("hero").addEventListener("mousemove", eyeMove);
+				hero.addEventListener("mousemove", eyeMove);
 			},
 			// Show header if page loads past hero
 			onRefresh: ({progress})=>{
@@ -296,11 +298,11 @@ function buildScrollTimeline(chars) {
 	});
 	// Reverse characters & iterate over
 	[...chars].reverse().forEach((char, charIndex) => {
-		// Add CharacterScrollAnimation to scrollTimeline
-		scrollTimeline.add(buildCharacterScrollAnimation(char, charIndex));
+		// Add CharacterScrollAnimation to heroScrollTimeline
+		heroScrollTimeline.add(buildCharacterScrollAnimation(char, charIndex));
 	});
 	// Fade ghost
-	scrollTimeline.to('#hero svg',{
+	heroScrollTimeline.to('#hero svg',{
 		opacity: 0,
 		duration: 8
 	},2)
@@ -328,7 +330,7 @@ function buildCharacterScrollAnimation(char,charIndex){
 // Create GSAP timeline for SVG Ghost
 const ghostTimeline = gsap.timeline({
 	paused: true,
-	onStart: document.getElementById("hero").addEventListener("mousemove", eyeMove)
+	onStart: hero.addEventListener("mousemove", eyeMove)
 });
 
 // Assemble all ghost tweens to timeline
@@ -406,11 +408,11 @@ function addPortColors() {
 
 // ===================SECTION===================
 
-// Get all <section> elements
-const sections = document.querySelectorAll("section:not(#portfolio)");
-
 // Builds GSAP ScrollTrigger timeline for each section
 function buildSectionScrolls(){
+	// Get all <section> elements
+	let sections = document.querySelectorAll("section:not(#portfolio)");
+
 	sections.forEach((section, index) => {
 		// Create new scroll timeline
 		let sectionScrollTimeline = gsap.timeline({
@@ -471,9 +473,9 @@ function buildSectionScrolls(){
 	});
 
 	// Portfolio header characters
-	const portChars = document.querySelectorAll(".portfolio-header .char");
+	let portChars = document.querySelectorAll(".portfolio-header .char");
 	// Portfolio header height
-	const portHeight = document.querySelector(".portfolio-header").offsetHeight;
+	let portHeight = document.querySelector(".portfolio-header").offsetHeight;
 
 	// Random colour portfolio header characters
 	portChars.forEach(char => {
@@ -481,7 +483,7 @@ function buildSectionScrolls(){
 	});
 
 	// Portfolio header tween
-	const portHeaderTween = gsap.fromTo(portChars, {
+	let portHeaderTween = gsap.fromTo(portChars, {
 			y: "300%"
 		}, {
 			y: "0%",
@@ -530,13 +532,15 @@ function buildSectionScrolls(){
 
 // ======================FOOTER======================
 
-// Get all blocks and header elements from footer
-const footerBlocks = [
-	...document.querySelectorAll(".block"),
-	...document.querySelectorAll("footer h3")
-];
+// ======================FOOTER======================
 
 function colorFooterBlocks() {
+	// Get all blocks and header elements from footer
+	let footerBlocks = [
+		...document.querySelectorAll(".block"),
+		...document.querySelectorAll("footer h3")
+	];
+
 	// Iterate over all footer blocks
 	footerBlocks.forEach(node => {
 		// Assign random background color
