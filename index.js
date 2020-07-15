@@ -417,6 +417,9 @@ function buildSectionScrolls(){
 				onLeave: () => {
 					// Play portfolio header tween if About is left
 					index === 0 && portHeaderTween.restart();
+				},
+				onEnterBack: () => {
+					index === 0 && portHeaderTween.reverse();
 				}
 			}
 		});
@@ -483,27 +486,25 @@ function buildSectionScrolls(){
 		pin: ".portfolio-header",
 		pinSpacing: false,
 		onLeaveBack: () => {
-			// Show header again
+			// Show #header again
 			headerIntersect() && head.classList.add("show");
-			// Hide header
-			portHeaderTween.reverse();
 		},
 		onEnterBack: () => {
-			// Move header out of the way
+			// Move #header out of the way
 			headerIntersect() && head.classList.remove("show");
-			// Play header
+			// Play section header tween
 			portHeaderTween.restart();
 		},
 		onEnter: ()=>{
-			// Move header out of the way
+			// Move #header out of the way
 			headerIntersect() && head.classList.remove("show");
-			// Play header
+			// Play section header tween
 			portHeaderTween.play();
 		},
 		onLeave: ()=>{
-			// Show header again
+			// Show #header again
 			headerIntersect() && head.classList.add("show");
-			// Hide header
+			// Hide section header tween
 			portHeaderTween.reverse();
 		}
 	})
