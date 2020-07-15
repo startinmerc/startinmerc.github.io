@@ -151,42 +151,37 @@ const heroDuration = 2.2
 // Array of GSAP transform and null functions
 const trans = [
 	function skewPlus(target) {
-		let tl = gsap.to(target, {
+		return gsap.to(target, {
 			skewX: "8deg",
 			duration: heroDuration
 		});
-		return tl;
 	},
 	function skewMinus(target) {
-		let tl = gsap.to(target, {
+		return gsap.to(target, {
 			skewX: "-10deg",
 			duration: heroDuration
 		});
-		return tl;
 	},
 	function rotatePlus(target) {
-		let tl = gsap.to(target, {
+		return gsap.to(target, {
 			rotate: "3deg",
 			duration: heroDuration
 		});
-		return tl;
 	},
 	function rotateMinus(target) {
-		let tl = gsap.to(target, {
+		return gsap.to(target, {
 			rotate: "-5deg",
 			duration: heroDuration
 		});
-		return tl;
 	},
 	function rotateFull(target) {
-		let tl = gsap.to(target, {
+		return gsap.to(target, {
 			rotate: "+=360deg",
 			duration: heroDuration,
 			repeatDelay: 3,
 			repeat: -1,
 			ease: "back.inOut(1.7)"
 		});
-		return tl;
 	},
 	(target)=>(null),
 	(target)=>(null),
@@ -209,11 +204,6 @@ function getHeroGSAP(){
 	buildScrollTimeline(chars);
 }
 
-// Returns random transform tween
-function getRandomTransform() {
-	return trans[Math.floor(Math.random() * trans.length)];
-}
-
 // Create new timeline
 const heroTimeline = gsap.timeline();
 // Create header timeline
@@ -226,7 +216,7 @@ function buildCharacterAnimation(chars){
 		// Pick random colour
 		let rColor = getRandomFtColor();
 		// Pick random transform
-		let rTrans = getRandomTransform();
+		let rTrans = gsap.utils.random(trans);
 		// Add transform to timeline at index / 10 seconds
 		heroTimeline.add(rTrans(v), i / 10);
 		// Add color class to character
