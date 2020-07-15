@@ -427,11 +427,11 @@ function buildSectionScrolls(){
 				end: "top 25%",
 				// Trigger header animation on enter
 				onEnter: () => {
-					sectionTimeline.restart();
+					headerTween.restart();
 				},
 				// Reverse header animation when element scrolled out of view
 				onLeaveBack: () => {
-					sectionTimeline.reverse();
+					headerTween.reverse();
 				},
 				onLeave: () => {
 					// Play portfolio header tween if About is left
@@ -439,8 +439,6 @@ function buildSectionScrolls(){
 				}
 			}
 		});
-		// Create section header timeline
-		let sectionTimeline = gsap.timeline();
 		// Get split characters from header
 		let headerChars = section.querySelectorAll(".char");
 		// Get content wrapper for section
@@ -452,7 +450,7 @@ function buildSectionScrolls(){
 		});
 
 		// Translate characters from +100% to 0%
-		sectionTimeline.fromTo(headerChars, {
+		let headerTween = gsap.fromTo(headerChars, {
 			y: "300%"
 		}, {
 			y: "0%",
