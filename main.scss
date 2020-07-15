@@ -34,7 +34,7 @@ h1,h2,h3,h4,h4,.display {
 
 $border: 8px solid var(--col-1);
 $half-border: 4px solid var(--col-1);
-$mobile: 500px;
+$mobile: 576px;
 $z-top: 1000;
 
 @mixin grid-center() {
@@ -338,8 +338,8 @@ nav {
 #head {
 	// Positioning top & above all elements
 	position: fixed;
-	top: 2%;
-	left: 2%;
+	top: 8px;
+	left: 8px;
 	z-index: $z-top;
 	// Hide initially
 	transform: translateY(-200%);
