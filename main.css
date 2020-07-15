@@ -52,10 +52,6 @@ h1, h2, h3, h4, h4, .display {
   background-color: var(--col-3);
 }
 
-.bg-4 {
-  background-color: var(--col-5);
-}
-
 .bg-5 {
   background-color: var(--col-5);
 }
@@ -235,12 +231,10 @@ nav a {
   margin: 5vh 0;
   z-index: 1;
   font-size: calc(var(--hero-height) * 0.5);
-  -webkit-transition: -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
-  transition: -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
-  transition: transform 270ms ease-in, box-shadow 270ms ease-in;
-  transition: transform 270ms ease-in, box-shadow 270ms ease-in, -webkit-transform 270ms ease-in, -webkit-box-shadow 270ms ease-in;
-  -webkit-transform: translateX(100vw);
-          transform: translateX(100vw);
+  -webkit-transition: -webkit-transform 270ms ease-in;
+  transition: -webkit-transform 270ms ease-in;
+  transition: transform 270ms ease-in;
+  transition: transform 270ms ease-in, -webkit-transform 270ms ease-in;
 }
 
 nav a::before, nav a::after {
@@ -271,7 +265,6 @@ nav a::after {
   bottom: 0;
   -webkit-transform-origin: right;
           transform-origin: right;
-  z-index: -1;
 }
 
 nav a:hover::before {

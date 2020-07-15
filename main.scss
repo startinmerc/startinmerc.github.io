@@ -30,9 +30,7 @@ h1,h2,h3,h4,h4,.display {
 .bg-1 {background-color: var(--col-1); color: var(--col-5) !important;}
 .bg-2 {background-color: var(--col-2);}
 .bg-3 {background-color: var(--col-3);}
-.bg-4 {background-color: var(--col-5);}
 .bg-5 {background-color: var(--col-5);}
-
 
 $border: 8px solid var(--col-1);
 $half-border: 4px solid var(--col-1);
@@ -212,9 +210,7 @@ nav {
 		// Beefy font size
 		font-size: calc(var(--hero-height) * 0.5);
 		// Stagger slide-in of links
-		transition: transform 270ms ease-in,
-		 box-shadow 270ms ease-in;
-		transform: translateX(100vw);
+		transition: transform 270ms ease-in;
 
 		&::before, &::after {
 			@include pseudo();
@@ -225,6 +221,7 @@ nav {
 		}
 
 		&::before {
+			// Align with font
 			top: 0.1em;
 			transform-origin: left;
 		}
@@ -233,7 +230,6 @@ nav {
 			top: initial;
 			bottom: 0;
 			transform-origin: right;
-			z-index: -1;
 		}
 
 		&:hover {
@@ -350,12 +346,7 @@ nav {
 	transition: transform 380ms ease-in;
 	// Add drop shadow
 	text-shadow: 2px 2px 0px var(--col-1);
-	// Push right on mobile to avoid header conflict
-	// @media(max-width: $mobile){
-	// 	left: initial;
-	// 	right: 2%;
-	// 	z-index: calc(1001);
-	// }
+
 	h1 {
 		// Clear margin
 		margin: 0;
