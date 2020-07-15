@@ -108,10 +108,12 @@ a:visited {
           transform-origin: right;
   width: 200%;
   left: -25%;
-  -webkit-transition: -webkit-transform 320ms ease-in;
-  transition: -webkit-transform 320ms ease-in;
-  transition: transform 320ms ease-in;
-  transition: transform 320ms ease-in, -webkit-transform 320ms ease-in;
+  -webkit-transition: -webkit-transform ease-in;
+  transition: -webkit-transform ease-in;
+  transition: transform ease-in;
+  transition: transform ease-in, -webkit-transform ease-in;
+  -webkit-transition-duration: inherit;
+          transition-duration: inherit;
 }
 
 .custom-link--box:hover {

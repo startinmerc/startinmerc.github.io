@@ -101,11 +101,17 @@ a {
 		background-color: var(--col-4);
 		// Push to back
 		z-index: -1;
+		// Set shape & minimise
 		transform: skewX(-40deg) scaleX(0);
+		// Transform to right
 		transform-origin: right;
+		// Ensure full coverage
 		width: 200%;
 		left: -25%;
-		transition: transform 320ms ease-in;
+		// Set transition
+		transition: transform ease-in;
+		// Duration set in JS by element width
+		transition-duration: inherit;
 	}
 
 	&:hover {

@@ -78,10 +78,12 @@ function replaceBgColor(node,rColor = getRandomBgColor()) {
 
 // ==================LINKS==================
 
-// Grab all links
-const links = Array.from(document.querySelectorAll("a:not(.custom-link)"));
+
 // Adds link interaction styling
 function addLinkHovers() {
+	// Grab all links
+	const links = Array.from(document.querySelectorAll("a"));
+
 	links.forEach((a) => {
 		// Define transition duration dictated by element width
 		a.style.transitionDuration = `${Math.max(230, a.offsetWidth / 2)}ms `;
