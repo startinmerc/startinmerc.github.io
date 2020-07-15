@@ -23,8 +23,9 @@ function ready() {
 	colorFooterBlocks();
 }
 
-const isMobile = window.innerWidth < 500;
+function headerIntersect() {return (window.innerWidth <= 1200)};
 
+document.addEventListener("resize", headerIntersect)
 // ================COLOUR DEFS================
 
 // Array of color classes
@@ -512,25 +513,25 @@ function buildSectionScrolls(){
 		pinSpacing: false,
 		onLeaveBack: () => {
 			// Show header again
-			isMobile && head.classList.add("show");
+			headerIntersect() && head.classList.add("show");
 			// Hide header
 			portHeaderTween.reverse();
 		},
 		onEnterBack: () => {
 			// Move header out of the way
-			isMobile && head.classList.remove("show");
+			headerIntersect() && head.classList.remove("show");
 			// Play header
 			portHeaderTween.restart();
 		},
 		onEnter: ()=>{
 			// Move header out of the way
-			isMobile && head.classList.remove("show");
+			headerIntersect() && head.classList.remove("show");
 			// Play header
-			portHeaderTween.restart();
+			portHeaderTween.play();
 		},
 		onLeave: ()=>{
 			// Show header again
-			isMobile && head.classList.add("show");
+			headerIntersect() && head.classList.add("show");
 			// Hide header
 			portHeaderTween.reverse();
 		}
