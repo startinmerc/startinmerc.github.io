@@ -308,7 +308,7 @@ function buildScrollTimeline(chars) {
 	},2)
 }
 
-// Expects character node element, index of character in word, index of word in hero
+// Expects character node element, index of word in hero
 function buildCharacterScrollAnimation(char,charIndex){
 	// Return gsap animation...
 	return gsap.to(char, {
@@ -385,25 +385,6 @@ function eyeMove(e) {
 		ease: "linear",
 		duration: 0.2
 	});
-}
-
-// =================PORTFOLIO=================
-
-// Get all portfolio buttons
-const portfolioLinks = document.querySelectorAll(".button-grid a");
-// Get all portfolio entry titles
-const portfolioEntryHeaders = document.querySelectorAll(".portfolio-entry__title");
-
-// Add random colors to matching buttons & entry headers
-function addPortColors() {
-	portfolioLinks.forEach((btn, ind) => {
-		// Get random color
-		let rColor = getRandomBgColor();
-		// Add random color to button background
-		btn.classList.add(rColor);
-		// Add random color to corresponding entry header
-		portfolioEntryHeaders[ind].classList.add(rColor);
-	})
 }
 
 // ===================SECTION===================
@@ -525,10 +506,27 @@ function buildSectionScrolls(){
 			// Hide header
 			portHeaderTween.reverse();
 		}
-	});
+	})
 }
 
-// ======================FOOTER======================
+// =================PORTFOLIO=================
+
+// Add random colors to matching buttons & entry headers
+function addPortColors() {
+	// Get all portfolio buttons
+	let portfolioLinks = document.querySelectorAll(".button-grid a");
+	// Get all portfolio entry titles
+	let portfolioEntryHeaders = document.querySelectorAll(".portfolio-entry__title");
+
+	portfolioLinks.forEach((btn, ind) => {
+		// Get random color
+		let rColor = getRandomBgColor();
+		// Add random color to button background
+		btn.classList.add(rColor);
+		// Add random color to corresponding entry header
+		portfolioEntryHeaders[ind].classList.add(rColor);
+	});
+};
 
 // ======================FOOTER======================
 
