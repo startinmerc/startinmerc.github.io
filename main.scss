@@ -512,14 +512,35 @@ section {
 }
 
 .portfolio-entry {
-	padding: var(--section-padding);
-	// Positon & overflow for background image containment
-	position: relative;
-	overflow: hidden;
 	text-align: center;
 	// Border divider for entries
 	border-top: $border;
+	// Grid setup
+	display: grid;
+	// Gap to replicate $border
+	grid-gap: 8px;
+	background-color: var(--col-1);
+	// Column default layout
+	grid-template: "entry-section-one" auto "entry-section-two" auto / 1fr;
+
+	.entry-section-1, .entry-section-2 {
+		// Add background color & padding
+		background-color: var(--col-5);
+		padding: var(--section-padding);
+	}
+
+	.entry-section-1 {
+		// Assign grid area
+		grid-area: entry-section-one;
+	}
+
+	.entry-section-2 {
+		// Assign grid area
+		grid-area: entry-section-two;
+	}
+
 	&:first-of-type {
+		// Remove top border from first entry
 		border-top: none;
 	}
 
@@ -529,7 +550,7 @@ section {
 		// Add padding & reposition using margins
 		margin: calc(var(--section-padding) * -1);
 		margin-bottom: var(--section-padding);
-		padding: var(--section-padding);
+		padding: var(--section-padding) 0;
 		border-bottom: $border;
 		// Clear margin from header
 		h3 {
@@ -547,6 +568,7 @@ section {
 		// Flex links list
 		display: flex;
 		justify-content: space-around;
+
 		// Change to column on mobile
 		@media(max-width: $mobile) {
 			flex-direction: column;
@@ -556,69 +578,24 @@ section {
 		}
 	}
 
-	.col-l p:last-of-type {
-		margin-bottom: 0.5em !important;
-	}
-
 	// Elements 1,5,9...
 	&:nth-of-type(4n+1) {
-		// Clear container padding
-		padding: 0;
-		// Add flex
-		display: flex;
-		.col-l {
-			// Re-add padding
-			padding: var(--section-padding);
-			// Dividing border
-			border-right: $border;
-			@media(max-width: $mobile) {
-				// Hide border & padding on mobile
-				border-right: none;
-				padding-bottom: 0;
-			}
-		}
-		.col-r {
-			// Re-add padding
-			padding: var(--section-padding);
-			@media(max-width: $mobile) {
-				// Hide border & padding on mobile
-				border-right: none;
-				padding-top: 0;
-			}
+		// Left large column, right small column
+		grid-template: "entry-section-one entry-section-two" 1fr / calc(33% - 3px) auto;
+		@media(max-width: $mobile){
+			// Reset to single column on mobile
+			grid-template: "entry-section-one" auto "entry-section-two" auto / 1fr;
 		}
 	}
 	
 	// Elements 3,7,11...
 	&:nth-of-type(4n+3) {
-		// Clear container padding
-		padding: 0;
-		// Add flex
-		display: flex;
-		flex-direction: row-reverse;
-		.col-l {
-			// Re-add padding
-			padding: var(--section-padding);
-			@media(max-width: $mobile) {
-				// Hide padding on mobile
-				padding-bottom: 0;
-			}
+		// Right large column, left small column
+		grid-template: "entry-section-two entry-section-one" 1fr / auto calc(33% - 3px);
+		@media(max-width: $mobile){
+			// Reset to single column on mobile
+			grid-template: "entry-section-one" auto "entry-section-two" auto / 1fr;
 		}
-		.col-r {
-			// Re-add padding
-			padding: var(--section-padding);
-			// Dividing border
-			border-right: $border;
-			@media(max-width: $mobile) {
-				// Hide border & padding on mobile
-				border-right: none;
-				padding-top: 0;
-			}
-		}
-	}
-
-	@media(max-width: $mobile) {
-		// Realign as columns on mobile
-		flex-direction: column !important;
 	}
 }
 
