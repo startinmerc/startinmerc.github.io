@@ -537,7 +537,8 @@ function colorFooterBlocks() {
 	// Get all blocks and header elements from footer
 	let footerBlocks = [
 		...document.querySelectorAll(".block"),
-		...document.querySelectorAll("footer h3")
+		...document.querySelectorAll("footer h3"),
+		document.querySelector(".sub-link-container li")
 	];
 
 	// Iterate over all footer blocks
