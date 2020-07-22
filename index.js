@@ -378,10 +378,12 @@ function getFloatTween() {
 }
 
 function eyeMove(e) {
+	let x = Math.floor(gsap.utils.mapRange(0, window.innerWidth, -8, 15, e.clientX));
+	let y = Math.floor(gsap.utils.mapRange(0, window.innerHeight, -10, 8, e.clientY));
 	gsap.to(".ghost__eye", {
 		// Coordinates within element
-		x: e.clientX / 70,
-		y: e.clientY / 70,
+		x: x,
+		y: y,
 		ease: "linear",
 		duration: 0.2
 	});
