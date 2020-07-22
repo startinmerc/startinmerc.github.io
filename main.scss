@@ -648,14 +648,33 @@ footer {
 	.sub-link-container {
 		// Half border to combine with cell/outer border
 		border: $half-border;
-		padding: 0.5rem 0;
 		grid-area: f7;
 		// Clear list styling
 		list-style: none;
 		margin: 0;
-		// Space out links
+		padding: 0;
+		// Grid setup
+		display: grid;
+		grid-template-rows: repeat(3, auto);
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-areas: "header header";
+		grid-gap: 8px;
+		background-color: var(--col-1);
+
 		li {
-			margin-bottom: 0.5rem;
+			a {
+				// Make sure link takes up full grid cell
+				display: inline-block;
+				width: 100%;
+				padding: 5px 0;
+				// Add white background
+				background-color: var(--col-5);
+			}
+			&:first-of-type {
+				padding: 5px 0;
+				// Put in first 2 cells
+				grid-area: header;
+			}
 		}
 	}
 
