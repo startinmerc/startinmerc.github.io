@@ -78,8 +78,6 @@ a {
 	}
 }
 
-
-
 .custom-link--box {
 	@include grid-center();
 	// Style resets
@@ -660,6 +658,11 @@ footer {
 		grid-template-areas: "header header";
 		grid-gap: 8px;
 		background-color: var(--col-1);
+
+		@media(max-width: $mobile){
+			display: block;
+			width: 100%;
+		}
 
 		li {
 			a {
