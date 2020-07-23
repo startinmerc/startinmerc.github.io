@@ -724,6 +724,13 @@ footer .sub-link-container {
   background-color: var(--col-1);
 }
 
+@media (max-width: 576px) {
+  footer .sub-link-container {
+    display: block;
+    width: 100%;
+  }
+}
+
 footer .sub-link-container li a {
   display: inline-block;
   width: 100%;
