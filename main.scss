@@ -570,6 +570,12 @@ section {
 		// Flex links list
 		display: flex;
 		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+
+		a {
+			margin: 5px;
+		}
 
 		// Change to column on mobile
 		@media(max-width: $mobile) {

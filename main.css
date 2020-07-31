@@ -603,6 +603,15 @@ section .section-container p:last-of-type {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.portfolio-entry .portfolio-entry__links a {
+  margin: 5px;
 }
 
 @media (max-width: 576px) {
