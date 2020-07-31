@@ -1,6 +1,8 @@
 body {
   font-family: 'PT Mono', monospace;
   background: #e4c1f9;
+  background: -webkit-gradient(linear, left top, right top, color-stop(70%, #e4c1f9), to(#D7A2F6));
+  background: linear-gradient(90deg, #e4c1f9 70%, #D7A2F6 100%);
   min-height: 100vh;
   min-height: -webkit-fill-available;
   overflow-x: hidden;
