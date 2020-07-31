@@ -647,15 +647,15 @@ footer {
       grid-template-rows: repeat(5, minmax(1rem, auto));
       grid-template-areas: "f1 f1 f2" "f3 f4 f2" "f3 f5 f6" "f7 f8 f8" "f7 f9 f10";
   text-align: center;
-  border: 4px solid var(--col-1);
-  background-color: var(--col-5);
+  background-color: var(--col-1);
+  grid-gap: 8px;
+  border: 8px solid var(--col-1);
 }
 
 footer h3 {
   display: -ms-grid;
   display: grid;
   place-items: center;
-  border: 4px solid var(--col-1);
   padding: 0.5rem 0;
   font-size: 1.5rem;
   margin: 0;
@@ -685,9 +685,9 @@ footer .main-link {
   display: -ms-grid;
   display: grid;
   place-items: center;
-  border: 4px solid var(--col-1);
   padding: 0.5rem 0;
   font-size: 1.2rem;
+  background-color: var(--col-5);
 }
 
 footer .main-link:nth-of-type(1) {
@@ -710,7 +710,6 @@ footer .main-link:nth-of-type(3) {
 }
 
 footer .sub-link-container {
-  border: 4px solid var(--col-1);
   -ms-grid-row: 4;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
@@ -752,7 +751,6 @@ footer .sub-link-container li:first-of-type {
 }
 
 footer .block {
-  border: 4px solid var(--col-1);
   padding: 0.5rem 0;
 }
 
