@@ -741,8 +741,11 @@ footer .sub-link-container {
 
 @media (max-width: 576px) {
   footer .sub-link-container {
-    display: block;
-    width: 100%;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (auto)[5];
+        grid-template-rows: repeat(5, auto);
+        grid-template-areas: "header";
   }
 }
 

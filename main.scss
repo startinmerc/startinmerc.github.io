@@ -666,8 +666,9 @@ footer {
 		background-color: var(--col-1);
 
 		@media(max-width: $mobile){
-			display: block;
-			width: 100%;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(5,auto);
+			grid-template-areas: "header";
 		}
 
 		li {
