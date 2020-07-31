@@ -326,7 +326,6 @@ nav.max button::before {
   display: grid;
   place-items: center;
   margin: 0 auto;
-  width: 100%;
   min-height: 100vh;
   padding: 1%;
 }
