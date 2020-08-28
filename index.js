@@ -13,6 +13,8 @@ function ready() {
 	buildNav();
 	// Add colors to buttons & headers in portfolio
 	addPortColors();
+	// Add portfolio entry scroll-margin-top
+	addScrollMarginTop();
 	// Add link styling
 	addLinkHovers();
 	// Build <section> ScrollTrigger animations
@@ -530,6 +532,18 @@ function addPortColors() {
 		portfolioEntryHeaders[ind].classList.add(rColor);
 	});
 };
+
+function addScrollMarginTop() {
+	// Get offsetHeight of header element
+	let height = `${document.querySelector(".portfolio-header").offsetHeight - 8}px`;
+	// Get list of portfolio entries
+	let entries = [...document.querySelectorAll(".portfolio-entry")];
+	// For each entry...
+	entries.forEach(v => {
+		// Add scroll-margin-top to account for pinned header
+		v.style.scrollMarginTop = height;
+	});
+}
 
 // ======================FOOTER======================
 
