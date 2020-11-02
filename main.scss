@@ -1,7 +1,7 @@
 body {
-	font-family: 'PT Mono', monospace;
+	font-family: "PT Mono", monospace;
 	background: #e4c1f9;
-	background: linear-gradient(90deg, rgba(228,193,249,1) 70%, #D7A2F6 100%);
+	background: linear-gradient(90deg, rgba(228, 193, 249, 1) 70%, #d7a2f6 100%);
 	min-height: 100vh;
 	min-height: -webkit-fill-available;
 	overflow-x: hidden;
@@ -12,9 +12,14 @@ html {
 	height: -webkit-fill-available;
 }
 
-h1,h2,h3,h4,h4,.display {
+h1,
+h2,
+h3,
+h4,
+h4,
+.display {
 	text-transform: uppercase;
-	font-family: 'Major Mono Display', monospace;
+	font-family: "Major Mono Display", monospace;
 }
 
 :root {
@@ -26,17 +31,36 @@ h1,h2,h3,h4,h4,.display {
 }
 
 // Font color classes
-.ft-1 {color: var(--col-1);}
-.ft-2 {color: var(--col-2);}
-.ft-3 {color: var(--col-3);}
-.ft-4 {color: var(--col-4);}
-.ft-5 {color: var(--col-5);}
+.ft-1 {
+	color: var(--col-1);
+}
+.ft-2 {
+	color: var(--col-2);
+}
+.ft-3 {
+	color: var(--col-3);
+}
+.ft-4 {
+	color: var(--col-4);
+}
+.ft-5 {
+	color: var(--col-5);
+}
 
 // Background color classes
-.bg-1 {background-color: var(--col-1); color: var(--col-5) !important;}
-.bg-2 {background-color: var(--col-2);}
-.bg-3 {background-color: var(--col-3);}
-.bg-5 {background-color: var(--col-5);}
+.bg-1 {
+	background-color: var(--col-1);
+	color: var(--col-5) !important;
+}
+.bg-2 {
+	background-color: var(--col-2);
+}
+.bg-3 {
+	background-color: var(--col-3);
+}
+.bg-5 {
+	background-color: var(--col-5);
+}
 
 $border: 8px solid var(--col-1);
 $mobile: 576px;
@@ -147,7 +171,6 @@ a {
 	}
 }
 
-
 /*=====================NAV=====================*/
 
 :root {
@@ -180,7 +203,7 @@ nav {
 		transform: scale(0);
 		transition: opacity var(--nav-transition-time) ease-out;
 	}
-	
+
 	button {
 		// Style resets
 		padding: 0;
@@ -197,10 +220,10 @@ nav {
 		top: 12.5vh;
 		left: 0;
 		transition: transform var(--nav-transition-time) ease-in;
-		transform: translate(-75%,0vh) rotate(-90deg);
+		transform: translate(-75%, 0vh) rotate(-90deg);
 		font-size: 2rem;
 		cursor: pointer;
-		@media(max-width: $mobile){
+		@media (max-width: $mobile) {
 			top: 2vh;
 		}
 
@@ -209,7 +232,11 @@ nav {
 			// Double height to make equal width & height
 			height: 200%;
 			background-color: var(--col-3);
-			background-image: linear-gradient(45deg, var(--col-4) 50%, var(--col-3) 50%);
+			background-image: linear-gradient(
+				45deg,
+				var(--col-4) 50%,
+				var(--col-3) 50%
+			);
 			// Pull behind button
 			z-index: -1;
 			// Make circle
@@ -237,7 +264,8 @@ nav {
 		// Stagger slide-in of links
 		transition: transform 270ms ease-in;
 
-		&::before, &::after {
+		&::before,
+		&::after {
 			@include pseudo();
 			height: 8px;
 			background-color: var(--col-4);
@@ -262,7 +290,7 @@ nav {
 				transform: scaleX(1);
 				transform-origin: right;
 			}
-			
+
 			&::after {
 				transform: scaleX(1);
 				transform-origin: left;
@@ -270,7 +298,8 @@ nav {
 		}
 	}
 
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		button::before {
 			transform: rotate(-45deg);
 		}
@@ -296,7 +325,7 @@ nav {
 :root {
 	// Magic number - longest word fits on screen
 	--hero-height: 10vw;
-	@media(max-width: $mobile){
+	@media (max-width: $mobile) {
 		--hero-height: 21vw;
 	}
 }
@@ -321,7 +350,7 @@ nav {
 		// Set display for transformations on spans
 		display: inline-block;
 		text-shadow: 5px 5px 0px var(--col-1);
-		@media(max-width: $mobile){
+		@media (max-width: $mobile) {
 			text-shadow: 4px 2px 0px var(--col-1);
 		}
 	}
@@ -339,7 +368,10 @@ nav {
 
 // ===================SVG GHOST===================
 
-.ghost__body-top, .ghost__body-low, .ghost__tail, .ghost__eye {
+.ghost__body-top,
+.ghost__body-low,
+.ghost__tail,
+.ghost__eye {
 	fill: var(--col-5);
 }
 
@@ -385,10 +417,10 @@ nav {
 /*==================SECTION==================*/
 
 :root {
- --section-padding: 2rem;
- @media(max-width: $mobile){
-	 --section-padding: 1rem;
- }
+	--section-padding: 2rem;
+	@media (max-width: $mobile) {
+		--section-padding: 1rem;
+	}
 }
 
 section {
@@ -424,7 +456,8 @@ section {
 		&.aside--left {
 			// Push aside into top left corner
 			float: left;
-			margin: calc(0px - var(--section-padding) - 8px) 5px 5px calc(0px - var(--section-padding) - 8px);
+			margin: calc(0px - var(--section-padding) - 8px) 5px 5px
+				calc(0px - var(--section-padding) - 8px);
 			// Polygon to dictate text wrapping
 			shape-outside: polygon(100% 0%, 0% 100%, 50% 100%, 83% 82%, 100% 50%);
 			border-radius: 0 0 50% 0;
@@ -432,13 +465,14 @@ section {
 		&.aside--right {
 			// Push aside into top right corner
 			float: right;
-			margin: calc(0px - var(--section-padding) - 8px) calc(0px - var(--section-padding) - 8px) 5px 5px;
+			margin: calc(0px - var(--section-padding) - 8px)
+				calc(0px - var(--section-padding) - 8px) 5px 5px;
 			// Polygon to dictate text wrapping
 			shape-outside: polygon(0% 0%, 100% 100%, 50% 100%, 15% 81%, 0% 50%);
 			border-radius: 0 0 0 50%;
 		}
 		// Smaller at mobile size
-		@media(max-width: $mobile){
+		@media (max-width: $mobile) {
 			height: 150px;
 			width: 150px;
 		}
@@ -456,12 +490,16 @@ section {
 		margin: 0 auto;
 		// Padding on div means margins on first & last <p>s need clearing
 		padding: var(--section-padding);
-		p:first-of-type {margin-top: 0;}
-		p:last-of-type {margin-bottom: 0;}
+		p:first-of-type {
+			margin-top: 0;
+		}
+		p:last-of-type {
+			margin-bottom: 0;
+		}
 	}
 }
 
-@media(max-width: $mobile){
+@media (max-width: $mobile) {
 	section {
 		// Resize section width on mobile
 		max-width: 90%;
@@ -487,12 +525,12 @@ section {
 	.section-container {
 		padding-bottom: 15vh;
 		p:first-of-type {
-			@media(max-width: $mobile){
+			@media (max-width: $mobile) {
 				// Push para down a bit on small screens
 				margin-top: 7rem;
 			}
 		}
-		@media(max-width: $mobile) {
+		@media (max-width: $mobile) {
 			padding-bottom: var(--section-padding);
 		}
 	}
@@ -501,14 +539,13 @@ section {
 // ==================PORTFOLIO==================
 
 #portfolio {
-
 	// Container for header & button grid
 	.portfolio-header {
 		// Above entries
 		z-index: 2;
 		border-bottom: $border;
 		h2 {
-			@media(max-width: $mobile){
+			@media (max-width: $mobile) {
 				font-size: 2rem;
 			}
 		}
@@ -547,7 +584,8 @@ section {
 	// Column default layout
 	grid-template: "entry-section-one" auto "entry-section-two" auto / 1fr;
 
-	.entry-section-1, .entry-section-2 {
+	.entry-section-1,
+	.entry-section-2 {
 		// Add background color & padding
 		background-color: var(--col-5);
 		padding: var(--section-padding);
@@ -600,7 +638,7 @@ section {
 		}
 
 		// Change to column on mobile
-		@media(max-width: $mobile) {
+		@media (max-width: $mobile) {
 			flex-direction: column;
 			a:not(:last-of-type) {
 				margin-bottom: 1em;
@@ -609,20 +647,22 @@ section {
 	}
 
 	// Elements 1,5,9...
-	&:nth-of-type(4n+1) {
+	&:nth-of-type(4n + 1) {
 		// Left large column, right small column
 		grid-template: "entry-section-one entry-section-two" 1fr / calc(33% - 3px) auto;
-		@media(max-width: $mobile){
+		@media (max-width: $mobile) {
 			// Reset to single column on mobile
 			grid-template: "entry-section-one" auto "entry-section-two" auto / 1fr;
 		}
 	}
-	
+
 	// Elements 3,7,11...
-	&:nth-of-type(4n+3) {
+	&:nth-of-type(4n + 3) {
 		// Right large column, left small column
-		grid-template: "entry-section-two entry-section-one" 1fr / auto calc(33% - 3px);
-		@media(max-width: $mobile){
+		grid-template: "entry-section-two entry-section-one" 1fr / auto calc(
+				33% - 3px
+			);
+		@media (max-width: $mobile) {
 			// Reset to single column on mobile
 			grid-template: "entry-section-one" auto "entry-section-two" auto / 1fr;
 		}
@@ -637,7 +677,7 @@ footer {
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(5, minmax(1rem, auto));
 	// Name grid areas (took a while!)
-	grid-template-areas: 
+	grid-template-areas:
 		"f1 f1 f2"
 		"f3 f4 f2"
 		"f3 f5 f6"
@@ -655,9 +695,15 @@ footer {
 		font-size: 1.5rem;
 		margin: 0;
 		// Assign grid areas
-		&:nth-of-type(1) {grid-area: f1;}
-		&:nth-of-type(2) {grid-area: f2;}
-		&:nth-of-type(3) {grid-area: f6;}
+		&:nth-of-type(1) {
+			grid-area: f1;
+		}
+		&:nth-of-type(2) {
+			grid-area: f2;
+		}
+		&:nth-of-type(3) {
+			grid-area: f6;
+		}
 	}
 
 	.main-link {
@@ -667,9 +713,15 @@ footer {
 		font-size: 1.2rem;
 		background-color: var(--col-5);
 		// Assign grid areas
-		&:nth-of-type(1) {grid-area: f4;}
-		&:nth-of-type(2) {grid-area: f8;}
-		&:nth-of-type(3) {grid-area: f10;}
+		&:nth-of-type(1) {
+			grid-area: f4;
+		}
+		&:nth-of-type(2) {
+			grid-area: f8;
+		}
+		&:nth-of-type(3) {
+			grid-area: f10;
+		}
 	}
 
 	.sub-link-container {
@@ -686,9 +738,9 @@ footer {
 		grid-gap: 8px;
 		background-color: var(--col-1);
 
-		@media(max-width: $mobile){
+		@media (max-width: $mobile) {
 			grid-template-columns: 1fr;
-			grid-template-rows: repeat(5,auto);
+			grid-template-rows: repeat(5, auto);
 			grid-template-areas: "header";
 		}
 
@@ -712,8 +764,14 @@ footer {
 	.block {
 		padding: 0.5rem 0;
 		// Assign grid areas
-		&:nth-of-type(1){grid-area: f3};
-		&:nth-of-type(2){grid-area: f5};
-		&:nth-of-type(3){grid-area: f9};
+		&:nth-of-type(1) {
+			grid-area: f3;
+		}
+		&:nth-of-type(2) {
+			grid-area: f5;
+		}
+		&:nth-of-type(3) {
+			grid-area: f9;
+		}
 	}
 }

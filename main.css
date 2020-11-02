@@ -1,8 +1,8 @@
 body {
-  font-family: 'PT Mono', monospace;
+  font-family: "PT Mono", monospace;
   background: #e4c1f9;
-  background: -webkit-gradient(linear, left top, right top, color-stop(70%, #e4c1f9), to(#D7A2F6));
-  background: linear-gradient(90deg, #e4c1f9 70%, #D7A2F6 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(70%, #e4c1f9), to(#d7a2f6));
+  background: linear-gradient(90deg, #e4c1f9 70%, #d7a2f6 100%);
   min-height: 100vh;
   min-height: -webkit-fill-available;
   overflow-x: hidden;
@@ -13,9 +13,14 @@ html {
   height: -webkit-fill-available;
 }
 
-h1, h2, h3, h4, h4, .display {
+h1,
+h2,
+h3,
+h4,
+h4,
+.display {
   text-transform: uppercase;
-  font-family: 'Major Mono Display', monospace;
+  font-family: "Major Mono Display", monospace;
 }
 
 :root {
@@ -379,7 +384,10 @@ nav.max button::before {
   z-index: -1;
 }
 
-.ghost__body-top, .ghost__body-low, .ghost__tail, .ghost__eye {
+.ghost__body-top,
+.ghost__body-low,
+.ghost__tail,
+.ghost__eye {
   fill: var(--col-5);
 }
 
@@ -583,7 +591,8 @@ section .section-container p:last-of-type {
   grid-template: "entry-section-one" auto "entry-section-two" auto / 1fr;
 }
 
-.portfolio-entry .entry-section-1, .portfolio-entry .entry-section-2 {
+.portfolio-entry .entry-section-1,
+.portfolio-entry .entry-section-2 {
   background-color: var(--col-5);
   padding: var(--section-padding);
 }
@@ -646,22 +655,22 @@ section .section-container p:last-of-type {
   }
 }
 
-.portfolio-entry:nth-of-type(4n+1) {
+.portfolio-entry:nth-of-type(4n + 1) {
   grid-template: "entry-section-one entry-section-two" 1fr/calc(33% - 3px) auto;
 }
 
 @media (max-width: 576px) {
-  .portfolio-entry:nth-of-type(4n+1) {
+  .portfolio-entry:nth-of-type(4n + 1) {
     grid-template: "entry-section-one" auto "entry-section-two" auto / 1fr;
   }
 }
 
-.portfolio-entry:nth-of-type(4n+3) {
-  grid-template: "entry-section-two entry-section-one" 1fr/auto calc(33% - 3px);
+.portfolio-entry:nth-of-type(4n + 3) {
+  grid-template: "entry-section-two entry-section-one" 1fr/auto calc( 33% - 3px);
 }
 
 @media (max-width: 576px) {
-  .portfolio-entry:nth-of-type(4n+3) {
+  .portfolio-entry:nth-of-type(4n + 3) {
     grid-template: "entry-section-one" auto "entry-section-two" auto / 1fr;
   }
 }
