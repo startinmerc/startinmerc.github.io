@@ -2,7 +2,8 @@
 
 ## [Live Site](https://www.strangeindustries.co.uk/)
 
-#### A portfolio site built on:
+### A portfolio site built on
+
 `GSAP / SASS / JavaScript / HTML / Git / Netlify / Codepen`
 
 #### [Development Blog Here](https://startinmerchome.wordpress.com/category/portfolio-redesign-2020/)
@@ -25,6 +26,6 @@ This is my first project developed entirely with SASS, using VSCode and a live c
 
 TO DO:
 
-* Implement master ScrollTrigger timeline for all scrollers
-* Refresh pins etc. on resize
-* Master timeline should fix page loads at non-top
+- Implement master ScrollTrigger timeline for all scrollers
+- Refresh pins etc. on resize
+- Master timeline should fix page loads at non-top
