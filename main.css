@@ -129,12 +129,11 @@ a:visited {
   width: 100%;
   background-color: var(--col-4);
   z-index: -1;
-  -webkit-transform: skewX(-40deg) scaleX(0);
-          transform: skewX(-40deg) scaleX(0);
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
   -webkit-transform-origin: right;
           transform-origin: right;
-  width: 200%;
-  left: -25%;
+  width: 100%;
   -webkit-transition: -webkit-transform ease-in;
   transition: -webkit-transform ease-in;
   transition: transform ease-in;
@@ -148,8 +147,8 @@ a:visited {
 }
 
 .custom-link--box:hover::before {
-  -webkit-transform: skewX(-40deg) scaleX(1);
-          transform: skewX(-40deg) scaleX(1);
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
   -webkit-transform-origin: left;
           transform-origin: left;
 }
@@ -666,7 +665,7 @@ section .section-container p:last-of-type {
 }
 
 .portfolio-entry:nth-of-type(4n + 3) {
-  grid-template: "entry-section-two entry-section-one" 1fr/auto calc( 33% - 3px);
+  grid-template: "entry-section-two entry-section-one" 1fr/auto calc( 33% - 3px);
 }
 
 @media (max-width: 576px) {
@@ -683,7 +682,7 @@ footer {
       grid-template-columns: repeat(3, 1fr);
   -ms-grid-rows: (minmax(1rem, auto))[5];
       grid-template-rows: repeat(5, minmax(1rem, auto));
-      grid-template-areas: "f1 f1 f2" "f3 f4 f2" "f3 f5 f6" "f7 f8 f8" "f7 f9 f10";
+      grid-template-areas: "f1 f1 f2" "f3 f4 f2" "f3 f5 f6" "f7 f8 f8" "f7 f9 f10";
   text-align: center;
   background-color: var(--col-1);
   grid-gap: 8px;

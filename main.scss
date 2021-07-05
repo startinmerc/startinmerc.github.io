@@ -149,12 +149,11 @@ a {
 		// Push to back
 		z-index: -1;
 		// Set shape & minimise
-		transform: skewX(-40deg) scaleX(0);
+		transform: scaleX(0);
 		// Transform to right
 		transform-origin: right;
 		// Ensure full coverage
-		width: 200%;
-		left: -25%;
+		width: 100%;
 		// Set transition
 		transition: transform ease-in;
 		// Duration set in JS by element width
@@ -164,7 +163,7 @@ a {
 	&:hover {
 		color: blue;
 		&::before {
-			transform: skewX(-40deg) scaleX(1);
+			transform: scaleX(1);
 			// Swap transform-origin on mouse leave with pure CSS!
 			transform-origin: left;
 		}
